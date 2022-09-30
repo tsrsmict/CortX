@@ -1,7 +1,8 @@
 import express from "express"
 import * as http from "http"
 import dotenv from "dotenv"
-
+import bodyParser from "body-parser"
+import cors from "cors"
 import mongoose from "mongoose"
 
 const app = express()
@@ -15,7 +16,7 @@ mongoose.connect(process.env.HEALTHCARE_DB_URI, {
 */
 
 app.use(express.json())
-
+app.use(bodyParser.json())
 const server = http.Server(app)
 
 app.use(express.static("public"))
