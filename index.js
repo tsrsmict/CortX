@@ -18,7 +18,6 @@ app.use(express.json())
 
 const server = http.Server(app)
 
-app.set('view engine', 'ejs')
 app.use(express.static("public"))
 app.use('/sounds', express.static("sounds"))
 
