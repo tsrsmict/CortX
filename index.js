@@ -22,7 +22,9 @@ app.set('view engine', 'ejs')
 app.use(express.static("public"))
 app.use('/sounds', express.static("sounds"))
 
-
+app.get("/", (req, res) => {
+    res.json("yo")
+})
 
 const listener = server.listen(process.env.PORT || 3000, () => {
 	console.log(`Listening on ${listener.address().port}`)
