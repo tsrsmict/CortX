@@ -15,6 +15,8 @@ mongoose.connect(process.env.HEALTHCARE_DB_URI, {
 })
 */
 
+app.set('view engine', 'ejs')
+
 app.use(express.json())
 app.use(bodyParser.json())
 const server = http.Server(app)
