@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from "react";
 import { FaHouseDamage, FaTablets, FaPowerOff } from "react-icons/fa";
-import { BsArrowLeftShort, BsSearch } from "react-icons/bs";
+import { BsArrowLeftShort} from "react-icons/bs";
 import { RiDashboardFill } from "react-icons/ri";
 import { CgProfile } from "react-icons/cg";
 import { FcAddressBook, FcSettings, FcBearish, FcCalendar, FcFolder } from "react-icons/fc";
@@ -57,7 +57,7 @@ export default function Navbar() {
 
   ];
   return (
-    <div className="flex font-mono">
+    <div className="flex font-mono shadow-10xl">
       <div
         className={`h-screen p-5 pt-8 ${open ? "w-72" : "w-20"} duration-300 relative bg-gray-200 dark:bg-gray-800 dark:hover:bg-gradient-to-r from-black to-gray-800 shadow-lg `}
       >
@@ -66,20 +66,16 @@ export default function Navbar() {
           onClick={() => setOpen(!open)}
         />
         <div class="inline-flex">
-          <FaHouseDamage className="bg-orange-red text-4xl rounded  block float-left cursor-pointer mr-5" />
-          <h1 className={`dark:text-white origin-left font-medium text-3xl ${!open && "scale-0"} duration-300`}>HealthCare</h1>
+          <FaHouseDamage className="bg-orange-red md:text-xl text-4xl rounded  block float-left cursor-pointer mr-5" />
+          <h1 className={`dark:text-white origin-left font-medium md:text-xl text-3xl ${!open && "scale-0"} duration-300`}>HealthCare</h1>
         </div>
-        <div className={`flex item-center rounded-md bg-gray-300 dark:bg-light-white mt-6 py-2 ${!open ? "px-4" : "pl-2"}`}>
-          <BsSearch className="dark:text-white text-2xl block cursor-pointer" />
-          <br></br>
-          <input type="search" placeholder="search" className={`text-base ml-2 bg-transparent dark:text-white focus:outline-none w-50px ${!open && "hidden"}`}></input>
-        </div>
+        
         <ul className="pt-2">
           {Menus.map((menu, index) => (
             <>
-              <li key={index} className={`dark:text-gray-300 text-sm flex item-center gap-x-4 cursor-pointer p-2 hover:bg-light-white rounded-md ${menu.spacing ? "mt-36" : "mt-9"}`}>
+              <li key={index} className={` dark:text-gray-300 text-sm flex item-center gap-x-4 cursor-pointer p-2 hover:bg-light-white rounded-md ${menu.spacing ? "mt-24" : "mt-9"} md:mt-6`}>
                 <span className="text-2xl block float-left">{menu.icon}</span>
-                <span className={`text-base font-medium flex-1 ${!open && "hidden"} duration-200`}>{menu.title}</span>
+                <span className={` hover:text-black text-base font-medium flex-1 ${!open && "hidden"} duration-200`}>{menu.title}</span>
                 
               </li>
             </>
@@ -87,7 +83,7 @@ export default function Navbar() {
         </ul>
 
     </div>
-
+            <modeToggle/>
     </div>
   )
 }

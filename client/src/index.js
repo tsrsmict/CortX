@@ -3,16 +3,15 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 // import Dashboard from './apps/Dashboard'
-import SignUp from './apps/signin';
+// import SignUp from './apps/signin';
 // import Navbar from './components/navbar';
-
-
+import Files from './apps/Files'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   
   <React.StrictMode>
-    <SignUp/>
+    <Files/>
   </React.StrictMode>
 );
 
