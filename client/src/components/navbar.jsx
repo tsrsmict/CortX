@@ -59,7 +59,7 @@ export default function Navbar() {
   return (
     <div className="flex font-mono shadow-10xl">
       <div
-        className={`h-screen p-5 pt-8 ${open ? "w-72" : "w-20"} duration-300 relative bg-gray-200 dark:bg-gray-800 dark:hover:bg-gradient-to-r from-black to-gray-800 shadow-lg `}
+        className={`h-full p-5 pt-8 ${open ? "w-72" : "w-20"} duration-300 relative bg-gray-200 dark:bg-gray-800 dark:hover:bg-gradient-to-r from-black to-gray-800 shadow-lg `}
       >
         <BsArrowLeftShort
           className={`ml-60 bg-dark-purple text-white dark:bg-white dark:text-dark-purple text-3xl rounded-full absolute -right-3 top-9 cursor-pointer border ${!open && "rotate-180"} duration-500`}
