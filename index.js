@@ -16,14 +16,14 @@ mongoose.connect(process.env.HEALTHCARE_DB_URI, {
     useUnifiedTopology: true
 })
 
-app.set('view engine', 'ejs')
+// app.set('view engine', 'ejs')
 
 app.use(express.json())
 app.use(bodyParser.json())
 const server = http.Server(app)
 
 app.use(express.static("public"))
-app.use('/sounds', express.static("sounds"))
+app.use('/assets', express.static("assets"))
 
 app.get("/", (req, res) => {
     res.json("yo")
