@@ -6,7 +6,7 @@ import { RiDashboardFill} from "react-icons/ri";
 import { CgProfile } from "react-icons/cg";
 import { FcAddressBook, FcSettings, FcBearish, FcCalendar, FcFolder} from "react-icons/fc";
 
-export default function Navbar(){
+export default function Navbar() {
   const [open, setOpen] = useState(true);
   const Menus = [
     {title: "Dashboard",
