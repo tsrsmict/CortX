@@ -5,8 +5,9 @@ import reportWebVitals from './reportWebVitals';
 // import Dashboard from './apps/Dashboard'
 // import SignUp from './apps/signin';
 // import Navbar from './components/navbar';
-import Files from './apps/Files'
-
+import Files from './apps/File_M/Files'
+// import Navbar from './components/navbar';
+// 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   
