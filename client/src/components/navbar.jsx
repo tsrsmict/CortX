@@ -7,73 +7,78 @@ import { CgProfile } from "react-icons/cg";
 import { FcAddressBook, FcSettings, FcBearish, FcCalendar, FcFolder } from "react-icons/fc";
 
 export default function Navbar() {
-  const [open, setOpen] = useState(true)
+  const [navbar, setNavbar] = useState(true)
   const Menus = [
     {
       title: "Dashboard",
-      icon: <RiDashboardFill className={`text-sky-800 dark:text-sky-300 ${!open && "rotate"}`} />
+      icon: <RiDashboardFill className={`text-sky-800 dark:text-sky-300 ${!navbar && "rotate"}`} />,
+      link: "../../apps/Dashboard.jsx"
     },
 
     {
       title: "Files",
-      icon: <FcFolder />
+      icon: <FcFolder />,
+      link: "../../apps/Dashboard.jsx"
 
     },
     {
       title: "Calendar",
-      icon: <FcCalendar />
+      icon: <FcCalendar />,
+      link: "../../apps/Dashboard.jsx"
     },
 
     {
       title: "Recordings",
-      icon: <FcBearish />
+      icon: <FcBearish />,
+      link: "../../apps/Dashboard.jsx"
     },
 
     {
       title: "Medicines",
-      icon: <FaTablets />
+      icon: <FaTablets />,
+      link: "../../apps/Dashboard.jsx"
     },
     {
       title: "Contacts",
-      icon: <FcAddressBook />
+      icon: <FcAddressBook />,
+      link: "../../apps/Dashboard.jsx"
     },
 
 
     {
       title: "Profile",
-      icon: <CgProfile className="text-green-800 dark:text-green-300" />
+      icon: <CgProfile className="text-green-800 dark:text-green-300" />,
+      link: "../../apps/Dashboard.jsx"
     },
 
     {
       title: "Settings",
-      icon: <FcSettings />
+      icon: <FcSettings />,
+      link: "../../apps/Dashboard.jsx"
     },
 
     {
       title: "Logout",
-      icon: <FaPowerOff className="text-orange-600" />
+      icon: <FaPowerOff className="text-orange-600" />,
+      link: "../../apps/Dashboard.jsx"
     },
 
   ];
   return (
     <div className="flex font-mono">
       <div
-        className={`h-screen p-5 pt-8 ${open ? "w-72" : "w-20"} duration-300 relative bg-gray-200 dark:bg-gray-800 dark:hover:bg-gradient-to-r from-black to-gray-800 shadow-lg `}
+        className={`md:p-5 md:pt-8 ${navbar ? "w-72" : "w-20"} duration-300 relative bg-gray-200 dark:bg-gray-800  shadow-lg `}
       >
         <BsArrowLeftShort
-          className={`ml-60 bg-dark-purple text-white dark:bg-white dark:text-dark-purple text-3xl rounded-full absolute -right-3 top-9 cursor-pointer border ${!open && "rotate-180"} duration-500`}
-          onClick={() => setOpen(!open)}
+          className={`ml-60 bg-dark-purple text-white dark:bg-white dark:text-dark-purple text-3xl rounded-full absolute -right-3 top-9 cursor-pointer border ${!navbar && "rotate-180"} duration-300`}
+          onClick={() => setNavbar(!navbar)}
         />
-        <div class="inline-flex">
-          <FaHouseDamage className="bg-orange-red text-4xl rounded  block float-left cursor-pointer mr-5" />
-          <h1 className={`dark:text-white origin-left font-medium text-3xl ${!open && "scale-0"} duration-300`}>HealthCare</h1>
-        </div>
-        <ul className="pt-2">
+        <ul className="">
           {Menus.map((menu, index) => (
             <>
-              <li key={index} className={`dark:text-gray-300 text-sm flex item-center gap-x-4 cursor-pointer p-2 hover:bg-light-white rounded-md ${menu.spacing ? "mt-36" : "mt-9"}`}>
+              <li key={index} className={`dark:text-gray-300 text-sm flex item-center gap-x-4 cursor-pointer p-2 hover:bg-light-white rounded-md mt-5`}>
                 <span className="text-2xl block float-left">{menu.icon}</span>
-                <span className={`text-base font-medium flex-1 ${!open && "hidden"} hover:text-black duration-200`}>{menu.title}</span>
+                <span className={`text-base font-medium flex-1 ${!navbar && "hidden"} hover:text-black duration-200`}><a href={menu.link}>{menu.title}</a></span>
                 
               </li>
             </>
