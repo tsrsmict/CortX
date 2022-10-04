@@ -13,6 +13,7 @@ export default function Dashboard() {
         <h1 className="text-5xl font-mono dark:text-white font-bold">Dashboard</h1>
       </div>
 
+      cd
     </div>
   );
 }
