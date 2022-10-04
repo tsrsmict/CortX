@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from "react";
-import { FaHouseDamage, FaTablets, FaPowerOff } from "react-icons/fa";
+import { FaTablets, FaPowerOff } from "react-icons/fa";
 import { BsArrowLeftShort} from "react-icons/bs";
 import { RiDashboardFill } from "react-icons/ri";
 import { CgProfile } from "react-icons/cg";

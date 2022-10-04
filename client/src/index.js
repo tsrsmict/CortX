@@ -1,23 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
 // import Dashboard from './apps/Dashboard'
 // import SignIn from './apps/signin';
-import Dashboard from './apps/Dashboard';
+import Dashboard from "./apps/Dashboard";
 // import Navbar from './components/navbar';
 // import Files from './apps/File_M/Files'
 // import Mr from './apps/File_M/mr';
-import NavBar from './components/new_navbar';
-import Malendar from './apps/calendar';
+// import NavBar from "./components/new_navbar";
+// import Malendar from "./apps/calendar";
 // import Upload from './components/upload'
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  
   <React.StrictMode>
-    <NavBar/>
-    <Malendar/>
-
+<Dashboard/>
   </React.StrictMode>
 );
 
