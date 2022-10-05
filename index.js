@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import bodyParser from "body-parser";
 import cors from "cors";
 import mongoose from "mongoose";
-import { MailTransporter } from "./lib/mailer.js"
+import { MailTransporter } from "./lib/mailer.js";
 import * as jwt from "jsonwebtoken";
 
 const app = express();
@@ -35,8 +35,8 @@ app.get("/", (req, res) => {
   res.json("yo");
 });
 
-const transporter = new MailTransporter("smtp.ethereal.email", "587", "joyce.nikolaus@ethereal.email", "Wd5ygyRUWkhNYbUxyx", false)
-transporter.send("healthcare", "sahnivarun62@gmail.com", "yo", "yo")
+// const transporter = new MailTransporter("smtp.ethereal.email", "587", "joyce.nikolaus@ethereal.email", "Wd5ygyRUWkhNYbUxyx", false)
+// transporter.send("healthcare", "sahnivarun62@gmail.com", "yo", "yo")
 app.post("/api/register", async (req, res) => {
   console.log(req.body);
   if (
