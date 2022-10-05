@@ -6,13 +6,12 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import mongoose from "mongoose";
 import { MailTransporter } from "./lib/mailer.js";
-<<<<<<< HEAD
+
 import * as jwt from "jsonwebtoken";
-=======
+
 import jsonwebtoken from "jsonwebtoken";
 import { validate } from "email-validator";
 import bcrypt from "bcryptjs";
->>>>>>> d2ce3576f26b292fd6591cee3e0f7bca0acbedb7
 
 // Model imports
 import User from "./models/user.js";
@@ -51,12 +50,11 @@ app.get("/", (req, res) => {
 });
 
 // const transporter = new MailTransporter("smtp.ethereal.email", "587", "joyce.nikolaus@ethereal.email", "Wd5ygyRUWkhNYbUxyx", false)
-<<<<<<< HEAD
+
 // transporter.send("healthcare", "sahnivarun62@gmail.com", "yo", "yo")
-=======
+
 // transporter.send("<joyce.nikolaus@ethereal.email> healthcare", "sahnivarun62@gmail.com", "yo", "yo")
 
->>>>>>> d2ce3576f26b292fd6591cee3e0f7bca0acbedb7
 app.post("/api/register", async (req, res) => {
   console.log(req.body);
   if (
