@@ -1,12 +1,12 @@
 import mongoose from 'mongoose'
 import bcrypt from 'bcryptjs'
-import { ObjectId } from 'mongodb'
 
 const UserSchema = new mongoose.Schema(
 {
     username: { type: String, required: true, unique: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
+    tests: [{type: mongoose.Schema.Types.ObjectId, ref: 'Test'}]
 }, { collection: 'users' , timestamps: true})
 
 UserSchema.pre("save", function (next) {
