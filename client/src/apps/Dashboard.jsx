@@ -2,7 +2,7 @@
 import Navbar from "../components/navbar";
 
 import { RiDashboardFill } from "react-icons/ri";
-import Table, { TableData } from "../components/table";
+import Table from "../components/table";
 
 export default function Dashboard() {
   return (
@@ -16,11 +16,11 @@ export default function Dashboard() {
         </div>
         <div className="text-start">
           <div className="w-fit  h-fit bg-gray-100 rounded-2xl shadow-10xl flex p-5">
-            <picture><img src="https://cdn-icons-png.flaticon.com/512/30/30473.png" className="dark:invert" alt="txt" /></picture>
+            <picture><img src="https://cdn-icons-png.flaticon.com/512/30/30473.png" className="dark:invert" alt="txt"/></picture>
 
           </div>
         </div>
-        <Table tabledata={{ TableData }} />
+        <Table />
 
       </div>
     </div>

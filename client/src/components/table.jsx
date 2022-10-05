@@ -1,76 +1,76 @@
 import React from 'react'
-export const TableData = [{
-    title: "White Blood Cell (WBC) (Leukocytes) Count",
-    value: 6250,
-    unit: 'cells/cu.mm',
-    bri_start: 4000,
-    bri_end: 10500,
-    color: false
-}, {
-    title: 'Red blood Cell (Wbc) Erthrocytes Count',
-    value: 4.94,
-    unit: 'milli/cu.mm',
-    bri_start: 4.7,
-    bri_end: 6.0,
-    color: true
-}, {
-    title: 'Platelet Count',
-    value: 173,
-    unit: '10^3/microliter',
-    bri_start: 150,
-    bri_end: 450,
-    color: false
-},
-{
-    title: 'Absolute Monocyte Count',
-    value: 500,
-    unit: '/c.mm',
-    bri_start: 200,
-    bri_end: 1000,
-    color: true
-},
-{
-    title: 'Absolute Eosinophilis Count',
-    value: 375,
-    unit: '/c.mm',
-    bri_start: 200,
-    bri_end: 1000,
-    color: false
-},
-{
-    title: 'Absolute Lymphocyte Count',
-    value: 500,
-    unit: '/c.mm',
-    bri_start: 1000,
-    bri_end: 3000,
-    color: true
-}, {
-    title: 'Absolute Neutrophilis Count',
-    value: 3313,
-    unit: '/c.mm',
-    bri_start: 2000,
-    bri_end: 7000,
-    color: false
-},
-{
-    title: 'Absolute Neutrophilis Count',
-    value: 3313,
-    unit: '/c.mm',
-    bri_start: 2000,
-    bri_end: 7000,
-    color: true
-}
 
 
-]
-
-export default function Table(tabledata) {
+export default function Table() {
     //     const data = [
     //     { name: "Anom", age: 19, gender: "Male" },
     //     { name: "Megha", age: 19, gender: "Female" },
     //     { name: "Subham", age: 25, gender: "Male"},
     // ]
-  
+    const TableData = [{
+        title: "White Blood Cell (WBC) (Leukocytes) Count",
+        value: 6250,
+        unit: 'cells/cu.mm',
+        bri_start: 4000,
+        bri_end: 10500,
+        color: false
+    }, {
+        title: 'Red blood Cell (Wbc) Erthrocytes Count',
+        value: 4.94,
+        unit: 'milli/cu.mm',
+        bri_start: 4.7,
+        bri_end: 6.0,
+        color: true
+    }, {
+        title: 'Platelet Count',
+        value: 173,
+        unit: '10^3/microliter',
+        bri_start: 150,
+        bri_end: 450,
+        color: false
+    },
+    {
+        title: 'Absolute Monocyte Count',
+        value: 500,
+        unit: '/c.mm',
+        bri_start: 200,
+        bri_end: 1000,
+        color: true
+    },
+    {
+        title: 'Absolute Eosinophilis Count',
+        value: 375,
+        unit: '/c.mm',
+        bri_start: 200,
+        bri_end: 1000,
+        color: false
+    },
+    {
+        title: 'Absolute Lymphocyte Count',
+        value: 500,
+        unit: '/c.mm',
+        bri_start: 1000,
+        bri_end: 3000,
+        color: true
+    }, {
+        title: 'Absolute Neutrophilis Count',
+        value: 3313,
+        unit: '/c.mm',
+        bri_start: 2000,
+        bri_end: 7000,
+        color: false
+    },
+    {
+        title: 'Absolute Neutrophilis Count',
+        value: 3313,
+        unit: '/c.mm',
+        bri_start: 2000,
+        bri_end: 7000,
+        color: true
+    }
+    
+    
+    ]
     return (
         <div className='flex bg-gray-300 w-11/12 items-center text-center rounded-2xl  dark:bg-zinc-600 mx-auto mt-10'>
             <table className='table-fixed w-full rounded-2xl dark:text-white text-center m-auto'>
@@ -83,7 +83,7 @@ export default function Table(tabledata) {
 
 
 
-                {tabledata.map((row, index) => {
+                {TableData.map((row, index) => {
                     return (
 
                         <tr key={index} className={`bg-gray-200 dark:bg-zinc-600 m-5 ${row.color && "bg-zinc-400 dark:bg-zinc-800"}`}>

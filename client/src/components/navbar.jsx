@@ -65,7 +65,7 @@ export default function Navbar() {
 
   ];
   return (
-    <div className="flex font-mono overflow-hidden">
+    <div className="flex font-mono overflow-auto">
       <div
         className={`md:p-5 md:pt-8 ${navbar ? "w-72" : "w-20"} duration-300 relative bg-gray-200 dark:bg-gray-800  shadow-lg `}
       >
