@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from "react";
-import { FaTablets, FaPowerOff } from "react-icons/fa";
+import { FaPowerOff } from "react-icons/fa";
 import { BsArrowLeftShort} from "react-icons/bs";
 import { RiDashboardFill } from "react-icons/ri";
 import { CgProfile } from "react-icons/cg";
@@ -18,30 +18,25 @@ export default function Navbar() {
     {
       title: "Files",
       icon: <FcFolder />,
-      link: "../../apps/Dashboard.jsx"
+      link: "/files"
 
     },
     {
       title: "Calendar",
       icon: <FcCalendar />,
-      link: "../../apps/Dashboard.jsx"
+      link: "/calendar"
     },
 
     {
       title: "Recordings",
       icon: <FcBearish />,
-      link: "../../apps/Dashboard.jsx"
+      link: "/recordings"
     },
 
     {
-      title: "Medicines",
-      icon: <FaTablets />,
-      link: "../../apps/Dashboard.jsx"
-    },
-    {
       title: "Contacts",
       icon: <FcAddressBook />,
-      link: "../../apps/Dashboard.jsx"
+      link: "/contacts"
     },
 
 
@@ -60,12 +55,12 @@ export default function Navbar() {
     {
       title: "Logout",
       icon: <FaPowerOff className="text-orange-600" />,
-      link: "../../apps/Dashboard.jsx"
+      link: "/signin"
     },
 
   ];
   return (
-    <div className="flex font-mono overflow-auto">
+    <div className="fixed top-0 over-flow-x flex font-mono">
       <div
         className={`md:p-5 md:pt-8 ${navbar ? "w-72" : "w-20"} duration-300 relative bg-gray-200 dark:bg-gray-800  shadow-lg `}
       >

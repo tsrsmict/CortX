@@ -1,7 +1,7 @@
 import React from 'react'
-import Navbar from './navbar'
-import { RiDashboardFill } from 'react-icons/ri'
-import Table from './table'
+// import Navbar from './navbar'
+// import {RiDashboardFill} from 'react'
+// import Table from './table'
 function Contacts() {
     const TableData = [{
         title: "John Doe",
@@ -19,27 +19,30 @@ function Contacts() {
         unit: 'cells/cu.mm',
         color: false
     }]
-    return (
-        <div className="flex overflow-auto dark:bg-dark-purple h-screen w-screen">
-            <div>
-            <Navbar className="fixed top-0 left-0 shadow-white shaodow-lg overflow-auto" />
-            </div>
-            <div className="p-12">
-                <div className="flex p-5">
-                    <RiDashboardFill className="text-5xl mr-5 text-sky-800 dark:text-sky-300" />
-                    <h1 className="text-5xl font-mono dark:text-white font-bold">Dashboard</h1>
-                </div>
-                <div className="text-start">
-                    <div className="w-fit  h-fit bg-gray-100 rounded-2xl shadow-10xl flex p-5">
-                        <picture><img src="https://cdn-icons-png.flaticon.com/512/30/30473.png" className="dark:invert" alt="txt" /></picture>
+  return (
+    <div className='flex bg-gray-300 w-11/12 items-center text-center rounded-2xl shadow-2xl dark:bg-zinc-600 mx-auto mt-10'>
+            <table className='table-fixed w-full rounded-2xl dark:text-white text-center m-auto'>
 
-                    </div>
-                </div>
-                <Table tabledata={{ TableData }} />
+                <thead className=' bg-zinc-500 dark:bg-zinc-800'>
+                    <th className='p-5'>Parameter</th>
+                    <th>Value</th>
+                    <th>Risk level</th>
+                    <th>Health level</th></thead>
 
-            </div>
+
+
+                {TableData.map((row, index) => {
+                    return (
+
+                        <tr key={index} className={`bg-gray-200 dark:bg-zinc-600 m-5 ${row.color && "bg-zinc-400 dark:bg-zinc-800"}`}>
+                            <td className=''>{row.title}</td>
+                            <td>{row.value} {row.unit}</td>
+                        </tr>
+                    )
+                })}
+            </table>
         </div>
-    )
+  )
 }
 
 export default Contacts

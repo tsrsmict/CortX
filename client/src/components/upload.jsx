@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ReactDOM from "react-dom";
+// import ReactDOM from "react-/dom";
 // Import React FilePond
 import { FilePond, registerPlugin } from "react-filepond";
 
@@ -13,18 +13,17 @@ import FilePondPluginImageExifOrientation from "filepond-plugin-image-exif-orien
 import FilePondPluginImagePreview from "filepond-plugin-image-preview";
 import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
 // import Navbar from "./navbar";
-import Navbar from "./navbar"
+// import Navbar from "./navbar"
 // Register the plugins
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
 
-export default function App() {
+export default function Upload() {
   const [files, setFiles] = useState([]);
   return (
 
 
     <div className="App">
-            <Navbar/>
-      <FilePond className={`m-10`}
+      <FilePond className={`m-10 w-full`}
         files={files}
         allowReorder={true}
         allowMultiple={true}
@@ -35,6 +34,3 @@ export default function App() {
     </div>
   );
 }
-
-const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
