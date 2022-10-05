@@ -1,15 +1,23 @@
+// Lib imports
 import express from "express";
 import * as http from "http";
 import dotenv from "dotenv";
 import bodyParser from "body-parser";
 import cors from "cors";
 import mongoose from "mongoose";
-import { MailTransporter } from "./lib/mailer.js"
-import * as jwt from "jsonwebtoken";
+import { MailTransporter } from "./lib/mailer.js";
+import jsonwebtoken from "jsonwebtoken";
+import { validate } from "email-validator";
+import bcrypt from "bcryptjs";
 
+// Model imports
+import User from "./models/user.js";
+
+// App init
 const app = express();
 dotenv.config();
 
+// DB connection
 mongoose
   .connect(process.env.HEALTHCARE_DB_URI, {
     useNewUrlParser: true,
@@ -24,19 +32,23 @@ mongoose
 
 // app.set('view engine', 'ejs')
 
+// middleware setup
 app.use(express.json());
-app.use(bodyParser.json());
 const server = http.Server(app);
 
 app.use(express.static("public"));
 app.use("/assets", express.static("assets"));
 
+const cookieAge = 3; // in days
+
+// Root route
 app.get("/", (req, res) => {
   res.json("yo");
 });
 
-const transporter = new MailTransporter("smtp.ethereal.email", "587", "joyce.nikolaus@ethereal.email", "Wd5ygyRUWkhNYbUxyx", false)
-transporter.send("healthcare", "sahnivarun62@gmail.com", "yo", "yo")
+// const transporter = new MailTransporter("smtp.ethereal.email", "587", "joyce.nikolaus@ethereal.email", "Wd5ygyRUWkhNYbUxyx", false)
+// transporter.send("<joyce.nikolaus@ethereal.email> healthcare", "sahnivarun62@gmail.com", "yo", "yo")
+
 app.post("/api/register", async (req, res) => {
   console.log(req.body);
   if (
@@ -55,7 +67,7 @@ app.post("/api/register", async (req, res) => {
     return res.json({ status: "error", error: "Invalid username." });
   }
 
-  if (!validator.validate(email)) {
+  if (!validate(email)) {
     return res.json({ status: "error", error: "Invalid E-mail" });
   }
 
@@ -88,13 +100,64 @@ app.post("/api/register", async (req, res) => {
     throw error;
   }
 
-  const token = jwt.sign(
+  const token = jsonwebtoken.sign(
     { id: response._id, username: response.username },
     process.env.JWT_SECRET
   );
 
   res.cookie("token", token, { maxAge: 1000 * 60 * 60 * 24 * cookieAge });
   res.json({ status: 200 });
+});
+
+app.post("/api/login", async (req, res) => {
+  var { usermail, password: passwordPlain } = req.body;
+  var user = null;
+  if (!usermail || !passwordPlain) {
+    return res.json({ status: "error", error: "Missing fields." });
+  }
+
+  if (validate(usermail)) {
+    // input is an e-mail
+    usermail = usermail.toLowerCase();
+    console.log(usermail);
+    if (typeof usermail !== "string") {
+      return res.json({
+        status: "error",
+        error: "Invalid e-mail/username/password",
+      });
+    }
+    user = await User.findOne({ email: usermail }).exec();
+  } else {
+    usermail = usermail;
+    console.log(usermail);
+    user = await User.findOne({ username: usermail }).exec();
+  }
+
+  if (!user) {
+    return res.json({
+      status: "error",
+      error: "Invalid e-mail/username/password",
+    });
+  }
+
+  console.log(user);
+
+  var hash = user["password"];
+  console.log(hash);
+  if (await bcrypt.compare(passwordPlain, hash)) {
+    // Found
+    console.log("Logged in.");
+    const token = jsonwebtoken.sign(
+      { id: user._id, username: user.username },
+      process.env.JWT_SECRET
+    );
+    res.cookie("token", token, { maxAge: 1000 * 60 * 60 * 24 * cookieAge });
+    return res.json({ status: "ok", data: token });
+  }
+  return res.json({
+    status: "error",
+    error: "Invalid e-mail/username/password",
+  });
 });
 
 const listener = server.listen(process.env.PORT || 3000, (err) => {
