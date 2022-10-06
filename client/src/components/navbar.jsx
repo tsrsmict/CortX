@@ -9,10 +9,15 @@ import { FcAddressBook, FcSettings, FcBearish, FcCalendar, FcFolder } from "reac
 export default function Navbar() {
   const [navbar, setNavbar] = useState(true)
   const Menus = [
+    // {
+    //   title: "",
+    //   icon: ,
+    // link: '/'
+    // },
     {
       title: "Dashboard",
       icon: <RiDashboardFill className={`text-sky-800 dark:text-sky-300 ${!navbar && "rotate"}`} />,
-      link: "../../apps/Dashboard.jsx"
+      link: "/"
     },
 
     {
@@ -60,26 +65,30 @@ export default function Navbar() {
 
   ];
   return (
-    <div className="fixed top-0 over-flow-x flex font-mono">
+    <div className="font-mono hidden md:block">
       <div
-        className={`md:p-5 md:pt-8 ${navbar ? "w-72" : "w-20"} duration-300 relative bg-gray-200 dark:bg-gray-800  shadow-lg `}
+        className={`md:p-5 md:pt-8 ${navbar ? "w-72" : "w-20"} h-full duration-300 relative bg-gray-200 dark:bg-gray-800  shadow-lg `}
       >
-        <BsArrowLeftShort
-          className={`ml-60 bg-dark-purple text-white dark:bg-white dark:text-dark-purple text-3xl rounded-full absolute -right-3 top-9 cursor-pointer border ${!navbar && "rotate-180"} duration-300`}
-          onClick={() => setNavbar(!navbar)}
-        />
-        <ul className="">
+        <div className='absolute'>
+         <BsArrowLeftShort
+      className={`fixed bg-dark-purple text-white dark:bg-white dark:text-dark-purple text-3xl rounded-full cursor-pointer border ${!navbar && "rotate-180"} duration-300`}
+      onClick={() => setNavbar(!navbar)}
+    /></div>
+        <div>
+        <ul className="fixed">
+
           {Menus.map((menu, index) => (
-            <>
-              <li key={index} className={`dark:text-gray-300 text-sm flex item-center gap-x-4 cursor-pointer p-2 hover:bg-light-white rounded-md mt-5`}>
+
+              <li key={index} className={` dark:text-gray-300 text-sm flex item-center gap-x-4 cursor-pointer p-2  rounded-md`}>
                 <span className="text-2xl block float-left">{menu.icon}</span>
                 <span className={`text-base font-medium flex-1 ${!navbar && "hidden"} hover:text-black duration-200`}><a href={menu.link}>{menu.title}</a></span>
                 
               </li>
-            </>
+
           ))}
         </ul>
 
+    </div>
     </div>
 
     </div>

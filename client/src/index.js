@@ -28,6 +28,7 @@ import Recordings from "./components/Recordings";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
+
     {/* <Table/> */}
 <Router>
       <div>
@@ -45,4 +46,7 @@ root.render(
     </Router>
   </React.StrictMode>
 );
-reportWebVitals();
+reportWebVitals()
+
+
+// 
