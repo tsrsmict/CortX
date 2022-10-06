@@ -1,15 +1,20 @@
 import React from "react";
 // import Navbar from "../../components/navbar";
 import { FcFolder, FcDepartment, FcBiotech, FcDocument, FcManager, FcBusinessContact, FcMoneyTransfer } from "react-icons/fc";
-// import Navbar from "../../components/navbar";
+import NavBar from "../../components/new_navbar";
+import Navbar from "../../components/navbar";
 // https://tailwindcomponents.com/
 
 export default function Files() {
 
   return (
-    <div className="flex h-screen w-screen overflow-auto  dark:bg-gray-900">
-
-      <div className="p-10 w-full">
+    <div className="flex">
+      <div>
+        <NavBar/>
+      </div>
+    <div className="flex h-screen w-screen  dark:bg-gray-900">
+    <Navbar className=" absolute top-44 left-55 h-100vh shadow-white shadow-lg overflow-auto" style={{position: "shadow-lg"}} />
+      {/* <div className="p-10 w-full">
         <div className="flex">
         <FcFolder className=" text-5xl md:text-3xl mr-5 text-sky-800 dark:text-sky-300"/>
         <h1 className="text-5xl md:text-3xl font-mono dark:text-white font-bold">Files</h1>
@@ -100,6 +105,8 @@ export default function Files() {
 
       </div>
       </div>
+    </div></div> */}
+    </div>
     </div>
   );
 }

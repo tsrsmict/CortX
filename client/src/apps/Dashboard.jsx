@@ -15,8 +15,8 @@ export default function Dashboard() {
     <div className=" absolute overflow-auto dark:bg-dark-purple h-screen w-screen">
       <NavBar className='md:hidden'/>
       <div className="flex">
-      <Navbar className=" absolute top-44 left-55 h-100vh shadow-white shadow-lg overflow-auto" style={{position: "shadow-lg"}} />ß
-      <div className="p-1 md:p-8 lg:p-12">
+      <Navbar className=" absolute top-44 left-55 h-100vh shadow-white shadow-lg overflow-auto" style={{position: "shadow-lg"}} />
+      <div className="p-1 md:p-8 md:mt-200px lg:p-12">
         <div className="flex p-5">
           <RiDashboardFill className="text-5xl mr-5 text-sky-800 dark:text-sky-300" />
           <h1 className="text-5xl font-mono dark:text-white font-bold">Dashboard</h1>

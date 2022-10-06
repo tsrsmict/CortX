@@ -21,6 +21,9 @@
   },
   "devDependencies": {
     "mongoose": "^6.6.2",
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "sass": "^1.55.0",
+    "sass-loader": "^13.0.2",
+    "webpack": "^5.74.0"
   }
 }

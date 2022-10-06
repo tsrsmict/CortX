@@ -1,5 +1,5 @@
 import React from 'react'
-// import Navbar from './navbar'
+import Navbar from './navbar'
 // import {RiDashboardFill} from 'react'
 // import Table from './table'
 function Contacts() {
@@ -20,6 +20,8 @@ function Contacts() {
         color: false
     }]
   return (
+    <>
+    <Navbar />
     <div className='flex bg-gray-300 w-11/12 items-center text-center rounded-2xl shadow-2xl dark:bg-zinc-600 mx-auto mt-10'>
             <table className='table-fixed w-full rounded-2xl dark:text-white text-center m-auto'>
 
@@ -42,6 +44,7 @@ function Contacts() {
                 })}
             </table>
         </div>
+        </>
   )
 }
 

@@ -57,7 +57,7 @@ export default function NavBar() {
     
       ];
     return (
-        <nav className="w-full bg-white dark:bg-gray-800 shadow">
+        <nav className="fixed z-10 block md:hidden w-full bg-white dark:bg-gray-800 shadow">
             <div className="justify-between px-4 mx-auto">
                 <div>
                     <div className="flex items-center justify-between py-3 ">

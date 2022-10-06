@@ -66,14 +66,19 @@ export default function Navbar() {
   ];
   return (
     <div className="font-mono hidden md:block">
+    
       <div
         className={`md:p-5 md:pt-8 ${navbar ? "w-72" : "w-20"} h-full duration-300 relative bg-gray-200 dark:bg-gray-800  shadow-lg `}
+        
       >
-        <div className='absolute'>
-         <BsArrowLeftShort
-      className={`fixed bg-dark-purple text-white dark:bg-white dark:text-dark-purple text-3xl rounded-full cursor-pointer border ${!navbar && "rotate-180"} duration-300`}
+        <BsArrowLeftShort
+      className={`fixed ml-64 bg-dark-purple text-white dark:bg-white dark:text-dark-purple text-3xl rounded-full cursor-pointer border ${!navbar && "rotate-180 ml-9"} duration-300`}
       onClick={() => setNavbar(!navbar)}
-    /></div>
+    />
+        <div className='absolute'>
+        {/* <div><img src={require("../assets/cortex_logo-removebg.png")} className="fixed bg-gray-200 dark:hidden"></img></div>
+      <div><img src={require("../assets/image-2.png")} className="fixed bg-gray-800 hidden dark:block"></img></div> */}
+         </div>
         <div>
         <ul className="fixed">
 

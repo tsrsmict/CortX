@@ -1,8 +1,8 @@
 import React from 'react'
-
+// import '../assets/cortex_logo-removebg.png'
 function Calendar() {
   return (
-    <div>Calendar</div>
+<div>gtg</div>
   )
 }
 
