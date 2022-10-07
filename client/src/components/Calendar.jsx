@@ -8,8 +8,7 @@ export default class DemoApp extends React.Component {
       <>
       <FullCalendar
         plugins={[ dayGridPlugin ]}
-        initialView="dayGridMonth"
-      />
+        initialView="dayGridMonth" />
       <ReminderMake/>
       </>
     )

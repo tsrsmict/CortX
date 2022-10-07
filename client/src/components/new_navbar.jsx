@@ -4,6 +4,7 @@ import { FaHouseDamage,  FaPowerOff } from "react-icons/fa";
 import { RiDashboardFill } from "react-icons/ri";
 import { CgProfile } from "react-icons/cg";
 import { FcAddressBook, FcSettings, FcBearish, FcCalendar, FcFolder } from "react-icons/fc";
+import { IconName } from "react-icons/im";
 export default function NavBar() {
     const [navbar, setNavbar] = useState(false);
     const Menus = [
@@ -57,7 +58,7 @@ export default function NavBar() {
     
       ];
     return (
-        <nav className="fixed z-10 block md:hidden w-full bg-white dark:bg-gray-800 shadow">
+        <nav className="fixed z-10 block lg:hidden w-full bg-white dark:bg-gray-800 shadow">
             <div className="justify-between px-4 mx-auto">
                 <div>
                     <div className="flex items-center justify-between py-3 ">
@@ -65,9 +66,9 @@ export default function NavBar() {
                             <FaHouseDamage className="text-2xl bg-orange-600 flex mx-2 my-1 rounded-4px"/>
                             <h2 className="text-2xl flex font-bold font-mono dark:text-white">HealthcareApp</h2>
                         </a>
-                        <div className="md:hidden">
+                        <div className="lg:hidden">
                             <button
-                                className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
+                                className="p-2 text-gray-700 rounded-sm outline-none focus:border-gray-400 focus:border"
                                 onClick={() => setNavbar(!navbar)}
                             >
                                 {navbar ? (
@@ -112,7 +113,7 @@ export default function NavBar() {
                         <ul className="pt-2">
           {Menus.map((menu, index) => (
             <>
-              <li key={index} className={`dark:text-gray-300 text-sm flex item-center gap-x-4 cursor-pointer p-2 font-mono hover:bg-gray-100 rounded-md mt-5`}>
+              <li key={index} className={`dark:text-gray-300 text-sm flex item-center gap-x-4 cursor-pointer p-2 font-mono hover:bg-gray-100 rounded-sm mt-5`}>
                 <span className="text-2xl block float-left">{menu.icon}</span>
                 <span className={`text-base font-medium flex-1 ${!navbar && "hidden"} hover:text-black duration-200`}><a href={menu.link}>{menu.title}</a></span>
                 

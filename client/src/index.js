@@ -20,7 +20,7 @@ import Contacts from "./components/Contacts";
 import Recordings from "./components/Recordings";
 
 // import Navbar from './components/navbar';
-// import Files from './apps/File_M/Files'
+import Files from './apps/File_M/Files'
 // import Mr from './apps/File_M/mr';
 // import NavBar from "./components/navbar";
 // import Malendar from "./apps/calendar";
@@ -37,7 +37,8 @@ root.render(
           <Route path="/signin" element={<SigninModule/>}></Route>
           <Route path="/tables" element={<Table/>}></Route>
           <Route path="/" element={<Dashboard/>}></Route>
-          <Route path="/files" element={<Upload />}></Route>
+          <Route path="/files" element={<Files />}></Route>
+          <Route path="/upload" element={<Upload />}></Route>
           <Route path="/contacts" element={<Contacts />}></Route>
           <Route path="/recordings" element={<Recordings />}></Route>
           <Route path="/calendar" element={<MyCalendar />}></Route>

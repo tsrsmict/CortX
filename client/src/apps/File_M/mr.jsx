@@ -7,8 +7,8 @@ export default function Mr() {
             <Navbar className="shadow-white shaodow-lg fixed top-0 left-0 z--50"/>
       <div className="p-10 w-full">
         <div className="flex">
-        <FcDepartment className=" text-5xl md:text-3xl mr-5 text-sky-800 dark:text-sky-300"/>
-        <h1 className="text-5xl md:text-3xl font-mono dark:text-white font-bold">Medical Record Files</h1>
+        <FcDepartment className=" text-5xl sm:text-3xl mr-5 text-sky-800 dark:text-sky-300"/>
+        <h1 className="text-5xl sm:text-3xl font-mono dark:text-white font-bold">Medical Record Files</h1>
         </div>
         </div>
 

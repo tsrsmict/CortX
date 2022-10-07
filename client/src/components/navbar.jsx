@@ -65,10 +65,10 @@ export default function Navbar() {
 
   ];
   return (
-    <div className="font-mono hidden md:block">
+    <div className="font-mono hidden lg:block">
     
       <div
-        className={`md:p-5 md:pt-8 ${navbar ? "w-72" : "w-20"} h-full duration-300 relative bg-gray-200 dark:bg-gray-800  shadow-lg `}
+        className={`sm:p-5 sm:pt-8 ${navbar ? "w-72" : "w-20"} h-full duration-300 relative bg-gray-200 dark:bg-gray-800  shadow-lg `}
         
       >
         <BsArrowLeftShort
@@ -84,7 +84,7 @@ export default function Navbar() {
 
           {Menus.map((menu, index) => (
 
-              <li key={index} className={` dark:text-gray-300 text-sm flex item-center gap-x-4 cursor-pointer p-2  rounded-md`}>
+              <li key={index} className={` dark:text-gray-300 text-sm flex item-center gap-x-4 cursor-pointer p-2  rounded-sm`}>
                 <span className="text-2xl block float-left">{menu.icon}</span>
                 <span className={`text-base font-medium flex-1 ${!navbar && "hidden"} hover:text-black duration-200`}><a href={menu.link}>{menu.title}</a></span>
                 

@@ -71,7 +71,7 @@ export default function Table() {
     
     ]
     return (
-        <div className='flex bg-gray-300 w-11/12 items-center text-center rounded-2xl shadow-2xl dark:bg-zinc-600 mx-auto mt-10'>
+        <div className='rounded-lg text-0.25rem flex bg-gray-300 w-11/12 items-center text-center rounded-2xl shadow-2xl dark:bg-zinc-600 mx-auto mt-10'>
             <table className='table-fixed w-full rounded-2xl dark:text-white text-center m-auto'>
 
                 <thead className=' bg-zinc-300 dark:bg-zinc-700'>
