@@ -4,7 +4,7 @@ import { FaHouseDamage,  FaPowerOff } from "react-icons/fa";
 import { RiDashboardFill } from "react-icons/ri";
 import { CgProfile } from "react-icons/cg";
 import { FcAddressBook, FcSettings, FcBearish, FcCalendar, FcFolder } from "react-icons/fc";
-import { IconName } from "react-icons/im";
+//import { IconName } from "react-icons/im";
 export default function NavBar() {
     const [navbar, setNavbar] = useState(false);
     const Menus = [
