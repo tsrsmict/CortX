@@ -6,11 +6,10 @@ import jsonwebtoken from "jsonwebtoken";
 import { validate } from "email-validator";
 import bcrypt from "bcryptjs";
 import { v4 as uuidV4 } from "uuid";
+import dayjs from "dayjs";
 
 import User from "../models/user.js";
 import ResetPassword from "../models/reset.js";
-
-const cookieAge = 5000; // in days
 
 // Router setup
 const userRouter = Router();
@@ -63,6 +62,12 @@ userRouter.post("/login", async (req, res) => {
       { id: user._id, username: user.username },
       process.env.JWT_SECRET
     );
+
+    res.cookie("jwtToken", token, {
+      secure: process.env.NODE_ENV !== "dev",
+      httpOnly: true,
+      expires: dayjs().add(9999, "days").toDate(),
+    });
 
     // Successful user login - token sent in reponse
     return res.status(200).json({ status: "ok", token: token });
@@ -147,12 +152,16 @@ userRouter.post("/register", async (req, res) => {
     { id: response._id, username: response.username },
     process.env.JWT_SECRET
   );
-
+  res.cookie("jwtToken", token, {
+    secure: process.env.NODE_ENV !== "dev",
+    httpOnly: true,
+    expires: dayjs().add(9999, "days").toDate(),
+  });
   // Successful user login - token sent in reponse
-  res.status(200).json({ status: "ok", token: token });
+  res.status(201).json({ status: "ok", token: token });
 });
 
-// Gen new password reset
+// Generate a new reset password - new resetID, and reference.
 userRouter.post("/password/newReset", async (req, res) => {
   if (!req.body.usermail) {
     return res

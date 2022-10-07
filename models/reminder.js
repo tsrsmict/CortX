@@ -1,16 +1,18 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const ReminderSchema = new mongoose.Schema(
   {
     userID: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
-      ref: " User",
+      ref: "User",
     },
-    type: { type: String, required: true },
-    createdAt: { type: Date, default: Date.now },
-    dateAndTime: { type: Date, required: true },
-    content: { type: String, required: true },
+    reminderName: { type: String, default: "Reminder", required: true },
+    desc: String,
+    type: { type: String, default: "Custom" },
+    recurring: { type: String },
+    createdAt: { type: Date, default: Date.now, required: true },
+    datetime: { type: Date, required: true },
   },
   { collection: "reminders" }
 );

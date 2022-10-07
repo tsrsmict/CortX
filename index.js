@@ -4,6 +4,8 @@ import * as http from "http";
 import dotenv from "dotenv";
 import bodyParser from "body-parser";
 import cors from "cors";
+import helmet from "helmet";
+import morgan from "morgan";
 import mongoose from "mongoose";
 import { MailTransporter } from "./lib/mailer.js";
 
@@ -48,10 +50,17 @@ mongoose
 import userRouter from "./routes/userRouter.js";
 app.use("/api/users/", userRouter);
 
+import reminderRouter from "./routes/reminderRouter.js";
+app.use("/api/reminders/", reminderRouter);
+
+// ejs view engine
 app.set("view engine", "ejs");
 
 // middleware setup
 app.use(express.json());
+app.use(cors());
+app.use(helmet());
+app.use(morgan("combined"));
 const server = http.Server(app);
 
 app.use(express.static("public"));
@@ -68,9 +77,6 @@ app.get("/", (req, res) => {
 
 // transporter.send("<joyce.nikolaus@ethereal.email> healthcare", "sahnivarun62@gmail.com", "yo", "yo")
 
-app.post("/api/reminders", async (req, res) => {
-  var { type, time, content } = req.body;
-});
 const listener = server.listen(process.env.PORT || 3000, (err) => {
   if (err) {
     console.log(err);
