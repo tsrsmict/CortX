@@ -15,7 +15,7 @@ import SignupModule from "./components/signup_m";
 import Table from "./components/table";
 import Dashboard from "./apps/Dashboard";
 import Files from "./components/Files";
-import Calendar from "./components/Calendar";
+import MyCalendar from "./components/Calendar";
 import Contacts from "./components/Contacts";
 import Recordings from "./components/Recordings";
 
@@ -40,7 +40,7 @@ root.render(
           <Route path="/files" element={<Upload />}></Route>
           <Route path="/contacts" element={<Contacts />}></Route>
           <Route path="/recordings" element={<Recordings />}></Route>
-          <Route path="/calendar" element={<Calendar />}></Route>
+          <Route path="/calendar" element={<MyCalendar />}></Route>
         </Routes>
       </div>
     </Router>

@@ -1,9 +1,17 @@
 import React from 'react'
-// import '../assets/cortex_logo-removebg.png'
-function Calendar() {
-  return (
-<div>gtg</div>
-  )
+import FullCalendar from '@fullcalendar/react' // must go before plugins
+import dayGridPlugin from '@fullcalendar/daygrid' // a plugin!
+import ReminderMake from './reminder_make'
+export default class DemoApp extends React.Component {
+  render() {
+    return (
+      <>
+      <FullCalendar
+        plugins={[ dayGridPlugin ]}
+        initialView="dayGridMonth"
+      />
+      <ReminderMake/>
+      </>
+    )
+  }
 }
-
-export default Calendar

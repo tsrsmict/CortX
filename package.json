@@ -11,13 +11,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@fullcalendar/daygrid": "^5.11.3",
+    "@fullcalendar/react": "^5.11.2",
     "body-parser": "^1.20.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "ejs": "^3.1.8",
     "express": "^4.18.1",
     "filepond": "^4.30.4",
-    "react-filepond": "^7.1.2"
+    "react-filepond": "^7.1.2",
+    "smart-webcomponents-react": "^14.4.0"
   },
   "devDependencies": {
     "mongoose": "^6.6.2",
