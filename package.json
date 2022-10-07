@@ -5,22 +5,42 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "start": "node index.js",
+    "heroku-postbuild": "cd client && npm install && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "devStart": "nodemon index.js"
+    "devStart": "set NODE_ENV=dev && nodemon index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+<<<<<<< HEAD
     "@fullcalendar/daygrid": "^5.11.3",
     "@fullcalendar/react": "^5.11.2",
+=======
+    "bcryptjs": "^2.4.3",
+>>>>>>> new-remote/main
     "body-parser": "^1.20.0",
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
+    "dayjs": "^1.11.5",
     "dotenv": "^16.0.3",
     "ejs": "^3.1.8",
+<<<<<<< HEAD
     "express": "^4.18.1",
     "filepond": "^4.30.4",
     "react-filepond": "^7.1.2",
     "smart-webcomponents-react": "^14.4.0"
+=======
+    "email-validator": "^2.0.4",
+    "express": "^4.18.1",
+    "helmet": "^6.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^4.10.0",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.8.0",
+    "tesseract.js": "^3.0.3",
+    "uuid": "^9.0.0"
+>>>>>>> new-remote/main
   },
   "devDependencies": {
     "mongoose": "^6.6.2",
