@@ -59,7 +59,7 @@ reminderRouter.post("/new", async (req, res) => {
     datetime: reminderDatetime,
   })
     .then((reminder) => {
-      console.log(`Reminder created ${reminder}`);
+      console.log(`Reminder created for user (${user[1].id})`);
       return res.status(201).json({ reminder });
     })
     .catch((err) => {
