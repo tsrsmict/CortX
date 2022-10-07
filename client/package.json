@@ -1,16 +1,32 @@
 {
-  "name": "my-app",
+  "name": "frontend",
   "version": "0.1.0",
+  "main": "App.js",
   "private": true,
   "dependencies": {
-    "@reduxjs/toolkit": "^1.8.5",
+    "@fullcalendar/core": "^5.11.3",
+    "@fullcalendar/daygrid": "^5.11.3",
+    "@fullcalendar/react": "^5.11.2",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^14.4.3",
+    "@testing-library/user-event": "^13.5.0",
+    "chart.js": "^3.9.1",
+    "faker": "^6.6.6",
+    "filepond": "^4.30.4",
+    "filepond-plugin-image-exif-orientation": "^1.0.11",
+    "filepond-plugin-image-preview": "^4.6.11",
+    "ngrok": "^4.3.3",
+    "pintura": "^0.3.10",
     "react": "^18.2.0",
+    "react-axios": "^2.0.6",
+    "react-chartjs-2": "^4.3.1",
+    "react-circular-progressbar": "^2.1.0",
     "react-dom": "^18.2.0",
-    "react-redux": "^8.0.4",
-    "react-scripts": "5.0.1",
+    "react-filepond": "^7.1.2",
+    "react-icons": "^4.4.0",
+    "react-image-crop": "^10.0.8",
+    "react-router-dom": "^6.4.1",
+    "react-scripts": "^5.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -38,8 +54,6 @@
     ]
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.12",
-    "postcss": "^8.4.17",
-    "tailwindcss": "^3.1.8"
+    "@babel/preset-env": "^7.19.3"
   }
 }
