@@ -1,5 +1,5 @@
 import React from 'react'
-import Upload from './upload'
+// import Upload from './upload'
 import NavBar from './new_navbar'
 import Navbar from './navbar'
 function Files() {

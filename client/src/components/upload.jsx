@@ -1,18 +1,13 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 // import ReactDOM from "react-/dom";
 // Import React FilePond
-import { FilePond, registerPlugin } from "react-filepond";
-import "filepond/dist/filepond.min.css";
-import FilePondPluginImageExifOrientation from "filepond-plugin-image-exif-orientation";
-import FilePondPluginImagePreview from "filepond-plugin-image-preview";
-import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
-import Navbar from "./navbar";
-import NavBar from "./new_navbar";
+
+// import Navbar from "./navbar";
+// import NavBar from "./new_navbar";
 import { FaUpload } from "react-icons/fa";
-registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
+// registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
 
 export default function Upload() {
-  const [files, setFiles] = useState([]);
   return (
 
     <div className="bg-red-100 p-5 text-center justify-center content-center">

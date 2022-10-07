@@ -14,7 +14,7 @@ import SigninModule from "./components/signin_m"
 import SignupModule from "./components/signup_m";
 import Table from "./components/table";
 import Dashboard from "./apps/Dashboard";
-import Files from "./components/Files";
+// import Files from "./components/Files";
 import MyCalendar from "./components/Calendar";
 import Contacts from "./components/Contacts";
 import Recordings from "./components/Recordings";
