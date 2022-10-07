@@ -8,10 +8,11 @@ const ReminderSchema = new mongoose.Schema(
       ref: " User",
     },
     type: { type: String, required: true },
+    createdAt: { type: Date, default: Date.now },
     dateAndTime: { type: Date, required: true },
     content: { type: String, required: true },
   },
-  { collection: "reminders", timestamps: true }
+  { collection: "reminders" }
 );
 
 const Reminder = mongoose.model("Reminder", ReminderSchema);

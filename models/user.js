@@ -1,37 +1,39 @@
-import mongoose from 'mongoose'
-import bcrypt from 'bcryptjs'
+import mongoose from "mongoose";
+import bcrypt from "bcryptjs";
 
 const UserSchema = new mongoose.Schema(
-{
+  {
     username: { type: String, required: true, unique: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    tests: [{type: mongoose.Schema.Types.ObjectId, ref: 'Test'}]
-}, { collection: 'users' , timestamps: true})
+    tests: [{ type: mongoose.Schema.Types.ObjectId, ref: "Test" }],
+    reminders: [{ type: mongoose.Schema.Types.ObjectId, ref: "Reminder" }],
+  },
+  { collection: "users", timestamps: true }
+);
 
 UserSchema.pre("save", function (next) {
-    const user = this
-    if (this.isModified("password") || this.isNew) {
-      bcrypt.genSalt(10, function (saltError, salt) {
-        if (saltError) {
-          return next(saltError)
-        } else {
-          bcrypt.hash(user.password, salt, function(hashError, hash) {
-            if (hashError) {
-              return next(hashError)
-            }
-            console.log(hash)
-            user.password = hash
-            next()
-          })
-        }
-      })
-    } else {
-      return next()
-    }
-  })
+  const user = this;
+  if (this.isModified("password") || this.isNew) {
+    bcrypt.genSalt(10, function (saltError, salt) {
+      if (saltError) {
+        return next(saltError);
+      } else {
+        bcrypt.hash(user.password, salt, function (hashError, hash) {
+          if (hashError) {
+            return next(hashError);
+          }
+          console.log(hash);
+          user.password = hash;
+          next();
+        });
+      }
+    });
+  } else {
+    return next();
+  }
+});
 
+const User = mongoose.model("User", UserSchema);
 
-const User = mongoose.model('User', UserSchema)
-
-export default User
+export default User;

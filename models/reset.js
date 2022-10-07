@@ -1,17 +1,18 @@
 import mongoose from "mongoose";
 
-const ResetSchema = new mongoose.Schema(
+const ResetPasswordSchema = new mongoose.Schema(
   {
     userID: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
       ref: "User",
     },
-    resetID: { type: String, required: true, unique: true },
+    resetID: { type: String, required: true },
+    createdAt: { type: Date, expires: "180m", default: Date.now },
   },
-  { collection: "resets", timestamps: true }
+  { collection: "resets" }
 );
 
-const Reset = mongoose.model("Reset", ResetSchema);
+const ResetPassword = mongoose.model("ResetPassword", ResetPasswordSchema);
 
-export default Reset;
+export default ResetPassword;

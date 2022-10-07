@@ -5,9 +5,10 @@ import dotenv from "dotenv";
 import jsonwebtoken from "jsonwebtoken";
 import { validate } from "email-validator";
 import bcrypt from "bcryptjs";
+import { v4 as uuidV4 } from "uuid";
 
 import User from "../models/user.js";
-import Reset from "../models/reset.js";
+import ResetPassword from "../models/reset.js";
 
 const cookieAge = 5000; // in days
 
@@ -71,6 +72,11 @@ userRouter.post("/login", async (req, res) => {
     error: "Invalid e-mail/username/password",
   });
 });
+
+// TODO:
+// - actual reset password POST route
+// - reminders
+// - test upload
 
 // Register route
 userRouter.post("/register", async (req, res) => {
@@ -180,7 +186,23 @@ userRouter.post("/password/newReset", async (req, res) => {
     });
   }
 
-  let reset = Reset.create({});
+  const userID = user[_id].valueOf();
+  const resetID = uuidV4();
+
+  const response = await ResetPassword.create({
+    userID,
+    resetURL,
+  })
+    .then((userID) => {
+      console.log(`Created new 'Reset' for User (${userID})`);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
+  const resetMailId = response["_id"].valueOf();
+
+  // TODO: sending mail
 });
 
 export default userRouter;
