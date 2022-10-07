@@ -8,6 +8,7 @@ const UserSchema = new mongoose.Schema(
     password: { type: String, required: true },
     tests: [{ type: mongoose.Schema.Types.ObjectId, ref: "Test" }],
     reminders: [{ type: mongoose.Schema.Types.ObjectId, ref: "Reminder" }],
+    files: [{ type: mongoose.Schema.Types.ObjectId, ref: "File" }],
   },
   { collection: "users", timestamps: true }
 );
