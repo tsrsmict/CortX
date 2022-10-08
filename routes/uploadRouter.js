@@ -1,17 +1,14 @@
 import express from "express";
 import dotenv from "dotenv";
-import User from "../models/user.js";
+import checkUser from "../middlewares/checkUser.js";
+import File from "../models/file.js";
 
-import cookieParser from "cookie-parser";
-
-const uploadRouter = express.Router();
-uploadRouter.use(express.json());
-uploadRouter.use(cookieParser());
+const fileRouter = express.Router();
+fileRouter.use(express.json());
+fileRouter.use(cookieParser());
 
 dotenv.config();
-
-const checkUser = async (cookie) => {
-  const cookie_ = jsonwebtoken.verify(cookie, process.env.JWT_SECRET);
-  if (!(await User.exists({ _id: cookie_.id }))) return [false];
-  return [true, cookie_];
-};
+// await filepond config.
+fileRouter.post("new", checkUser, (req, res) => {
+  req.body.data;
+});
