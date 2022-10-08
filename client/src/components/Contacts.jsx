@@ -10,69 +10,18 @@ import NavBar from "../components/new_navbar";
 export default function Dashboard() {
 
   const TableData = [{
-    title: "White Blood Cell (WBC) (Leukocytes) Count",
-    value: 6250,
-    unit: 'cells/cu.mm',
-    bri_start: 4000,
-    bri_end: 10500,
-    color: false,
-    // percentage: String(200*TableDate[1][value]/bri_end+bri_start)
-
+    first_name: "John",
+    last_name: "Doe",
+    email: "email@email.com",
+    phone: "+12 3456789",
+    last_visit: "1 Year Ago",
   }, {
-    title: 'Red blood Cell (Wbc) Erthrocytes Count',
-    value: 4.94,
-    unit: 'milli/cu.mm',
-    bri_start: 4.7,
-    bri_end: 6.0,
-    color: true,
-  }, {
-    title: 'Platelet Count',
-    value: 173,
-    unit: '10^3/microliter',
-    bri_start: 150,
-    bri_end: 450,
-    color: false
-  },
-  {
-    title: 'Absolute Monocyte Count',
-    value: 500,
-    unit: '/c.mm',
-    bri_start: 200,
-    bri_end: 1000,
-    color: true
-  },
-  {
-    title: 'Absolute Eosinophilis Count',
-    value: 375,
-    unit: '/c.mm',
-    bri_start: 200,
-    bri_end: 1000,
-    color: false
-  },
-  {
-    title: 'Absolute Lymphocyte Count',
-    value: 500,
-    unit: '/c.mm',
-    bri_start: 1000,
-    bri_end: 3000,
-    color: true
-  }, {
-    title: 'Absolute Neutrophilis Count',
-    value: 3313,
-    unit: '/c.mm',
-    bri_start: 2000,
-    bri_end: 7000,
-    color: false
-  },
-  {
-    title: 'Absolute Neutrophilis Count',
-    value: 3313,
-    unit: '/c.mm',
-    bri_start: 2000,
-    bri_end: 7000,
-    color: true
+    first_name: "James",
+    last_name: "Doe",
+    email: "email@email.com",
+    phone: "+12 3456789",
+    last_visit: "2 Months Ago",
   }
-
 
   ]
 
@@ -91,32 +40,29 @@ export default function Dashboard() {
             <table className='table-fixed w-full rounded-2xl dark:text-white text-center m-auto'>
 
               <thead className=''>
-                <th className='p-5'>Parameter</th>
-                <th>Value</th>
-
-                <th>Risk level</th>
-                <th>Health level</th></thead>
+                <th className='p-5'>Name</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Last Visited</th></thead>
 
 
 
               {TableData.map((row, index) => {
                 return (
-
                   <tr key={index} className={` $(color && "shadow-2xl shadow-zinc-800")`}>
-                    <td className=''>{row.title}</td>
-                    <td>{row.value} {row.unit}</td>
-
-                    <td className='items-center'><span className='w-11/12 my-7 mx-5'><div className={`w-11/12 h-4.5 rounded-full bg-zinc-200 dark:bg-stone-700`}>
-                      <div className="h-4.5 rounded-full bg-rose-500 dark:bg-rose-700" style={{ width: "30%" }}>30%</div>
-                    </div></span></td>
-
-                    <td className=' items-center'><span className='w-full my-7 mx-5'><div className={`w-11/12 h-4.5 rounded-full bg-zinc-200 dark:bg-stone-700`}>
-                      <div className="h-4.5 rounded-full bg-emerald-500 dark:bg-teal-700" style={{ width: "90%" }}>90%</div>
-                    </div></span></td>
+                    <td className=''>{row.first_name} {row.last_name}</td>
+                    <td className=''>{row.email}</td>
+                    <td className=''>{row.phone}</td>
+                    <td className=''>{row.last_visit}</td>
                   </tr>
                 )
               })}
             </table>
+          </div>
+          <div>
+          <button className="mt-12 mx-auto mb-5 h-fit w-fit flex bg-green-500 m-auto text-zinc-100 hover:bg-blue-900 rounded-lg shadow-xl  border-1 border-gray-200 p-3">
+                <span className="">Add Contacts</span>
+              </button>
           </div>
 
 
