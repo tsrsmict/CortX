@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "main": "App.js",
   "private": true,
+  "proxy": "http://localhost:5000",
   "dependencies": {
     "@fullcalendar/core": "^5.11.3",
     "@fullcalendar/daygrid": "^5.11.3",
@@ -34,7 +35,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=5000 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
