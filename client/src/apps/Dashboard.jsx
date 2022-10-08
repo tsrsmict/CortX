@@ -17,7 +17,6 @@ export default function Dashboard() {
     bri_end: 10500,
     color: false,
     // percentage: String(200*TableDate[1][value]/bri_end+bri_start)
-
   }, {
     title: 'Red blood Cell (Wbc) Erthrocytes Count',
     value: 4.94,
@@ -81,14 +80,14 @@ export default function Dashboard() {
       <NavBar className='sm:hidden' />
       <div className="flex h-full">
         <Navbar className="absolute top-44 left-55 z-0 shadow-white shadow-lg " style={{ position: "shadow-lg" }} />
-        <div className="p-1 sm:p-8 mt-16 lg:mt-0 md:ml-12 lg:p-12 ">
+        <div className="p-1 sm:p-5 mt-16 lg:mt-0 md:ml-12 lg:p-12 ">
           <div className="flex p-5">
             <RiDashboardFill className="text-5xl mr-5 text-sky-800 dark:text-sky-300" />
             <h1 className="text-5xl font-mono dark:text-white font-bold">Dashboard</h1>
           </div>
           <div className="">
             <div className=" m-auto p-4 lg:p-12  sm:flex  w-full">
-              <div className="sm:w-11/12 xl:w-1/2 lg:w-2/3 bg-zinc-200/[0.8] dark:bg-zinc-200 p-3 shadow-2xl shadow-zinc-600 rounded-2xl m-auto">
+              <div className="sm:w-3/12 xl:w-1/2 lg:w-2/3 bg-zinc-200/[0.8] dark:bg-zinc-200 p-3 shadow-2xl shadow-zinc-600 rounded-2xl m-auto">
                 <App />
 
               </div>
@@ -114,7 +113,7 @@ export default function Dashboard() {
                     <td className=''>{row.title}</td>
                     <td>{row.value} {row.unit}</td>
 
-                    <td className='items-center'><span className='w-11/12 my-7 mx-5'><div className={`w-11/12 h-4.5 rounded-full bg-zinc-200 dark:bg-stone-700`}>
+                    <td className='items-center'><span className='w-3/12 my-7 mx-5'><div className={`w-11/12 h-4.5 rounded-full bg-zinc-200 dark:bg-stone-700`}>
                       <div className="h-4.5 rounded-full bg-rose-500 dark:bg-rose-70 w-2/5 duration-300">40%</div>
                     </div></span></td>
 
@@ -126,8 +125,9 @@ export default function Dashboard() {
               })}
             </table>
           </div>
-
-
+          <div className="rounded-full bg-black text-white dark:bg-white dark:text-black w-fit h-fit">
+            Add more data
+          </div>
         </div>
       </div>
     </div>
