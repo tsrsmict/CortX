@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-
+import dayjs from "dayjs";
 const FileSchema = new mongoose.Schema(
   {
     userID: {
@@ -7,9 +7,9 @@ const FileSchema = new mongoose.Schema(
       required: true,
       ref: "User",
     },
-    extension: { type: String, required: true },
-    fileName: { type: String, required: true },
-    fileDesc: String,
+    name: { type: String, required: true },
+    desc: String,
+    type: { type: String, required: true },
     binData: { type: Buffer, required: true },
   },
   { collection: "files", timestamps: true }

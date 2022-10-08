@@ -13,7 +13,7 @@ reminderRouter.use(cookieParser());
 
 reminderRouter.post("/new", checkUser, async (req, res) => {
   // (x) - POST Layout
-  // reminderName (opt)
+  // fileName
   // reminderDesc (opt)
   // reminderType (opt)
   // reminderDatetime
