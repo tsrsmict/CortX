@@ -24,7 +24,7 @@ export default function Upload() {
     console.log(newdata);
   }
   return (
-<<<<<<< HEAD
+    <div>
 
     // <div className="p-5 text-center">
     //    <div className="p-12 h-30 m-auto w-1/2 bg-gray-200 dark:bg-gray-700 dark:text-white text-center rounded-lg  border-1 border-black">
@@ -49,7 +49,7 @@ export default function Upload() {
     //   </div>
     // </div>
     <FilePond className="filepond--item" />
-=======
+
     <div className="p-5 text-center">
       <div className="p-12 h-30 m-auto w-1/2 bg-gray-200 dark:bg-gray-700 dark:text-white text-center rounded-lg  border-1 border-black">
         <h1 className="text-5xl font-bold font-mono mb-12">
@@ -102,6 +102,6 @@ export default function Upload() {
         </form>
       </div>
     </div>
->>>>>>> ed7829a713c651cbdb3755e30b073c900f128873
+    </div>
   );
 }
