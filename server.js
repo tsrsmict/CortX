@@ -54,7 +54,7 @@ import reminderRouter from "./routes/reminderRouter.js";
 app.use("/api/reminders/", reminderRouter);
 
 import fileRouter from "./routes/fileRouter.js";
-app.use("/api/file/", fileRouter);
+app.use("/api/files/", fileRouter);
 
 // ejs view engine
 app.set("view engine", "ejs");
