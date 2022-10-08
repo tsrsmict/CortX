@@ -67,9 +67,9 @@ app.use(express.static("public"));
 app.use("/assets", express.static("assets"));
 
 // Root route
-app.get("/", (req, res) => {
-  res.json("yo");
-});
+// app.get("/", (req, res) => {
+//   res.json("yo");
+// });
 
 // const transporter = new MailTransporter("smtp.ethereal.email", "587", "joyce.nikolaus@ethereal.email", "Wd5ygyRUWkhNYbUxyx", false)
 

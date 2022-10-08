@@ -20,8 +20,8 @@ dotenv.config();
 
 // Login route
 userRouter.post("/login", async (req, res) => {
-  var { usermail, password: passwordPlain } = req.body;
-  var user = null;
+  let { usermail, password: passwordPlain } = req.body;
+  let user = null;
   if (!usermail || !passwordPlain) {
     return res.status(400).json({ status: "error", error: "Missing fields." });
   }
@@ -93,7 +93,7 @@ userRouter.post("/register", async (req, res) => {
   }
 
   // Getting req body values
-  var { username, email, password, confirmation } = req.body;
+  let { username, email, password, confirmation } = req.body;
   email = email.toLowerCase();
 
   if (typeof username !== "string") {
@@ -121,7 +121,7 @@ userRouter.post("/register", async (req, res) => {
       .status(400)
       .json({ status: "error", error: "Passwords don't match." });
   }
-  var response;
+  let response;
   try {
     response = await User.create({
       username,
