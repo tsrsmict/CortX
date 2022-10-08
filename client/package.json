@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "main": "App.js",
   "private": true,
-  "proxy": "http://localhost:5000",
+  "proxy": "http://localhost:3000",
   "dependencies": {
     "@fullcalendar/core": "^5.11.3",
     "@fullcalendar/daygrid": "^5.11.3",
