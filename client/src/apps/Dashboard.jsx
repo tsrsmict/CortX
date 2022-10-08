@@ -8,7 +8,6 @@ import { RiDashboardFill } from "react-icons/ri";
 import NavBar from "../components/new_navbar";
 import axios from "axios";
 // import {Line} from 'react-chartjs-2'
-
 async function checkAuth() {
   await fetch("/api/users/checkAuth", {
     method: "GET",
@@ -20,8 +19,9 @@ async function checkAuth() {
     });
 }
 
+
 export default function Dashboard() {
-  checkAuth();
+  checkAuth()
 
   const TableData = [
     {

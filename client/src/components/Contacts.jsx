@@ -8,24 +8,6 @@ import { FcAddressBook } from "react-icons/fc";
 import NavBar from "../components/new_navbar";
 // import {Line} from 'react-chartjs-2'
 export default function Dashboard() {
-<<<<<<< HEAD
-
-  const TableData = [{
-    first_name: "John",
-    last_name: "Doe",
-    email: "email@email.com",
-    phone: "+91 3456789",
-    hospital: "SRCC Gurugram",
-  }, {
-    first_name: "James",
-    last_name: "Doe",
-    email: "email@email.com",
-    phone: "+12 3456789",
-    last_visit: "2 Months Ago",
-  }
-
-  ]
-=======
   const TableData = [
     {
       first_name: "John",
@@ -42,7 +24,7 @@ export default function Dashboard() {
       last_visit: "2 Months Ago",
     },
   ];
->>>>>>> 44202da8e3d51ddccd0b8758699debb3734371be
+
 
   return (
     <div className=" absolute overflow-auto dark:bg-stone-900 h-screen w-screen">
