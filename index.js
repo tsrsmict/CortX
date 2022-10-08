@@ -77,7 +77,7 @@ app.use("/assets", express.static("assets"));
 
 // transporter.send("<joyce.nikolaus@ethereal.email> healthcare", "sahnivarun62@gmail.com", "yo", "yo")
 
-const listener = server.listen(process.env.PORT || 3000, (err) => {
+const listener = server.listen(process.env.PORT || 5000, (err) => {
   if (err) {
     console.log(err);
   } else {
