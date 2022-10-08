@@ -6,6 +6,14 @@ const UserSchema = new mongoose.Schema(
     username: { type: String, required: true, unique: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
+    contacts: [
+      {
+        name: String,
+        email: String,
+        phoneNumber: String,
+        Hospital: String,
+      },
+    ],
     tests: [{ type: mongoose.Schema.Types.ObjectId, ref: "Test" }],
     reminders: [{ type: mongoose.Schema.Types.ObjectId, ref: "Reminder" }],
     files: [{ type: mongoose.Schema.Types.ObjectId, ref: "File" }],
