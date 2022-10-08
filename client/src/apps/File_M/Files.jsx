@@ -3,6 +3,7 @@ import React from "react";
 import { FcFolder, FcDepartment, FcBiotech, FcDocument, FcManager, FcBusinessContact, FcMoneyTransfer } from "react-icons/fc";
 import NavBar from "../../components/new_navbar";
 import Navbar from "../../components/navbar";
+
 // https://tailwindcomponents.com/
 
 export default function Files() {

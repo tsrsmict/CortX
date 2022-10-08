@@ -7,7 +7,7 @@ import { CgProfile } from "react-icons/cg";
 import { FcAddressBook, FcAlarmClock, FcSettings, FcBearish, FcCalendar, FcFolder } from "react-icons/fc";
 
 export default function Navbar() {
-  const [navbar, setNavbar] = useState(true)
+  const [navbar, setNavbar] = useState(false)
   const Menus = [
     // {
     //   title: "",
@@ -58,14 +58,14 @@ export default function Navbar() {
 
   ];
   return (
-    <div className="font-mono hidden fixed h-screen z-50 lg:block">
+    <div className="font-mono hidden  fixed h-screen z-50 lg:block">
     
       <div
         className={`sm:p-5 sm:pt-8 ${navbar ? "w-72" : "w-20"} h-full duration-300 relative bg-gray-200 dark:bg-neutral-700  shadow-lg `}
         
       >
         <BsArrowLeftShort
-      className={`fixed ml-64 bg-dark-purple text-white dark:bg-white dark:text-dark-purple text-3xl rounded-full cursor-pointer border ${!navbar && "rotate-180 ml-9"} duration-300`}
+      className={` bg-dark-purple text-white dark:bg-white dark:text-dark-purple text-3xl rounded-full cursor-pointer border ${navbar ? "ml-64": "rotate-180 ml-9"} duration-300`}
       onClick={() => setNavbar(!navbar)}
     />
         <div className='absolute'>
@@ -77,7 +77,7 @@ export default function Navbar() {
 
           {Menus.map((menu, index) => (
             <a href={menu.link}>
-              <li key={index} className={` dark:text-gray-300 text-sm flex item-center gap-x-4 cursor-pointer p-2 hover:bg-stone-600/[0.5] hover:translate-x-5 rounded-sm`}>
+              <li key={index} className={`md:mb-12 mx-2 dark:text-white text-sm flex item-center gap-x-4 cursor-pointer p-2 hover:bg-stone-600/[0.5] hover:translate-x-5 rounded-sm`}>
                 <span className="text-2xl block float-left">{menu.icon}</span>
                 <span className={`text-base font-medium flex-1 ${!navbar && "hidden"} hover:text-black duration-200`}>{menu.title}</span>
                 

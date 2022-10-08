@@ -2,8 +2,13 @@ import React from "react";
 // import Navbar from '../components/navbar'
 export default function SignupModule() {
   return (
-    <div className="grid min-h-screen bg-sign-up-light dark:bg-sign-up-dark place-items-center">
-    <div className="transition ease-in duration-200 hover:backdrop-blur-2xl border-1 border-gray-700 rounded-2xl w-11/12 p-12 bg-sign-up bg-white/[0.7] dark:bg-stone-900/[0.8] shadow-2xl dark:shadow-zinc-800 sm:w-1/2 lg:w-5/12">
+
+    <div class="grid min-h-screen bg-sign-up-light dark:bg-sign-up-dark place-items-center">
+    <div class="transition ease-in duration-200 hover:-translate-y-5  hover:-translate-x-5 hover:backdrop-blur-2xl border-1 border-gray-700 rounded-2xl w-11/12 p-12 bg-sign-up sm:w-8/12 bg-white/[0.7] dark:bg-zinc-900/[0.8] shadow-2xl dark:shadow-zinc-800  lg:w-5/12">
+
+    <div className="grid  place-items-center">
+    <div className="transition ease-in duration-200  border-1 border-gray-700 rounded-2xl w-11/12 p-12  sm:w-full lg:w-full">
+
   
   <h1 className="text-5xl font-semibold dark:text-white">Sign Up</h1>
   <br/><br/>
@@ -20,8 +25,8 @@ export default function SignupModule() {
     </button>
     <a href="/signin"><p className="flex justify-between mt-4 text-xs text-gray-500 dark:text-white cursor-pointer hover:text-sky-900">Already registered?</p></a>
   </form>
+</div></div>
 </div>
-
 </div>
   );
 }
