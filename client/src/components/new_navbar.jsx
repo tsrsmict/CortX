@@ -11,43 +11,37 @@ export default function NavBar() {
         {
           title: "Dashboard",
           icon: <RiDashboardFill className={`text-sky-800 dark:text-sky-300 ${!navbar && "rotate"}`} />,
-          link: "../../apps/Dashboard.jsx"
+          link: "/"
         },
     
         {
           title: "Files",
           icon: <FcFolder />,
-          link: "../../apps/Dashboard.jsx"
+          link: "/files"
     
         },
         {
           title: "Calendar",
           icon: <FcCalendar />,
-          link: "../../apps/Dashboard.jsx"
-        },
-    
-        {
-          title: "Recordings",
-          icon: <FcBearish />,
-          link: "../../apps/Dashboard.jsx"
+          link: "/calendar"
         },
         {
           title: "Contacts",
           icon: <FcAddressBook />,
-          link: "../../apps/Dashboard.jsx"
+          link: ".contacts"
         },
     
     
         {
           title: "Profile",
           icon: <CgProfile className="text-green-800 dark:text-green-300" />,
-          link: "../../apps/Dashboard.jsx"
+          link: "/"
         },
     
         {
           title: "Settings",
           icon: <FcSettings />,
-          link: "../../apps/Dashboard.jsx"
+          link: "/"
         },
     
         {

@@ -2,7 +2,7 @@
 import Navbar from "../components/navbar";
 // import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import { App } from "../components/chart";
+// import { App } from "../components/chart";
 import { FcAddressBook } from "react-icons/fc";
 // import Table from "../components/table";
 import NavBar from "../components/new_navbar";

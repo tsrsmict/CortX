@@ -4,7 +4,7 @@ import { FaPowerOff } from "react-icons/fa";
 import { BsArrowLeftShort} from "react-icons/bs";
 import { RiDashboardFill } from "react-icons/ri";
 import { CgProfile } from "react-icons/cg";
-import { FcAddressBook, FcSettings, FcBearish, FcCalendar, FcFolder } from "react-icons/fc";
+import { FcAddressBook, FcAlarmClock, FcSettings, FcBearish, FcCalendar, FcFolder } from "react-icons/fc";
 
 export default function Navbar() {
   const [navbar, setNavbar] = useState(true)
@@ -31,13 +31,6 @@ export default function Navbar() {
       icon: <FcCalendar />,
       link: "/calendar"
     },
-
-    {
-      title: "Recordings",
-      icon: <FcBearish />,
-      link: "/recordings"
-    },
-
     {
       title: "Contacts",
       icon: <FcAddressBook />,
@@ -83,12 +76,12 @@ export default function Navbar() {
         <ul className="fixed">
 
           {Menus.map((menu, index) => (
-
-              <li key={index} className={` dark:text-gray-300 text-sm flex item-center gap-x-4 cursor-pointer p-2  rounded-sm`}>
+            <a href={menu.link}>
+              <li key={index} className={` dark:text-gray-300 text-sm flex item-center gap-x-4 cursor-pointer p-2 hover:bg-stone-600/[0.5] hover:translate-x-5 rounded-sm`}>
                 <span className="text-2xl block float-left">{menu.icon}</span>
-                <span className={`text-base font-medium flex-1 ${!navbar && "hidden"} hover:text-black duration-200`}><a href={menu.link}>{menu.title}</a></span>
+                <span className={`text-base font-medium flex-1 ${!navbar && "hidden"} hover:text-black duration-200`}>{menu.title}</span>
                 
-              </li>
+              </li></a>
 
           ))}
         </ul>
