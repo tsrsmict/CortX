@@ -58,14 +58,14 @@ export default function Navbar() {
 
   ];
   return (
-    <div className="font-mono hidden fixed h-screen z-50 lg:block">
+    <div className="font-mono hidden  fixed h-screen z-50 lg:block">
     
       <div
         className={`sm:p-5 sm:pt-8 ${navbar ? "w-72" : "w-20"} h-full duration-300 relative bg-gray-200 dark:bg-neutral-700  shadow-lg `}
         
       >
         <BsArrowLeftShort
-      className={`fixed ml-64 bg-dark-purple text-white dark:bg-white dark:text-dark-purple text-3xl rounded-full cursor-pointer border ${!navbar && "rotate-180 ml-9"} duration-300`}
+      className={` bg-dark-purple text-white dark:bg-white dark:text-dark-purple text-3xl rounded-full cursor-pointer border ${navbar ? "ml-64": "rotate-180 ml-9"} duration-300`}
       onClick={() => setNavbar(!navbar)}
     />
         <div className='absolute'>
