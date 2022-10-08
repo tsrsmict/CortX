@@ -496,7 +496,7 @@ video {
 .min-w-fit {
     min-width: -webkit-fit-content;
     min-width: -moz-fit-content;
-    min-width: fit-content
+    min-width: fit-content;
 }
 
 .flex-1 {

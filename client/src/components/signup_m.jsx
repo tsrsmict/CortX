@@ -3,7 +3,7 @@ import React from "react";
 export default function SignupModule() {
   return (
     <div class="grid min-h-screen bg-sign-up-light dark:bg-sign-up-dark place-items-center">
-    <div class="transition ease-in duration-200 hover:-translate-y-5  hover:-translate-x-5 hover:backdrop-blur-2xl border-1 border-gray-700 rounded-2xl w-11/12 p-12 bg-sign-up sm:w-8/12 bg-white/[0.7] dark:bg-zinc-900/[0.8] shadow-2xl dark:shadow-zinc-800 sm:w-1/2 lg:w-5/12">
+    <div class="transition ease-in duration-200 hover:-translate-y-5  hover:-translate-x-5 hover:backdrop-blur-2xl border-1 border-gray-700 rounded-2xl w-11/12 p-12 bg-sign-up sm:w-8/12 bg-white/[0.7] dark:bg-zinc-900/[0.8] shadow-2xl dark:shadow-zinc-800  lg:w-5/12">
   
   <h1 class="text-5xl font-semibold dark:text-white">Sign Up</h1>
   <br/><br/>
