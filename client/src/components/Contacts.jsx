@@ -13,8 +13,8 @@ export default function Dashboard() {
     first_name: "John",
     last_name: "Doe",
     email: "email@email.com",
-    phone: "+12 3456789",
-    last_visit: "1 Year Ago",
+    phone: "+91 3456789",
+    hospital: "SRCC Gurugram",
   }, {
     first_name: "James",
     last_name: "Doe",
