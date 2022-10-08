@@ -1,5 +1,6 @@
 import React from "react";
 // import Navbar from '../components/navbar'
+import axios from "axios";
 class SignupModule extends React.Component {
   constructor(props){
     super(props)
@@ -12,6 +13,12 @@ class SignupModule extends React.Component {
   changeHandler = (e) => {
     this.setState({[e.target.name]: e.target.value})
   }
+
+  submitHandler = (e) => {
+    e.preventDefault()
+    console.log(this.state)
+    axios.post('/api/users/register', )
+  }
   render() {
     const {email, password, confirm} = this.state
   return (
@@ -23,7 +30,7 @@ class SignupModule extends React.Component {
           <form className="mt-6" onSubmit={(e) => this.submitHandler(e)}>
   
             <label htmlFor="email" className="block mt-2 text-xs font-semibold text-gray-600 dark:text-white uppercase">E-mail/Username</label>
-            <input id="email" type="text" name="usermail" placeholder="JohnDoe / john.doe@company.com" autoComplete="email" defaultValue={email} onChange={this.changeHandler} className="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
+            <input id="email" type="text" name="email" placeholder="JohnDoe / john.doe@company.com" autoComplete="email" defaultValue={email} onChange={this.changeHandler} className="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
             <br /><br />
             <label htmlFor="password" className="block mt-2 text-xs font-semibold text-gray-600  dark:text-white uppercase">Password</label>
             <input id="password" type="password" name="password" placeholder="********" autoComplete="new-password" defaultValue={password} onChange={this.changeHandler} className="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
