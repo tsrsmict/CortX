@@ -23,11 +23,12 @@ class SigninModule extends Component {
       password: this.state.password
     })
         .then(response => {
-          if (response.status == 'ok') console.log("jwtToken: ", response.token)
-          else {
-            alert(response.error)
-            window.location.replace('/')
-          }
+          console.log(response)
+          console.log("jwtToken: ", response.data.token); window.location.replace("/")
+
+        })
+        .catch(err => {
+          alert(err.response.data.error)
         })
   }
   render() {

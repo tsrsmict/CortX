@@ -7,16 +7,37 @@ import { validate } from "email-validator";
 import bcrypt from "bcryptjs";
 import { v4 as uuidV4 } from "uuid";
 import dayjs from "dayjs";
-
 import User from "../models/user.js";
 import ResetPassword from "../models/reset.js";
-
+import cookieParser from "cookie-parser"
 // Router setup
 const userRouter = Router();
 userRouter.use(express.json());
-
+userRouter.use(cookieParser())
 // Configure dotenv (default)
 dotenv.config();
+
+
+userRouter.get("/checkAuth", async (req, res) => {
+  console.log("Auth check.")
+      if (req.cookies.jwtToken == null)
+      return res
+        .status(400)
+        .json({ auth: false });
+    let cookie;
+    try {
+      cookie = jsonwebtoken.verify(req.cookies.jwtToken, process.env.JWT_SECRET);
+      if (!(await User.exists({ _id: cookie.id })))
+        return res
+          .json({ auth: false });
+    } catch (err) {
+      return res
+        .json({ auth: false });
+}
+
+
+return res.json({ auth: true })
+})
 
 // Login route
 userRouter.post("/login", async (req, res) => {
@@ -210,5 +231,7 @@ userRouter.post("/password/newReset", async (req, res) => {
 
   // TODO: sending mail
 });
+
+
 
 export default userRouter;
