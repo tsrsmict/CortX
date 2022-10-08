@@ -33,11 +33,12 @@ class SigninModule extends Component {
           <br /><br />
           <form className="mt-6" onSubmit={this.submitHandler}>
   
-            <label htmlFor="email" className="block mt-2 text-xs font-semibold text-gray-600 dark:text-white uppercase">E-mail</label>
+            <label htmlFor="email" className="block mt-2 text-xs font-semibold text-gray-600 dark:text-white uppercase">E-mail/Username</label>
             <input id="email" type="email" name="email" placeholder="john.doe@company.com" autoComplete="email" value={email} onChange={this.changeHandler} className="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
             <br /><br />
             <label htmlFor="password" className="block mt-2 text-xs font-semibold text-gray-600  dark:text-white uppercase">Password</label>
             <input id="password" type="password" name="password" placeholder="********" autoComplete="new-password" value={password} onChange={this.changeHandler} className="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
+            
             <br />
             <button type="submit" className=" w-full py-3 mt-6 font-medium tracking-widest text-white dark:text-black uppercase bg-black shadow-lg dark:bg-white dark:hover:text-white focus:outline-none hover:bg-gray-600 duration-300 hover:shadow-none"
             ><Link to="/">
