@@ -17,7 +17,7 @@ import Dashboard from "./apps/Dashboard";
 // import Files from "./components/Files";
 import MyCalendar from "./components/Calendar";
 import Contacts from "./components/Contacts";
-import Recordings from "./components/Recordings";
+// import Recordings from "./components/Recordings";
 // import Files_M from './components/Files';
 // import Navbar from './components/navbar';
 import Files from './apps/File_M/Files'
@@ -25,6 +25,7 @@ import Files from './apps/File_M/Files'
 // import NavBar from "./components/navbar";
 // import Malendar from "./apps/calendar";
 import Upload from './components/upload'
+import ReminderMake from "./components/reminder_make";
 const TableData = [{
   title: "White Blood Cell (WBC) (Leukocytes) Count",
   value: 6250,
@@ -105,8 +106,8 @@ root.render(
           <Route path="/files" element={<Files />}></Route>
           <Route path="/upload" element={<Upload />}></Route>
           <Route path="/contacts" element={<Contacts />}></Route>
-          <Route path="/recordings" element={<Recordings />}></Route>
           <Route path="/calendar" element={<MyCalendar />}></Route>
+          <Route path='/remindermake' element={<ReminderMake/>}></Route>
         </Routes>
       </div>
     </Router>

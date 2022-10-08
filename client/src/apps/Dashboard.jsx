@@ -81,7 +81,7 @@ export default function Dashboard() {
       <NavBar className='sm:hidden' />
       <div className="flex h-full">
         <Navbar className="absolute top-44 left-55 z-0 shadow-white shadow-lg " style={{ position: "shadow-lg" }} />
-        <div className="p-1 sm:p-8 mt-20 md:ml-12 lg:p-12 ">
+        <div className="p-1 sm:p-8 mt-16 lg:mt-0 md:ml-12 lg:p-12 ">
           <div className="flex p-5">
             <RiDashboardFill className="text-5xl mr-5 text-sky-800 dark:text-sky-300" />
             <h1 className="text-5xl font-mono dark:text-white font-bold">Dashboard</h1>

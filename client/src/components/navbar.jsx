@@ -7,7 +7,7 @@ import { CgProfile } from "react-icons/cg";
 import { FcAddressBook, FcAlarmClock, FcSettings, FcBearish, FcCalendar, FcFolder } from "react-icons/fc";
 
 export default function Navbar() {
-  const [navbar, setNavbar] = useState(true)
+  const [navbar, setNavbar] = useState(false)
   const Menus = [
     // {
     //   title: "",
@@ -77,7 +77,7 @@ export default function Navbar() {
 
           {Menus.map((menu, index) => (
             <a href={menu.link}>
-              <li key={index} className={` dark:text-white text-sm flex item-center gap-x-4 cursor-pointer p-2 hover:bg-stone-600/[0.5] hover:translate-x-5 rounded-sm`}>
+              <li key={index} className={`md:mb-12 mx-2 dark:text-white text-sm flex item-center gap-x-4 cursor-pointer p-2 hover:bg-stone-600/[0.5] hover:translate-x-5 rounded-sm`}>
                 <span className="text-2xl block float-left">{menu.icon}</span>
                 <span className={`text-base font-medium flex-1 ${!navbar && "hidden"} hover:text-black duration-200`}>{menu.title}</span>
                 

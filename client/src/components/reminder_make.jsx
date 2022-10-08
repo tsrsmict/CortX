@@ -1,18 +1,16 @@
-import React from 'react'
+import React, { useState } from "react";
+import DatePicker from "react-datepicker";
 
-export default function ReminderMake() {
+import "react-datepicker/dist/react-datepicker.css";
+
+// CSS Modules, react-datepicker-cssmodules.css
+// import 'react-datepicker/dist/react-datepicker-cssmodules.css';
+
+export default function ReminderMake () {
+  const [startDate, setStartDate] = useState(new Date());
   return (
-    
-    <div>
-
-    <div className="flex items-center justify-center">
-<div className="datepicker relative form-floating mb-3 xl:w-96" data-smb-toggle-button="false">
-<input type="text"
-className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-placeholder="Select a date" data-smb-toggle="datepicker" />
-<label htmlFor="floatingInput" className="text-gray-700">Select a date</label>
-</div>
-</div>
-</div>
-      )
-}
+    <div className="p-24">
+    <DatePicker selected={startDate} onChange={(date) => setStartDate(date)}/>
+    </div>
+  );
+};
