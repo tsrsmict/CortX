@@ -33,6 +33,11 @@ userRouter.get("/checkAuth", async (req, res) => {
   return res.json({ auth: true });
 });
 
+userRouter.get("/logout", async (req, res) => {
+  res.clearCookie("jwtToken");
+  return res.json("Logged out.");
+});
+
 // Login route
 userRouter.post("/login", async (req, res) => {
   let { usermail, password: passwordPlain } = req.body;
