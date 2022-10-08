@@ -4,7 +4,7 @@ import checkUser from "../middlewares/checkUser.js";
 import cookieParser from "cookie-parser";
 import mongoose from "mongoose";
 import User from "../models/user.js";
-
+import { log, Style } from "../devlibs/dev.js";
 // Router setup
 const reminderRouter = express.Router();
 reminderRouter.use(express.json());
@@ -50,7 +50,11 @@ reminderRouter.post("/new", checkUser, async (req, res) => {
     .then((reminder) => {
       // Logging the userId for whom the reminder was created
 
-      console.log(`Reminder created for user (${req.checkData.id})`);
+      log(
+        `${Style.blue("REMINDER:")} ${Style.green(
+          "Created successfully."
+        )} ${Style.yellow(`[UserID: ${req.checkData.id}]`)}`
+      );
 
       // Push the reminderId into the users reminders field so it can be referenced and populated later
       User.findByIdAndUpdate(
@@ -61,6 +65,14 @@ reminderRouter.post("/new", checkUser, async (req, res) => {
         { new: true, upsert: true },
         (err, o) => {
           if (err) throw err;
+          if (o)
+            log(
+              ` ${Style.greenBright.bold("X")} ${Style.blue(
+                "REMINDER:"
+              )} ${Style.green("Pushed successfully to USER")} ${Style.yellow(
+                `[${req.checkData.id}]`
+              )}`
+            );
         }
       );
 
