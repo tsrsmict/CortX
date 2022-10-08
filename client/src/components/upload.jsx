@@ -1,7 +1,7 @@
 
 
-import { Link, useNavigate } from "react-router-dom";
-import React, { Component, useState } from "react";
+// import { Link, useNavigate } from "react-router-dom";
+import React, { Component } from "react";
 import { FaUpload } from "react-icons/fa";
 import axios from "axios";
 import FormData from "form-data"
