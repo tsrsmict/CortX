@@ -20,8 +20,8 @@ dotenv.config();
 
 // Login route
 userRouter.post("/login", async (req, res) => {
-  var { usermail, password: passwordPlain } = req.body;
-  var user = null;
+  let { usermail, password: passwordPlain } = req.body;
+  let user = null;
   if (!usermail || !passwordPlain) {
     return res.status(400).json({ status: "error", error: "Missing fields." });
   }
@@ -29,7 +29,6 @@ userRouter.post("/login", async (req, res) => {
   if (validate(usermail)) {
     // input is an e-mail
     usermail = usermail.toLowerCase();
-    console.log(usermail);
     if (typeof usermail !== "string") {
       return res.status(400).json({
         status: "error",
@@ -39,7 +38,6 @@ userRouter.post("/login", async (req, res) => {
     user = await User.findOne({ email: usermail }).exec();
   } else {
     usermail = usermail;
-    console.log(usermail);
     user = await User.findOne({ username: usermail }).exec();
   }
 
@@ -53,8 +51,7 @@ userRouter.post("/login", async (req, res) => {
   // Log the user - TODO: Delete later for security
   console.log(user);
 
-  var hash = user["password"];
-  console.log(hash);
+  let hash = user["password"];
   if (await bcrypt.compare(passwordPlain, hash)) {
     // Found
     console.log("Logged in.");
@@ -85,8 +82,6 @@ userRouter.post("/login", async (req, res) => {
 
 // Register route
 userRouter.post("/register", async (req, res) => {
-  console.log(req.body);
-
   // Make sure all inputs are existing
   if (
     !req.body.username ||
@@ -98,7 +93,7 @@ userRouter.post("/register", async (req, res) => {
   }
 
   // Getting req body values
-  var { username, email, password, confirmation } = req.body;
+  let { username, email, password, confirmation } = req.body;
   email = email.toLowerCase();
 
   if (typeof username !== "string") {
@@ -126,7 +121,7 @@ userRouter.post("/register", async (req, res) => {
       .status(400)
       .json({ status: "error", error: "Passwords don't match." });
   }
-  var response;
+  let response;
   try {
     response = await User.create({
       username,
@@ -139,7 +134,7 @@ userRouter.post("/register", async (req, res) => {
   } catch (error) {
     if (error.code === 11000) {
       // duplicate username or e-mail
-      return res.status(400).json({
+      return res.status(409).json({
         status: "error",
         error: "Username/E-mail already in use.",
       });
@@ -174,7 +169,6 @@ userRouter.post("/password/newReset", async (req, res) => {
   if (validate(usermail)) {
     // input is an e-mail
     usermail = usermail.toLowerCase();
-    console.log(usermail);
     if (typeof usermail !== "string") {
       return res.status(400).json({
         status: "error",
@@ -184,12 +178,11 @@ userRouter.post("/password/newReset", async (req, res) => {
     user = await User.findOne({ email: usermail }).exec();
   } else {
     usermail = usermail;
-    console.log(usermail);
     user = await User.findOne({ username: usermail }).exec();
   }
 
   if (!user) {
-    return res.status(400).json({
+    return res.status(403).json({
       status: "error",
       error: "User does not exist.",
     });
@@ -207,6 +200,10 @@ userRouter.post("/password/newReset", async (req, res) => {
     })
     .catch((err) => {
       console.log(err);
+      return res.status(501).json({
+        status: "error",
+        error: "Something happened. Please contact the admin.",
+      });
     });
 
   const resetMailId = response["_id"].valueOf();

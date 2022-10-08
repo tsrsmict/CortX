@@ -67,17 +67,12 @@ app.use(express.static("public"));
 app.use("/assets", express.static("assets"));
 
 // Root route
-app.get("/", (req, res) => {
-  res.json("yo");
-});
 
 // const transporter = new MailTransporter("smtp.ethereal.email", "587", "joyce.nikolaus@ethereal.email", "Wd5ygyRUWkhNYbUxyx", false)
-
 // transporter.send("healthcare", "sahnivarun62@gmail.com", "yo", "yo")
-
 // transporter.send("<joyce.nikolaus@ethereal.email> healthcare", "sahnivarun62@gmail.com", "yo", "yo")
 
-const listener = server.listen(process.env.PORT || 3000, (err) => {
+const listener = server.listen(process.env.PORT || 5000, (err) => {
   if (err) {
     console.log(err);
   } else {

@@ -13,12 +13,12 @@ export default function Files() {
       <div>
         <NavBar/>
       </div>
-    <div className="flex h-screen w-screen  dark:bg-gray-900">
+    <div className="flex h-screen w-screen  dark:bg-stone-900">
     <Navbar className=" absolute top-44 left-55 h-100vh shadow-white shadow-lg overflow-auto" style={{position: "shadow-lg"}} />
       <div className="p-10 w-full">
         <div className="flex">
-        <FcFolder className=" text-5xl sm:text-3xl mr-5 text-sky-800 dark:text-sky-300"/>
-        <h1 className="text-5xl sm:text-3xl font-mono dark:text-white font-bold">Files</h1>
+        <FcFolder className="text-2xl md:text-3xl mr-5 text-sky-800 dark:text-sky-300"/>
+        <h1 className="text-5xl md:text-3xl font-mono dark:text-white font-bold">Files</h1>
         </div>
 
       <div className="sm:mt-5 mt-12 text-center align-middle items-center">
@@ -31,7 +31,7 @@ export default function Files() {
                   </span>
               </div>
               <div className="dark:text-white font-bold mt-2 text-center">
-                <h1 className="sm:text-3/4">
+                <h1 className="md:text-3/4">
                   Medical Records
                 </h1>
               </div>
@@ -107,6 +107,5 @@ export default function Files() {
       </div>
       </div>
     </div></div>
-
   );
 }

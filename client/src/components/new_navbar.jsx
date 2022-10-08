@@ -4,61 +4,55 @@ import { FaHouseDamage,  FaPowerOff } from "react-icons/fa";
 import { RiDashboardFill } from "react-icons/ri";
 import { CgProfile } from "react-icons/cg";
 import { FcAddressBook, FcSettings, FcBearish, FcCalendar, FcFolder } from "react-icons/fc";
-import { IconName } from "react-icons/im";
+//import { IconName } from "react-icons/im";
 export default function NavBar() {
     const [navbar, setNavbar] = useState(false);
     const Menus = [
         {
           title: "Dashboard",
           icon: <RiDashboardFill className={`text-sky-800 dark:text-sky-300 ${!navbar && "rotate"}`} />,
-          link: "../../apps/Dashboard.jsx"
+          link: "/"
         },
     
         {
           title: "Files",
           icon: <FcFolder />,
-          link: "../../apps/Dashboard.jsx"
+          link: "/files"
     
         },
         {
           title: "Calendar",
           icon: <FcCalendar />,
-          link: "../../apps/Dashboard.jsx"
-        },
-    
-        {
-          title: "Recordings",
-          icon: <FcBearish />,
-          link: "../../apps/Dashboard.jsx"
+          link: "/calendar"
         },
         {
           title: "Contacts",
           icon: <FcAddressBook />,
-          link: "../../apps/Dashboard.jsx"
+          link: ".contacts"
         },
     
     
         {
           title: "Profile",
           icon: <CgProfile className="text-green-800 dark:text-green-300" />,
-          link: "../../apps/Dashboard.jsx"
+          link: "/"
         },
     
         {
           title: "Settings",
           icon: <FcSettings />,
-          link: "../../apps/Dashboard.jsx"
+          link: "/"
         },
     
         {
           title: "Logout",
           icon: <FaPowerOff className="text-orange-600" />,
-          link: "../../apps/Dashboard.jsx"
+          link: "/signin"
         },
     
       ];
     return (
-        <nav className="fixed z-10 block lg:hidden w-full bg-white dark:bg-gray-800 shadow">
+        <nav className="fixed z-10 block lg:hidden w-full bg-white dark:bg-stone-800 shadow">
             <div className="justify-between px-4 mx-auto">
                 <div>
                     <div className="flex items-center justify-between py-3 ">
@@ -71,34 +65,15 @@ export default function NavBar() {
                                 className="p-2 text-gray-700 rounded-sm outline-none focus:border-gray-400 focus:border"
                                 onClick={() => setNavbar(!navbar)}
                             >
-                                {navbar ? (
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        className="w-6 h-6"
-                                        viewBox="0 0 20 20"
-                                        fill="currentColor"
-                                    >
-                                        <path
-                                            fillRule="evenodd"
-                                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                            clipRule="evenodd"
-                                        />
-                                    </svg>
+                                {!navbar ? (
+                                  <>
+                                    <div className="w-9 h-0.5 bg-black dark:bg-white dark:text-white text-xs my-2 duration-300"></div>
+                                    <div className="w-9 h-0.5 bg-black dark:bg-white dark:text-white text-xs my-2 duration-300"></div>
+                                    <div className="w-9 h-0.5 bg-black dark:bg-white text-white text-xs my-2 duration-300"></div></>
                                 ) : (
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        className="w-6 h-6"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke="currentColor"
-                                        strokeWidth={2}
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            d="M4 6h16M4 12h16M4 18h16"
-                                        />
-                                    </svg>
+                                  <>
+                                  <div className="w-9 h-0.5 bg-black dark:bg-white dark:text-white text-xs rotate-45 duration-300"></div>
+                                  <div className="w-9 h-0.5 bg-black dark:bg-white dark:text-white text-xs -rotate-45 duration-300"></div></>
                                 )}
                             </button>
                         </div>
@@ -110,12 +85,12 @@ export default function NavBar() {
                             navbar ? "block" : "hidden"
                         }`}
                     >
-                        <ul className="pt-2">
+                        <ul className="pr-12">
           {Menus.map((menu, index) => (
             <>
-              <li key={index} className={`dark:text-gray-300 text-sm flex item-center gap-x-4 cursor-pointer p-2 font-mono hover:bg-gray-100 rounded-sm mt-5`}>
-                <span className="text-2xl block float-left">{menu.icon}</span>
-                <span className={`text-base font-medium flex-1 ${!navbar && "hidden"} hover:text-black duration-200`}><a href={menu.link}>{menu.title}</a></span>
+              <li key={index} className={`dark:text-gray-300 text-sm flex item-center gap-x-4 cursor-pointer p-2 font-mono hover:bg-stone-200 dark:hover:bg-stone-600 hover:translate-x-5 transition-transform transform-cpu duration-100 rounded-sm mt-5`}>
+                <span className={`text-2xl block float-left ${!navbar && "hidden"}`}>{menu.icon}</span>
+                <span className={`text-base font-medium flex-1 ${!navbar && "hidden"} duration-200`}><a href={menu.link}>{menu.title}</a></span>
                 
               </li>
             </>

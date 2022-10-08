@@ -18,7 +18,7 @@ import Dashboard from "./apps/Dashboard";
 import MyCalendar from "./components/Calendar";
 import Contacts from "./components/Contacts";
 import Recordings from "./components/Recordings";
-
+import Files_M from './components/Files';
 // import Navbar from './components/navbar';
 import Files from './apps/File_M/Files'
 // import Mr from './apps/File_M/mr';
@@ -38,7 +38,7 @@ root.render(
           <Route path="/tables" element={<Table/>}></Route>
           <Route path="/" element={<Dashboard/>}></Route>
           <Route path="/files" element={<Files />}></Route>
-          <Route path="/upload" element={<Upload />}></Route>
+          <Route path="/upload" element={<Files_M />}></Route>
           <Route path="/contacts" element={<Contacts />}></Route>
           <Route path="/recordings" element={<Recordings />}></Route>
           <Route path="/calendar" element={<MyCalendar />}></Route>

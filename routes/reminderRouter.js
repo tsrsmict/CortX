@@ -1,65 +1,82 @@
 import express from "express";
-import jsonwebtoken from "jsonwebtoken";
-import dotenv from "dotenv";
-import User from "../models/user.js";
 import Reminder from "../models/reminder.js";
-
+import checkUser from "../middlewares/checkUser.js";
 import cookieParser from "cookie-parser";
-
+import mongoose from "mongoose";
+import User from "../models/user.js";
+import { log, Style } from "../devlibs/dev.js";
 // Router setup
 const reminderRouter = express.Router();
 reminderRouter.use(express.json());
 reminderRouter.use(cookieParser());
 // Configure dotenv (default)
-dotenv.config();
 
-const checkUser = async (cookie) => {
-  const cookie_ = jsonwebtoken.verify(cookie, process.env.JWT_SECRET);
-  if (!(await User.exists({ _id: cookie_.id }))) return [false];
-  return [true, cookie_];
-};
-
-reminderRouter.post("/new", async (req, res) => {
+reminderRouter.post("/new", checkUser, async (req, res) => {
   // (x) - POST Layout
   // reminderName (opt)
   // reminderDesc (opt)
   // reminderType (opt)
   // reminderDatetime
   // recurring (opt)
-  if (req.cookies.jwtToken == null)
-    return res
-      .status(400)
-      .json({ status: "error", error: "No jwtToken in cookies." });
-
   if (!req.body.reminderDatetime)
     return res
       .status(400)
       .json({ status: "error", error: "No reminder date/time." });
 
-  let {
-    reminderName,
-    reminderDesc,
-    reminderType,
-    reminderDatetime,
-    recurring,
-  } = req.body;
+  // Creating the reminder object with dynamic fields.
+  let reminder = {};
+  {
+    reminder.userID = req.checkData.id;
+    reminder.datetime = req.body.reminderDatetime;
 
-  const user = await checkUser(req.cookies.jwtToken);
-  if (!user[0])
-    return res
-      .status(400)
-      .json({ status: "error", error: "User failed check." });
+    if (req.body.reminderName) {
+      reminder.reminderName = req.body.reminderName;
+    }
 
-  const reminder = await Reminder.create({
-    userID: user[1].id,
-    reminderName: reminderName,
-    desc: reminderDesc,
-    recurring: recurring,
-    type: reminderType,
-    datetime: reminderDatetime,
-  })
+    if (req.body.reminderDesc) {
+      reminder.desc = req.body.reminderDesc;
+    }
+
+    if (req.body.reminderType) {
+      reminder.type = req.body.reminderType;
+    }
+
+    if (req.body.recurring) {
+      reminder.recurring = req.body.recurring;
+    }
+  }
+
+  await Reminder.create(reminder)
     .then((reminder) => {
-      console.log(`Reminder created for user (${user[1].id})`);
+      // Logging the userId for whom the reminder was created
+
+      log(
+        `${Style.blue("REMINDER:")} ${Style.green(
+          "Created successfully."
+        )} ${Style.yellow(`[UserID: ${req.checkData.id}]`)}`
+      );
+
+      // Push the reminderId into the users reminders field so it can be referenced and populated later
+      User.findByIdAndUpdate(
+        req.checkData.id,
+        {
+          $push: { reminders: reminder._id },
+        },
+        { new: true, upsert: true },
+        (err, o) => {
+          if (err) throw err;
+          if (o)
+            log(
+              ` ${Style.greenBright.bold("X")} ${Style.blue(
+                "REMINDER:"
+              )} ${Style.green("Pushed successfully to USER")} ${Style.yellow(
+                `[${req.checkData.id}]`
+              )}`
+            );
+        }
+      );
+
+      // Successful post - created new reminder. Send back the reminder itself in response as JSON.
       return res.status(201).json({ reminder });
     })
     .catch((err) => {
