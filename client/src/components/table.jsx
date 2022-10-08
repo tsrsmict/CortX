@@ -89,11 +89,11 @@ export default function Table() {
                             <td className=''>{row.title}</td>
                             <td>{row.value} {row.unit}</td>
                             <td className='items-center'><span className='w-11/12 my-7 mx-5'><div className={`w-11/12 h-4.5 bg-zinc-400 rounded-full dark:bg-gray-400`}>
-                                <div class="h-4.5 rounded-full bg-red-500" style={{width: "50%"}}>50%</div>
+                                <div className="h-4.5 rounded-full bg-red-500" style={{width: "50%"}}>50%</div>
                             </div></span></td>
 
                             <td className=' items-center'><span className='w-full my-7 mx-5'><div className={`w-11/12 h-4.5 bg-zinc-400  rounded-full dark:bg-gray-400`}>
-                                <div class="h-4.5 rounded-full bg-blue-500" style={{width: "90%"}}>90%</div>
+                                <div className="h-4.5 rounded-full bg-blue-500" style={{width: "90%"}}>90%</div>
                             </div></span></td>
                         </tr>
                     )

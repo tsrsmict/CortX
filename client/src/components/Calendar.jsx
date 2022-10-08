@@ -16,10 +16,10 @@ export default class DemoApp extends React.Component {
       // {/* <ReminderMake/> */}
       // </div>
       <div className=" absolute overflow-auto dark:bg-dark-purple h-screen w-screen">
-      <NavBar className='sm:hidden' />
-      <div className="flex">
-        <Navbar className=" absolute top-44 left-55 h-100vh shadow-white shadow-lg overflow-auto" style={{ position: "shadow-lg" }} />
-        <div className="dark:text-white p-1 sm:p-8 sm:mt-200px lg:p-12 w-full">
+      <NavBar className='sm:hidden h-screen' />
+      <div className="flex h-full">
+        <Navbar className=" absolute top-44 left-55 h-full shadow-white shadow-lg overflow-auto" style={{ position: "shadow-lg" }} />
+        <div className="dark:text-white p-1 sm:p-8 sm:mt-200px lg:p-12 w-full h-full">
         <FullCalendar
           plugins={[ dayGridPlugin ]}
          initialView="dayGridMonth"

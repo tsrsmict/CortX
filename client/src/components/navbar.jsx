@@ -48,13 +48,13 @@ export default function Navbar() {
     {
       title: "Profile",
       icon: <CgProfile className="text-green-800 dark:text-green-300" />,
-      link: "../../apps/Dashboard.jsx"
+      link: "/"
     },
 
     {
       title: "Settings",
       icon: <FcSettings />,
-      link: "../../apps/Dashboard.jsx"
+      link: "/"
     },
 
     {
@@ -65,10 +65,10 @@ export default function Navbar() {
 
   ];
   return (
-    <div className="font-mono hidden lg:block">
+    <div className="font-mono hidden fixed h-screen z-50 lg:block">
     
       <div
-        className={`sm:p-5 sm:pt-8 ${navbar ? "w-72" : "w-20"} h-full duration-300 relative bg-gray-200 dark:bg-gray-800  shadow-lg `}
+        className={`sm:p-5 sm:pt-8 ${navbar ? "w-72" : "w-20"} h-full duration-300 relative bg-gray-200 dark:bg-neutral-700  shadow-lg `}
         
       >
         <BsArrowLeftShort
