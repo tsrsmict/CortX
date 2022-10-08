@@ -48,49 +48,58 @@
 //        <button className="mt-12 mx-auto mb-5 h-fit w-fit flex bg-blue-500 m-auto text-zinc-100 hover:bg-blue-900 rounded-lg shadow-xl  border-1 border-gray-200 p-3"><span className="mr-3 mt-1"><FaUpload /></span><span className="">Upload</span></button>
 //        </form>
 //      </div>
-//      </div> 
+//      </div>
 //   </div>
 //   )}
 
+import { Link, useNavigate } from "react-router-dom";
+import React, { Component } from "react";
+import { FaUpload } from "react-icons/fa";
+import axios from "axios";
+class SigninModule extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      file: null,
+      category: "medical-records",
+    };
+  }
 
-  import { Link, useNavigate } from 'react-router-dom'
-  import React, { Component } from 'react'
-  import { FaUpload } from 'react-icons/fa'
-  import axios from 'axios'
-  class SigninModule extends Component {
-    constructor(props) {
-      super(props)
-      this.state = {
-         file: null,
-         category: 'medical-records'
-      }
-    }
-  
-    fileHandler = (e) => {
-      this.setState({file: e.target.value})
-    }
-    categoryHandler = (e) => {
-      this.setState({category: e.target.value})
-    }
-    submitHandler = (e) => {
-      e.preventDefault()
-      
-      console.log(this.state, JSON.stringify(this.state))
-    }
-    render() {
-      // const navigate = useNavigate()
-      const {file, category} = this.state
-      return (
-        <div>
+  fileHandler = (e) => {
+    this.setState({ file: e.target.value });
+  };
+  categoryHandler = (e) => {
+    this.setState({ category: e.target.value });
+  };
+  submitHandler = (e) => {
+    e.preventDefault();
 
-           <div className="p-5 text-center">
-                <div className="p-12 h-30 m-auto w-1/2 bg-gray-200 dark:bg-gray-700 dark:text-white text-center rounded-lg  border-1 border-black">
-                  <h1 className="text-5xl font-bold font-mono mb-12">Upload Your Report</h1>
-               <form className="m-40% block font-mono" onSubmit={(e) => this.submitHandler(e)}>
-               <div class="flex justify-center">
-  <div class="mb-3 w-96">
-    <label for="formFile" class="form-label inline-block mb-2 text-gray-700">Default file input example</label>
-    <input class="form-control
+    console.log(this.state, JSON.stringify(this.state));
+    axios.post('', JSON.stringify(this.state))
+  };
+  render() {
+    // const navigate = useNavigate()
+    return (
+      <div>
+        <div className="p-5 text-center">
+          <div className="p-12 h-30 m-auto w-1/2 bg-gray-200 dark:bg-gray-700 dark:text-white text-center rounded-lg  border-1 border-black">
+            <h1 className="text-5xl font-bold font-mono mb-12">
+              Upload Your Report
+            </h1>
+            <form
+              className="m-40% block font-mono"
+              onSubmit={(e) => this.submitHandler(e)}
+            >
+              <div class="flex justify-center">
+                <div class="mb-3 w-96">
+                  <label
+                    for="formFile"
+                    class="form-label inline-block mb-2 text-gray-700"
+                  >
+                    Default file input example
+                  </label>
+                  <input
+                    className="form-control
     block
     w-full
     px-3
@@ -104,34 +113,59 @@
     transition
     ease-in-out
     m-0
-    focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" type="file" id="formFile" defaultValue={this.file} onChange={(e) => this.fileHandler(e)} name="file" />
-  </div>
-</div>
-
-                    <br></br>
-                    <span className="w-3/4 bg-gray-900 p-5 rounded-2xl">
-                    <label htmlFor="category" className="w-3/4 bg-gray-900 p-3">Choose a Category</label>
-                  <select id="category" name="category" className=" w-5/12 p-2 rounded-lg text-black" defaultValue={this.category} onChange={(e) => this.categoryHandler(e)}>
-                   <option value="medical-records">Medical Records</option>
-                    <option value="prescriptions">Prescriptions</option>
-                   <option value="blood-tests-and-reports">Blood Tests & Reports</option>
-                    <option value="blood-tests-and-reports">Body Scans & X-Rays</option>
-                    <option value="insurance">Insurance</option>
-                    <option value="vaccination">Vaccination</option>
-                 </select></span>
-        
-                <button className="mt-12 mx-auto mb-5 h-fit w-fit flex bg-blue-500 m-auto text-zinc-100 hover:bg-blue-900 rounded-lg shadow-xl  border-1 border-gray-200 p-3"><span className="mr-3 mt-1"><FaUpload /></span><span className="">Upload</span></button>
-                </form>
+    focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                    type="file"
+                    id="formFile"
+                    defaultValue={this.file}
+                    onChange={(e) => this.fileHandler(e)}
+                    name="file"
+                  />
+                </div>
               </div>
-              </div> 
-           </div>
-      )
-    }
+
+              <br></br>
+              <span className="w-3/4 bg-gray-900 p-5 rounded-2xl">
+                <label htmlFor="category" className="w-3/4 bg-gray-900 p-3">
+                  Choose a Category
+                </label>
+                <select
+                  id="category"
+                  name="category"
+                  className=" w-5/12 p-2 rounded-lg text-black"
+                  defaultValue={this.category}
+                  onChange={(e) => this.categoryHandler(e)}
+                >
+                  <option value="medical-records">Medical Records</option>
+                  <option value="prescriptions">Prescriptions</option>
+                  <option value="blood-tests-and-reports">
+                    Blood Tests & Reports
+                  </option>
+                  <option value="blood-tests-and-reports">
+                    Body Scans & X-Rays
+                  </option>
+                  <option value="insurance">Insurance</option>
+                  <option value="vaccination">Vaccination</option>
+                </select>
+              </span>
+
+              <button className="mt-12 mx-auto mb-5 h-fit w-fit flex bg-blue-500 m-auto text-zinc-100 hover:bg-blue-900 rounded-lg shadow-xl  border-1 border-gray-200 p-3">
+                <span className="mr-3 mt-1">
+                  <FaUpload />
+                </span>
+                <span className="">Upload</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    );
   }
-  
-  export default SigninModule
-  
-{/* // import React, { useState } from 'react'
+}
+
+export default SigninModule;
+
+{
+  /* // import React, { useState } from 'react'
 // import ReactDOM from 'react-dom'
 
 // // Import React FilePond
@@ -150,7 +184,8 @@
 // registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
 
 // // Our app
-// class App extends Component { */}
+// class App extends Component { */
+}
 //   constructor(props) {
 //     super(props);
 
@@ -250,7 +285,6 @@
 //     </div>
 //     </div> */
 
-
 // // import React, { useState } from 'react'
 // // import ReactDOM from 'react-dom'
 
@@ -294,7 +328,7 @@
 // //   }
 // //   submitHandler(e) {
 // //     e.preventDefault()
-    
+
 // //     console.log(this.state, JSON.stringify(this.state))
 // //   }
 // //   render() {
