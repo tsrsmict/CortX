@@ -7,6 +7,7 @@ import { RiDashboardFill } from "react-icons/ri";
 // import Table from "../components/table";
 import NavBar from "../components/new_navbar";
 import axios from "axios";
+import { useState } from "react";
 
 export default function Dashboard() {
   const TableData = [
@@ -76,6 +77,15 @@ export default function Dashboard() {
       color: true,
     },
   ];
+  localStorage.setItem('TableData', TableData)
+  const data = localStorage.getItem("TableData")
+  function changeHandler (e, index) {
+
+    data[index][e.target.name] = e.target.value
+    console.log(data[index])
+  
+  }
+ 
 
   return (
     <div className=" absolute overflow-auto dark:bg-stone-900 h-screen w-screen">
@@ -112,16 +122,14 @@ export default function Dashboard() {
                 <th>Health level</th>
               </thead>
 
-              {TableData.map((row, index) => {
+              {data.map((row, index) => {
                 return (
                   <tr
                     key={index}
                     className={` $(color && "shadow-2xl shadow-zinc-800")`}
                   >
-                    <td className="">{row.title}</td>
-                    <td>
-                      {row.value} {row.unit}
-                    </td>
+                    <td className="p-5"><input name='title' className="w-full bg-stone-800 border-0 focus:outline-0" defaultValue={row.title} onChange={(e) => changeHandler(e, index)}/></td>
+                    <td className="p-5"><input name="value" className="text-center bg-stone-800 border-0 focus:outline-0" defaultValue={row.value} onChange={(e) => changeHandler(e, index)}/></td>
 
                     <td className="items-center">
                       <span className="w-3/12 my-7 mx-5">
