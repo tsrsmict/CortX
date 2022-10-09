@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+import "./css.css";
 import reportWebVitals from "./reportWebVitals";
 // import Dashboard from './apps/Dashboard'
 // import SignIn from './apps/signin';
@@ -35,6 +36,7 @@ import Upload from "./components/upload";
 import ReminderMake from "./components/reminder_make";
 import axios from "axios";
 import Mr from "./apps/File_M/mr";
+import GettingStarted from "./GettingStarted";
 // import Pr from "./apps/Files_M/pr";
 
 const RequireAuth = () => {
@@ -121,13 +123,14 @@ root.render(
       <Router>
         <div>
           <Routes>
+            <Route path="/" element={<GettingStarted />}></Route>
             <Route path="/signup" element={<SignupModule />}></Route>
             <Route path="/signin" element={<SigninModule />}></Route>
             <Route path="/logout" element={<LogoutModule />}></Route>
-            <Route path="/tables" element={<Table />}></Route>
-            <Route path="/files/mr" element={<Mr />}></Route>
             {/* <Route path="/files/pr" element={<Pr />}></Route> */}
             <Route element={<RequireAuth />}>
+              <Route path="/tables" element={<Table />}></Route>
+              <Route path="/files/mr" element={<Mr />}></Route>
               <Route path="/dashboard" element={<Dashboard />}></Route>
               <Route path="/files" element={<Files />}></Route>
               <Route path="/upload" element={<Upload />}></Route>
