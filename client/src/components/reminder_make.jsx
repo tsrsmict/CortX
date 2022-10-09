@@ -14,6 +14,6 @@ export default function ReminderMake() {
         selected={date}
         onChange={(date) => {setDate(date); console.log(date)}}
       />
-    </div>
+      <input type={'date'} name="date" onChange={(date) => {setDate(date); console.log(date)}}/></div>
   );
 }
