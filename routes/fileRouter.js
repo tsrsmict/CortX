@@ -25,14 +25,12 @@ fileRouter.post(
     // fileName (opt)
     // fileDesc (opt)
     try {
-      if (!req.file || req.file == null || req.file == '') {
+      if (!req.file || req.file == null || req.file == "") {
         return res.status(400).json("No file uploaded.");
       }
+    } catch {
+      return res.status(400).json("Invalid.");
     }
-    catch {
-      return res.status(400).json("Invalid.")
-    }
-
 
     if (req.file.size >= limitInMb * 1024 * 1024)
       return res.status(400).json("File size over 5MiB");
