@@ -12,6 +12,10 @@ export default class DemoApp extends React.Component {
       name: "",
       date: "",
     };
+    this.ReminderData = [{
+      title: 'event 1',
+      date: '2022-10-09'
+    }]
   }
 
   changeHandler = (e) => {
@@ -57,6 +61,7 @@ export default class DemoApp extends React.Component {
           <form
             onSubmit={this.submitHandler}
             className="text-white p-5 absolute bottom-0 "
+
           >
             <label htmlfor="name">Name of Appointment</label>
             <br></br>

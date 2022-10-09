@@ -28,7 +28,7 @@ class SignupModule extends React.Component {
       .then((response) => {
         console.log(response);
         console.log("jwtToken: ", response.data.token);
-        window.location.replace("/");
+        window.location.replace("/dashboard");
       })
       .catch((err) => {
         alert(err.response.data.error);
