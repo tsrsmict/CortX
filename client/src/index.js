@@ -32,6 +32,10 @@ const checkAuth = () => {
   });
 };
 
+function changeBg(e) {
+  e.target.style.color = "green";
+}
+
 export default function NotFound() {
   return (
     <div

@@ -28,7 +28,7 @@ export default function Navbar() {
           className={`text-sky-800 dark:text-sky-300 ${!navbar && "rotate"}`}
         />
       ),
-      link: "/",
+      link: "/dashboard",
     },
 
     {
