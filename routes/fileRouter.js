@@ -6,6 +6,9 @@ import checkUser from "../middlewares/checkUser.js";
 import File from "../models/file.js";
 import { log, Style } from "../devlibs/dev.js";
 import User from "../models/user.js";
+import mime from "mime-types";
+import TesseractDetect from "../lib/TesseractDetect.js";
+
 const fileRouter = express.Router();
 
 fileRouter.use(express.json());
@@ -153,7 +156,8 @@ fileRouter.get("/getFile", checkUser, async (req, res) => {
 
   res.writeHead(200, {
     "Content-Type": file.type,
-    "Content-disposition": "attachment;filename=" + file.name,
+    "Content-disposition":
+      "attachment;filename=" + file.name + "." + mime.extension(file.type),
   });
   res.end(file.binData);
 });
@@ -175,5 +179,36 @@ fileRouter.delete("/deleteFile", checkUser, async (req, res) => {
   file.remove().catch((o) => console.log(o));
   return res.status(200).json(`File [${file._id}] removed.`);
 });
+
+fileRouter.post(
+  "/tesseractUpload",
+  [checkUser, upload.single("file")],
+  async (req, res) => {
+    // (x) - POST Layout
+    // File itself as part of form
+
+    try {
+      if (!req.file || req.file == null || req.file == "") {
+        return res.status(400).json("No file uploaded.");
+      }
+    } catch {
+      return res.status(400).json("Invalid.");
+    }
+
+    if (req.file.size >= limitInMb * 1024 * 1024)
+      return res.status(400).json("File size over 5MiB");
+    if (
+      !["bmp", "png", "jpeg", "tiff"].includes(req.file.mimetype.split("/")[1])
+    )
+      return res
+        .status(400)
+        .json(
+          "Invalid filetype. Type should be either bmp, png, jpeg, or tiff."
+        );
+
+    let json = await TesseractDetect(req.file.buffer);
+    return res.json(json);
+  }
+);
 
 export default fileRouter;
