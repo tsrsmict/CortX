@@ -129,8 +129,8 @@ export default function Dashboard() {
                     key={index}
                     className={` $(color && "shadow-2xl shadow-zinc-800")`}
                   >
-                    <td className="p-5"><input name='title' className="w-full bg-stone-800 border-0 focus:outline-0" defaultValue={row.title} onChange={(e) => changeHandler(e, index)}/></td>
-                    <td className="p-5"><input name="value" className="text-center bg-stone-800 border-0 focus:outline-0" defaultValue={row.value} onChange={(e) => changeHandler(e, index)}/></td>
+                    <td className="p-5">{row.title}</td>
+                    <td className="p-5">{row.value}{row.unit}</td>
 
                     <td className="items-center">
                       <span className="w-3/12 my-7 mx-5">
