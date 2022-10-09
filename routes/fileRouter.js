@@ -14,6 +14,7 @@ fileRouter.use(cookieParser());
 const upload = multer();
 
 const limitInMb = 5;
+const types = [];
 
 dotenv.config();
 fileRouter.post(
@@ -24,6 +25,10 @@ fileRouter.post(
     // File itself as part of form
     // fileName (opt)
     // fileDesc (opt)
+    // fileCategory (opt)
+
+    req.body.fileCategory = req.body.fileCategory.toLowerCase();
+
     try {
       if (!req.file || req.file == null || req.file == "") {
         return res.status(400).json("No file uploaded.");
@@ -35,6 +40,10 @@ fileRouter.post(
     if (req.file.size >= limitInMb * 1024 * 1024)
       return res.status(400).json("File size over 5MiB");
 
+    if (!(req.body.fileCategory in [types])) {
+      return res.status(400).json("File category not correct or not provided.");
+    }
+
     const reqFile = req.file;
     let file = {};
     file.userID = req.checkData.id;
@@ -43,6 +52,8 @@ fileRouter.post(
     if (req.body.fileDesc) {
       file.desc = req.body.fileDesc;
     }
+    file.category = req.body.fileCategory;
+
     file.binData = reqFile.buffer;
     await File.create(file)
       .then((file) => {
