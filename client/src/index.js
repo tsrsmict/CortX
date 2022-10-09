@@ -91,6 +91,19 @@ const TableData = [{
 
 ]
 
+
+async function checkAuth() {
+  await fetch("/api/users/checkAuth", {
+    method: "GET",
+    headers: { "Content-Type": "application/json" },
+  })
+    .then((res) => res.json())
+    .then((json) => {
+      if (json.auth == false) window.location.replace("/signin");
+    });
+}
+
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
@@ -102,7 +115,7 @@ root.render(
           <Route path="/signup" element={<SignupModule/>}></Route>
           <Route path="/signin" element={<SigninModule/>}></Route>
           <Route path="/tables" element={<Table/>}></Route>
-          <Route path="/" element={<Dashboard/>}></Route>
+          <Route path="/" render={() => checkAuth() } element={ <Dashboard/> }></Route>
           <Route path="/files" element={<Files />}></Route>
           <Route path="/upload" element={<Upload />}></Route>
           <Route path="/contacts" element={<Contacts />}></Route>

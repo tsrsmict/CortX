@@ -24,9 +24,15 @@ fileRouter.post(
     // File itself as part of form
     // fileName (opt)
     // fileDesc (opt)
-    if (!req.file) {
-      return res.status(400).json("No file uploaded.");
+    try {
+      if (!req.file || req.file == null || req.file == '') {
+        return res.status(400).json("No file uploaded.");
+      }
     }
+    catch {
+      return res.status(400).json("Invalid.")
+    }
+
 
     if (req.file.size >= limitInMb * 1024 * 1024)
       return res.status(400).json("File size over 5MiB");
@@ -75,6 +81,7 @@ fileRouter.post(
           userID: req.checkData.id,
           createdAt: file.createdAt,
         };
+
         return res.status(201).json(displayData);
       })
       .catch((err) => {

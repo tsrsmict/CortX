@@ -5,10 +5,10 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "node index.js",
+    "start": "node server.js",
     "heroku-postbuild": "cd client && npm install && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "devStart": "cross-env NODE_ENV=dev nodemon index.js"
+    "dev": "cross-env NODE_ENV=dev nodemon server.js"
   },
   "author": "",
   "license": "ISC",
@@ -24,6 +24,7 @@
     "ejs": "^3.1.8",
     "email-validator": "^2.0.4",
     "express": "^4.18.1",
+    "form-data": "^4.0.0",
     "helmet": "^6.0.0",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^4.10.0",
