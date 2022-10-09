@@ -89,8 +89,13 @@ fileRouter.post(
   }
 );
 
-fileRouter.get("/files", (req, res) => {
-  //
+fileRouter.get("/getAllFileDetails", checkUser, async (req, res) => {
+  const userID = req.checkData.id;
+  const files = await User.findOne({ _id: userID })
+    .select("files")
+    .populate("files", "name desc type");
+  console.log(files);
+  return res.json(files);
 });
 
 export default fileRouter;
