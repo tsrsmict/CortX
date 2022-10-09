@@ -105,7 +105,7 @@ export default function Dashboard() {
           </div>
           <div className="flex pl-36">
             <div className="flex float-left p-4 sm:flex w-2/4">
-              <img src="https://www.leltek.com/wp-content/uploads/2022/03/humanBody.gif" className="h-90 dark:invert-1 w-96 rounded-lg shadow-lg shadow-stone-600"/>
+              <img src="https://www.leltek.com/wp-content/uploads/2022/03/humanBody.gif" className="h-72 rounded-lg shadow-lg shadow-stone-600"/>
             </div>
             <div className="flex float-right m-auto p-4  sm:flex  w-full">
               <div className="sm:w-3/12 xl:w-1/2 lg:w-2/3 bg-zinc-200/[0.8] dark:bg-zinc-200 p-3 shadow-2xl shadow-zinc-600 rounded-2xl m-auto">
