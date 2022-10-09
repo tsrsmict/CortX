@@ -143,7 +143,7 @@ return(
         </Routes>
       </div>
     </Router>
-  </React.StrictMode>
+  </div>
 );
 
 
