@@ -13,6 +13,7 @@ class FileUpload extends Component {
       fileDesc: "",
       category: "",
       file: "",
+      fileCategory: "",
     };
   }
 
@@ -48,7 +49,7 @@ class FileUpload extends Component {
       .catch((err) => {
         console.log(err);
         alert(err.response.data.error);
-        window.location.replace("/upload");
+        window.location.replace("*");
       });
   };
   render() {
