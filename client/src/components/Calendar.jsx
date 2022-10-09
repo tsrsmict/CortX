@@ -56,7 +56,7 @@ export default class DemoApp extends React.Component {
         <div>
           <form
             onSubmit={this.submitHandler}
-            className="text-white p-5 absolute bottom-0"
+            className="text-white p-5 absolute bottom-0 "
           >
             <label htmlfor="name">Name of Appointment</label>
             <br></br>
