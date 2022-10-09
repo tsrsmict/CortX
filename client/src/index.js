@@ -29,7 +29,8 @@ import axios from "axios";
 
 async function checkAuth() {
   await axios.get("api/users/checkAuth").then((res) => {
-    console.log(res.data);
+    console.log(res.data.auth);
+    if (res.data.auth == false) window.location.replace("/signin");
     return res.data.auth;
   });
 }

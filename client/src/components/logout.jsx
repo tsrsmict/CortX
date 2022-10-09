@@ -10,22 +10,16 @@ class LogoutModule extends Component {
       password: "",
     };
   }
-  submitHandler = (e) => {
+  logOut = async (e) => {
     e.preventDefault();
     console.log(this.state);
-    axios
-      .post("/api/users/login", {
-        usermail: this.state.usermail,
-        password: this.state.password,
-      })
-      .then((response) => {
-        console.log(response);
-        console.log("jwtToken: ", response.data.token);
-        window.location.replace("/dashboard");
-      })
-      .catch((err) => {
-        alert(err.response.data.error);
-      });
+    alert(await axios.get("/api/users/logout").data);
+    window.location.replace("/");
+  };
+
+  dashboardRedir = (e) => {
+    e.preventDefault();
+    window.location.replace("/dashboard");
   };
   render() {
     // const navigate = useNavigate()
@@ -36,10 +30,16 @@ class LogoutModule extends Component {
           <h1 className="text-5xl font-semibold dark:text-white">Log Out</h1>
           <br />
           <button
-            type="submit"
+            onClick={this.logOut}
             className=" w-full py-3 mt-6 font-medium tracking-widest text-white dark:text-black uppercase bg-black shadow-lg dark:bg-white dark:hover:text-white focus:outline-none hover:bg-gray-600 duration-300 hover:shadow-none"
           >
             Confirm!
+          </button>
+          <button
+            onClick={this.dashboardRedir}
+            className=" w-full py-3 mt-6 font-medium tracking-widest text-white dark:text-black uppercase bg-black shadow-lg dark:bg-white dark:hover:text-white focus:outline-none hover:bg-gray-600 duration-300 hover:shadow-none"
+          >
+            Return to Dashboard
           </button>
         </div>
       </div>
