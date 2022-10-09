@@ -3,12 +3,6 @@
   "version": "0.1.0",
   "main": "App.js",
   "private": true,
-  "proxy": {
-    "/api/*": {
-      "target": "http://localhost:5000",
-      "secure": false
-    }
-  },
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
@@ -30,9 +24,9 @@
     "filepond-plugin-image-exif-orientation": "^1.0.11",
     "filepond-plugin-image-preview": "^4.6.11",
     "form-data": "^4.0.0",
+    "http-proxy-middleware": "^2.0.6",
     "jquery": "^3.6.1",
     "ngrok": "^4.3.3",
-    "pintura": "^0.3.10",
     "popper.js": "^1.16.1",
     "react": "^18.2.0",
     "react-chartjs-2": "^4.3.1",
