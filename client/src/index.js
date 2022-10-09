@@ -5,7 +5,14 @@ import reportWebVitals from "./reportWebVitals";
 // import Dashboard from './apps/Dashboard'
 // import SignIn from './apps/signin';
 // import Dashboard from "./apps/Dashboard";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  useLocation,
+  Outlet,
+} from "react-router-dom";
 import { Navigate } from "react-router-dom";
 
 import SigninModule from "./components/signin_m";
@@ -30,10 +37,50 @@ import axios from "axios";
 async function checkAuth() {
   await axios.get("api/users/checkAuth").then((res) => {
     console.log(res.data.auth);
-    if (res.data.auth == false) window.location.replace("/signin");
     return res.data.auth;
   });
 }
+
+const RequireAuth = () => {
+  const location = useLocation();
+  const [auth, setAuth] = React.useState();
+  const [isLoading, setIsLoading] = React.useState(true);
+
+  React.useLayoutEffect(() => {
+    const authCheck = async () => {
+      setIsLoading(true);
+      try {
+        /* =============== HERE CALL MY API CHECK =============== */
+
+        // await the asynchronous logic
+        const auth = await axios.get("api/users/checkAuth");
+
+        setAuth(auth.data.auth);
+      } catch (error) {
+        // handle any Promise rejections, errors, etc...
+        setAuth(false); // or unauthorized value
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    authCheck();
+
+    return () => {
+      // cancel/clean up any pending/in-flight asynchronous auth checks
+    };
+  }, [location.pathname]); // <-- check authentication when route changes
+
+  if (isLoading) {
+    return null; // or loading spinner, etc...
+  }
+
+  return auth ? ( // or auth property if object, i.e. auth.isAuthenticated, etc...
+    <Outlet />
+  ) : (
+    <Navigate to="/signin" replace />
+  );
+};
 
 export default function NotFound() {
   return (
@@ -82,30 +129,16 @@ root.render(
           <Route path="/signin" element={<SigninModule />}></Route>
           <Route path="/logout" element={<LogoutModule />}></Route>
           <Route path="/tables" element={<Table />}></Route>
-          <Route
-            path="/dashboard"
-            element={checkAuth() ? <Dashboard /> : <Navigate to="/signin" />}
-          ></Route>
-          <Route
-            path="/files"
-            element={checkAuth() ? <Files /> : <Navigate to="/signin" />}
-          ></Route>
-          <Route
-            path="/upload"
-            element={checkAuth() ? <Upload /> : <Navigate to="/signin" />}
-          ></Route>
-          <Route
-            path="/contacts"
-            element={checkAuth() ? <Contacts /> : <Navigate to="/signin" />}
-          ></Route>
-          <Route
-            path="/calendar"
-            element={checkAuth() ? <MyCalendar /> : <Navigate to="/signin" />}
-          ></Route>
-          <Route
-            path="/remindermake"
-            element={checkAuth() ? <ReminderMake /> : <Navigate to="/signin" />}
-          ></Route>
+
+          <Route element={<RequireAuth />}>
+            <Route path="/dashboard" element={<Dashboard />}></Route>
+            <Route path="/files" element={<Files />}></Route>
+            <Route path="/upload" element={<Upload />}></Route>
+            <Route path="/contacts" element={<Contacts />}></Route>
+            <Route path="/calendar" element={<MyCalendar />}></Route>
+            <Route path="/remindermake" element={<ReminderMake />}></Route>
+          </Route>
+
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
@@ -113,5 +146,3 @@ root.render(
   </React.StrictMode>
 );
 reportWebVitals();
-
-//
