@@ -79,6 +79,7 @@ export default function Dashboard() {
   ];
   localStorage.setItem('TableData', TableData)
   const data = localStorage.getItem("TableData")
+  console.log(data[0])
   function changeHandler (e, index) {
 
     data[index][e.target.name] = e.target.value
@@ -122,7 +123,7 @@ export default function Dashboard() {
                 <th>Health level</th>
               </thead>
 
-              {data.map((row, index) => {
+              {TableData.map((row, index) => {
                 return (
                   <tr
                     key={index}
