@@ -62,7 +62,7 @@ export default function Navbar() {
     {
       title: "Logout",
       icon: <FaPowerOff className="text-orange-600" />,
-      link: "/signin",
+      link: "/logout",
     },
   ];
   return (

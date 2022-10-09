@@ -10,6 +10,7 @@ import { Navigate } from "react-router-dom";
 
 import SigninModule from "./components/signin_m";
 import SignupModule from "./components/signup_m";
+import LogoutModule from "./components/logout";
 import Table from "./components/table";
 import Dashboard from "./apps/Dashboard";
 // import Files from "./components/Files";
@@ -26,12 +27,12 @@ import Upload from "./components/upload";
 import ReminderMake from "./components/reminder_make";
 import axios from "axios";
 
-const checkAuth = () => {
-  axios.get("api/users/checkAuth").then((res) => {
+async function checkAuth() {
+  await axios.get("api/users/checkAuth").then((res) => {
     console.log(res.data);
     return res.data.auth;
   });
-};
+}
 
 export default function NotFound() {
   return (
@@ -78,12 +79,11 @@ root.render(
         <Routes>
           <Route path="/signup" element={<SignupModule />}></Route>
           <Route path="/signin" element={<SigninModule />}></Route>
+          <Route path="/logout" element={<LogoutModule />}></Route>
           <Route path="/tables" element={<Table />}></Route>
           <Route
             path="/dashboard"
-            element={
-              checkAuth() === true ? <Dashboard /> : <Navigate to="/signin" />
-            }
+            element={checkAuth() ? <Dashboard /> : <Navigate to="/signin" />}
           ></Route>
           <Route
             path="/files"
@@ -92,9 +92,7 @@ root.render(
           <Route
             path="/upload"
             element={checkAuth() ? <Upload /> : <Navigate to="/signin" />}
-          >
-            {" "}
-          </Route>
+          ></Route>
           <Route
             path="/contacts"
             element={checkAuth() ? <Contacts /> : <Navigate to="/signin" />}
