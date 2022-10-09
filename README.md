@@ -15,7 +15,7 @@ CortX is a __one-stop-solution__ for all (most of) your health related needs.
 
 
 ## Tech Stack
-- The site uses [Node.js](https://nodejs.org/en/) and [Express.js](https://expressjs.com/) as the web server environment and web framework respectively.
+- The site uses [Node.js](https://nodejs.org/en/) and [Express.js](https://expressjs.com/) as the runtime environment and web framework respectively.
 - We used [React](https://reactjs.org/) as our web framework to finally display all of our data.
 - [MongoDB](https://www.mongodb.com/), [Mongoose](https://mongoosejs.com/) and [bcrypt](https://www.npmjs.com/package/bcrypt), along with [JSON Web Token (JWT)](https://www.npmjs.com/package/jsonwebtoken) are used to store and validator users.
 - [Multer](https://www.npmjs.com/package/multer) is used for file uploads to the database.
