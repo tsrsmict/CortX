@@ -50,13 +50,13 @@ export default function Navbar() {
     {
       title: "Profile",
       icon: <CgProfile className="text-green-800 dark:text-green-300" />,
-      link: "/",
+      link: "/dashboard",
     },
 
     {
       title: "Settings",
       icon: <FcSettings />,
-      link: "/",
+      link: "/dashboard",
     },
 
     {

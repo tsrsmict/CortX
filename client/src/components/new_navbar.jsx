@@ -21,7 +21,7 @@ export default function NavBar() {
           className={`text-sky-800 dark:text-sky-300 ${!navbar && "rotate"}`}
         />
       ),
-      link: "/",
+      link: "/dashboard",
     },
 
     {
@@ -43,13 +43,13 @@ export default function NavBar() {
     {
       title: "Profile",
       icon: <CgProfile className="text-green-800 dark:text-green-300" />,
-      link: "/",
+      link: "/dashboard",
     },
 
     {
       title: "Settings",
       icon: <FcSettings />,
-      link: "/",
+      link: "/dashboard",
     },
 
     {

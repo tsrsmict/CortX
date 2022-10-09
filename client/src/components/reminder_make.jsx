@@ -7,13 +7,13 @@ import "react-datepicker/dist/react-datepicker.css";
 // import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
 export default function ReminderMake() {
-  const [startDate, setStartDate] = useState(new Date());
+  const [date, setDate] = useState(new Date());
   return (
     <div className="p-24">
       <DatePicker
-        selected={startDate}
-        onChange={(date) => setStartDate(date)}
+        selected={date}
+        onChange={(date) => {setDate(date); console.log(date)}}
       />
-    </div>
+      <input type={'date'} name="date" onChange={(date) => {setDate(date); console.log(date)}}/></div>
   );
 }

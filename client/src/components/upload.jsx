@@ -40,7 +40,7 @@ class FileUpload extends Component {
       .then((r) => {
         console.log("JSON Response: " + r);
         alert("File uploaded successfully.");
-        window.location.replace("/");
+        window.location.replace("/dashboard");
       })
       .catch((err) => {
         console.log(err);
