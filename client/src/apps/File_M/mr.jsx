@@ -3,7 +3,11 @@ import Navbar from "../../components/navbar";
 import { FcDepartment } from "react-icons/fc";
 import axios from "axios";
 export default async function Mr() {
-  const files = await axios.get("/api/files/getAllUserFiles");
+  const files = await axios.get("/api/files/getUserFiles", {
+    params: { category: "medicalRecords" },
+  });
+
+  console.log(files);
 
   return (
     <div className="flex h-screen w-screen overflow-auto dark:bg-gray-900">
