@@ -9,6 +9,7 @@ const FileSchema = new mongoose.Schema(
     },
     name: { type: String, required: true },
     desc: String,
+    category: { type: String, required: true },
     type: { type: String, required: true },
     binData: { type: Buffer, required: true },
   },
