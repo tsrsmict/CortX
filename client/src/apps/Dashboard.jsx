@@ -7,22 +7,8 @@ import { RiDashboardFill } from "react-icons/ri";
 // import Table from "../components/table";
 import NavBar from "../components/new_navbar";
 import axios from "axios";
-// import {Line} from 'react-chartjs-2'
-async function checkAuth() {
-  await fetch("/api/users/checkAuth", {
-    method: "GET",
-    headers: { "Content-Type": "application/json" },
-  })
-    .then((res) => res.json())
-    .then((json) => {
-      if (json.auth == false) window.location.replace("/signin");
-    });
-}
-
 
 export default function Dashboard() {
-  checkAuth()
-
   const TableData = [
     {
       title: "White Blood Cell (WBC) (Leukocytes) Count",

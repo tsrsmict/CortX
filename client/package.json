@@ -3,7 +3,12 @@
   "version": "0.1.0",
   "main": "App.js",
   "private": true,
-  "proxy": "http://localhost:5000",
+  "proxy": {
+    "/api/*": {
+      "target": "http://localhost:5000",
+      "secure": false
+    }
+  },
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
