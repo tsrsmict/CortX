@@ -28,13 +28,10 @@ import axios from "axios";
 
 const checkAuth = () => {
   axios.get("api/users/checkAuth").then((res) => {
+    console.log(res.data);
     return res.data.auth;
   });
 };
-
-function changeBg(e) {
-  e.target.style.color = "green";
-}
 
 export default function NotFound() {
   return (
@@ -84,7 +81,9 @@ root.render(
           <Route path="/tables" element={<Table />}></Route>
           <Route
             path="/dashboard"
-            element={checkAuth() ? <Dashboard /> : <Navigate to="/signin" />}
+            element={
+              checkAuth() === true ? <Dashboard /> : <Navigate to="/signin" />
+            }
           ></Route>
           <Route
             path="/files"
