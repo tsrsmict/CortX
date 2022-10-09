@@ -6,6 +6,7 @@ import checkUser from "../middlewares/checkUser.js";
 import File from "../models/file.js";
 import { log, Style } from "../devlibs/dev.js";
 import User from "../models/user.js";
+import mime from "mime-types";
 import TesseractDetect from "../lib/TesseractDetect.js";
 
 const fileRouter = express.Router();
@@ -155,7 +156,8 @@ fileRouter.get("/getFile", checkUser, async (req, res) => {
 
   res.writeHead(200, {
     "Content-Type": file.type,
-    "Content-disposition": "attachment;filename=" + file.name,
+    "Content-disposition":
+      "attachment;filename=" + file.name + "." + mime.extension(file.type),
   });
   res.end(file.binData);
 });
