@@ -14,7 +14,14 @@ fileRouter.use(cookieParser());
 const upload = multer();
 
 const limitInMb = 5;
-const types = [];
+const types = [
+  "medicalRecords",
+  "prescriptions",
+  "bloodTestsAndReports",
+  "bodyScansAndXrays",
+  "insurance",
+  "vaccination",
+];
 
 dotenv.config();
 fileRouter.post(
