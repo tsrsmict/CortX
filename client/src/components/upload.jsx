@@ -16,6 +16,7 @@ class FileUpload extends Component {
       fileName: "",
       fileDesc: "",
       file: "",
+      fileCategory: ''
     };
   }
 
@@ -34,6 +35,8 @@ class FileUpload extends Component {
     data.append("file", this.state.file);
     data.append("fileName", this.state.fileName);
     data.append("fileDesc", this.state.fileDesc);
+    
+    data.append("fileCategory", this.state.fileCategory);
     console.log(data);
     axios
       .post("/api/files/upload", data)
@@ -45,7 +48,7 @@ class FileUpload extends Component {
       .catch((err) => {
         console.log(err);
         alert(err.response.data.error);
-        window.location.replace("/upload");
+        window.location.replace("*");
       });
   };
   render() {
@@ -89,7 +92,7 @@ class FileUpload extends Component {
 
               <span className="bg-gray-900 p-5 rounded-2xl">
                 <label htmlhtmlFor="category" className=" bg-gray-900 p-3">Choose a Category</label>
-                <select id="category" onChange={(e) => { this.changeHandler(e) }} placeholder='--type' name="category" className=" p-2 rounded-lg text-black">
+                <select id="category" onChange={(e) => { this.changeHandler(e) }} placeholder='--type' defaultValue={'medical-records'} name="fileCategory" className=" p-2 rounded-lg text-black">
                   <option value="medicalRecords">Medical Records</option>
                   <option value="prescriptions">Prescriptions</option>
                   <option value="bloodTestsAndReports">Blood Tests & Reports</option>
@@ -101,6 +104,7 @@ class FileUpload extends Component {
                 type="submit"
                 value="Upload!"
                 className="mt-12 mx-auto mb-5 h-fit w-fit flex bg-blue-500 m-auto text-zinc-100 hover:bg-blue-900 rounded-lg shadow-xl  border-1 border-gray-200 p-3"
+
               >
                 <FaUpload />
                 Upload
