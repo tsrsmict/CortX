@@ -127,10 +127,11 @@ root.render(
             <Route path="/signup" element={<SignupModule />}></Route>
             <Route path="/signin" element={<SigninModule />}></Route>
             <Route path="/logout" element={<LogoutModule />}></Route>
+            <Route path="/files/mr" element={<Mr />}></Route>
             {/* <Route path="/files/pr" element={<Pr />}></Route> */}
             <Route element={<RequireAuth />}>
               <Route path="/tables" element={<Table />}></Route>
-              <Route path="/files/mr" element={<Mr />}></Route>
+
               <Route path="/dashboard" element={<Dashboard />}></Route>
               <Route path="/files" element={<Files />}></Route>
               <Route path="/upload" element={<Upload />}></Route>
