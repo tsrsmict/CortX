@@ -14,7 +14,14 @@ fileRouter.use(cookieParser());
 const upload = multer();
 
 const limitInMb = 5;
-const types = [];
+const types = [
+  "medicalRecords",
+  "prescriptions",
+  "bloodTestsAndReports",
+  "bodyScansAndXrays",
+  "insurance",
+  "vaccination",
+];
 
 dotenv.config();
 fileRouter.post(
@@ -25,9 +32,10 @@ fileRouter.post(
     // File itself as part of form
     // fileName (opt)
     // fileDesc (opt)
-    // fileCategory (opt)
+    // fileCategory
 
-    req.body.fileCategory = req.body.fileCategory.toLowerCase();
+    // Categories:
+    // medicalRecords, prescriptions, bloodTestsAndReports, bodyScansAndXrays, insurance, vaccination
 
     try {
       if (!req.file || req.file == null || req.file == "") {
@@ -40,7 +48,8 @@ fileRouter.post(
     if (req.file.size >= limitInMb * 1024 * 1024)
       return res.status(400).json("File size over 5MiB");
 
-    if (!(req.body.fileCategory in [types])) {
+    if (!types.includes(req.body.fileCategory)) {
+      console.log(req.body.fileCategory);
       return res.status(400).json("File category not correct or not provided.");
     }
 
@@ -82,14 +91,15 @@ fileRouter.post(
               );
           }
         );
-        let displayData = {
-          fileID: file._id,
-          name: file.name,
-          type: reqFile.mimetype,
-          data: reqFile.buffer.slice(0, 50),
-          userID: req.checkData.id,
-          createdAt: file.createdAt,
-        };
+        let displayData = {};
+        displayData.fileID = file._id;
+        displayData.name = file.name;
+        if (req.body.fileDesc) displayData.desc = req.body.fileDesc;
+        displayData.category = file.category;
+        displayData.type = reqFile.mimetype;
+        displayData.data = reqFile.buffer.slice(0, 50);
+        displayData.userID = req.checkData.id;
+        displayData.createdAt = file.createdAt;
 
         return res.status(201).json(displayData);
       })
@@ -100,12 +110,12 @@ fileRouter.post(
   }
 );
 
-fileRouter.get("/getAllFileDetails", checkUser, async (req, res) => {
+fileRouter.get("/getAllUserFiles", checkUser, async (req, res) => {
   const userID = req.checkData.id;
 
   const files = await User.findOne({ _id: userID })
     .select("files")
-    .populate("files", "name desc type");
+    .populate("files", "name desc type category");
   return res.json(files.files);
 });
 
@@ -127,6 +137,24 @@ fileRouter.get("/getFile", checkUser, async (req, res) => {
     "Content-disposition": "attachment;filename=" + file.name,
   });
   res.end(file.binData);
+});
+
+fileRouter.delete("/deleteFile", checkUser, async (req, res) => {
+  if (!req.body.fileID)
+    return res.status(400).json("No file to delete specified.");
+  const fileID = req.body.fileID;
+  let file;
+  try {
+    file = await File.findOne({ _id: fileID });
+    if (!file) return res.status(404).json("No file with this ID found.");
+  } catch (err) {
+    return res.status(400).json("Error in request: " + err);
+  }
+  if (req.checkData.id != file.userID)
+    return res.status(403).json("File owner does not match requester ID.");
+
+  file.remove().catch((o) => console.log(o));
+  return res.status(200).json(`File [${file._id}] removed.`);
 });
 
 export default fileRouter;
