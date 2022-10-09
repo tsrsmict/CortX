@@ -82,7 +82,7 @@ const RequireAuth = () => {
   );
 };
 
-export default function NotFound() {
+function NotFound() {
   return (
     <div
       style={{
