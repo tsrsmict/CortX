@@ -30,9 +30,12 @@ import Files from "./apps/File_M/Files";
 // import Mr from './apps/File_M/mr';
 // import NavBar from "./components/navbar";
 // import Malendar from "./apps/calendar";
+
 import Upload from "./components/upload";
 import ReminderMake from "./components/reminder_make";
 import axios from "axios";
+import Mr from "./apps/File_M/mr";
+// import Pr from "./apps/Files_M/pr";
 
 const RequireAuth = () => {
   const location = useLocation();
@@ -122,7 +125,8 @@ root.render(
             <Route path="/signin" element={<SigninModule />}></Route>
             <Route path="/logout" element={<LogoutModule />}></Route>
             <Route path="/tables" element={<Table />}></Route>
-
+            <Route path="/files/mr" element={<Mr />}></Route>
+            {/* <Route path="/files/pr" element={<Pr />}></Route> */}
             <Route element={<RequireAuth />}>
               <Route path="/dashboard" element={<Dashboard />}></Route>
               <Route path="/files" element={<Files />}></Route>

@@ -65,21 +65,7 @@ class FileUpload extends Component {
               <input
                 type="file"
                 name="file"
-                className="form-control
-                          block
-                          w-full
-                          px-3
-                          py-1.5
-                          text-base
-                          font-normal
-                          text-gray-700
-                          bg-white bg-clip-padding
-                          border border-solid border-gray-300
-                          rounded
-                          transition
-                          ease-in-out
-                          m-0
-                          focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                 onChange={(e) => this.fileChangeHandler(e)}
                 required
               />
@@ -95,6 +81,16 @@ class FileUpload extends Component {
                 onChange={(e) => this.changeHandler(e)}
                 placeholder="A report on... (Optional)"
               />
+              <span className="w-3/4 bg-gray-900 p-5 rounded-2xl">
+          <label htmlhtmlFor="category" className="w-3/4 bg-gray-900 p-3">Choose a Category</label>
+        <select id="category" onChange={(e) => {handle(e)}}  value={data.category}  name="category" className=" w-5/12 p-2 rounded-lg text-black">
+          <option value="medicalRecords">Medical Records</option>
+          <option value="prescriptions">Prescriptions</option>
+          <option value="bloodTestsAndReports">Blood Tests & Reports</option>
+          <option value="bodyScansAndXRays">Body Scans & X-Rays</option>
+          <option value="insurance">Insurance</option>
+          <option value="vaccination">Vaccination</option>
+        </select></span>
               <button
                 type="submit"
                 value="Upload!"
