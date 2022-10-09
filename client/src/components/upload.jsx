@@ -95,6 +95,16 @@ class FileUpload extends Component {
                 onChange={(e) => this.changeHandler(e)}
                 placeholder="A report on... (Optional)"
               />
+              <span className="w-3/4 bg-gray-900 p-5 rounded-2xl">
+          <label htmlhtmlFor="category" className="w-3/4 bg-gray-900 p-3">Choose a Category</label>
+        <select id="category" onChange={(e) => {handle(e)}}  value={data.category}  name="category" className=" w-5/12 p-2 rounded-lg text-black">
+          <option value="medical-records">Medical Records</option>
+          <option value="prescriptions">Prescriptions</option>
+          <option value="blood-tests-and-reports">Blood Tests & Reports</option>
+          <option value="blood-tests-and-reports">Body Scans & X-Rays</option>
+          <option value="insurance">Insurance</option>
+          <option value="vaccination">Vaccination</option>
+        </select></span>
               <button
                 type="submit"
                 value="Upload!"
