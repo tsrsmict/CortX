@@ -10,17 +10,19 @@ import dayjs from "dayjs";
 import User from "../models/user.js";
 import ResetPassword from "../models/reset.js";
 import cookieParser from "cookie-parser";
+import cors from "cors";
+
 // Router setup
 const userRouter = Router();
 userRouter.use(express.json());
 userRouter.use(cookieParser());
+userRouter.use(cors());
 // Configure dotenv (default)
 dotenv.config();
 
 userRouter.get("/checkAuth", async (req, res) => {
   console.log("Auth check.");
-  if (req.cookies.jwtToken == null)
-    return res.status(400).json({ auth: false });
+  if (req.cookies.jwtToken == null) return res.json({ auth: false });
   let cookie;
   try {
     cookie = jsonwebtoken.verify(req.cookies.jwtToken, process.env.JWT_SECRET);
