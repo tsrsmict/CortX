@@ -57,7 +57,7 @@ export default class DemoApp extends React.Component {
             />
           </div>
         </div>
-        <div>
+        <div className="absolute bottom-0">
           <form
             onSubmit={this.submitHandler}
             className="text-white p-5 absolute bottom-0 "
