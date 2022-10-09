@@ -87,7 +87,7 @@ class FileUpload extends Component {
           <option value="medicalRecords">Medical Records</option>
           <option value="prescriptions">Prescriptions</option>
           <option value="bloodTestsAndReports">Blood Tests & Reports</option>
-          <option value="bodyScansAndXRays">Body Scans & X-Rays</option>
+          <option value="bodyScansAndXrays">Body Scans & X-Rays</option>
           <option value="insurance">Insurance</option>
           <option value="vaccination">Vaccination</option>
         </select></span>
