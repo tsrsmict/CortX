@@ -85,4 +85,14 @@ reminderRouter.post("/new", checkUser, async (req, res) => {
     });
 });
 
+reminderRouter.get("/getAllUserReminders", checkUser, async (req, res) => {
+  const userID = req.checkData.id;
+
+  const reminders = await User.findOne({ _id: userID })
+    .select("reminders")
+    .populate("reminders")
+    .catch((err) => console.log("Error: " + err));
+  return res.json(reminders.reminders);
+});
+
 export default reminderRouter;
