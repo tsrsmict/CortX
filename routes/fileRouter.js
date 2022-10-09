@@ -89,4 +89,33 @@ fileRouter.post(
   }
 );
 
+fileRouter.get("/getAllFileDetails", checkUser, async (req, res) => {
+  const userID = req.checkData.id;
+
+  const files = await User.findOne({ _id: userID })
+    .select("files")
+    .populate("files", "name desc type");
+  return res.json(files.files);
+});
+
+fileRouter.get("/getFile", checkUser, async (req, res) => {
+  if (!req.query?.fileID) return res.status(400).json("No fileID provided.");
+  let fileID = req.query.fileID;
+
+  const file = await File.findOne({ _id: fileID });
+  if (!file) return res.status(404).json("No file with this ID found.");
+
+  if (req.checkData.id != file.userID)
+    return res.status(403).json("File owner does not match requester ID.");
+
+  // res.contentType(file.type);
+  // res.send(file.binData);
+
+  res.writeHead(200, {
+    "Content-Type": file.type,
+    "Content-disposition": "attachment;filename=" + file.name,
+  });
+  res.end(file.binData);
+});
+
 export default fileRouter;

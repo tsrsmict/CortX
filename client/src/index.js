@@ -34,13 +34,6 @@ import Upload from "./components/upload";
 import ReminderMake from "./components/reminder_make";
 import axios from "axios";
 
-async function checkAuth() {
-  await axios.get("api/users/checkAuth").then((res) => {
-    console.log(res.data.auth);
-    return res.data.auth;
-  });
-}
-
 const RequireAuth = () => {
   const location = useLocation();
   const [auth, setAuth] = React.useState();
@@ -82,7 +75,7 @@ const RequireAuth = () => {
   );
 };
 
-export default function NotFound() {
+function NotFound() {
   return (
     <div
       style={{
@@ -121,28 +114,31 @@ export default function NotFound() {
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    {/* <Table/> */}
-    <Router>
-      <div>
-        <Routes>
-          <Route path="/signup" element={<SignupModule />}></Route>
-          <Route path="/signin" element={<SigninModule />}></Route>
-          <Route path="/logout" element={<LogoutModule />}></Route>
-          <Route path="/tables" element={<Table />}></Route>
+    <div>
+      <Router>
+        <div>
+          <Routes>
+            <Route path="/signup" element={<SignupModule />}></Route>
+            <Route path="/signin" element={<SigninModule />}></Route>
+            <Route path="/logout" element={<LogoutModule />}></Route>
+            <Route path="/tables" element={<Table />}></Route>
 
-          <Route element={<RequireAuth />}>
-            <Route path="/dashboard" element={<Dashboard />}></Route>
-            <Route path="/files" element={<Files />}></Route>
-            <Route path="/upload" element={<Upload />}></Route>
-            <Route path="/contacts" element={<Contacts />}></Route>
-            <Route path="/calendar" element={<MyCalendar />}></Route>
-            <Route path="/remindermake" element={<ReminderMake />}></Route>
-          </Route>
+            <Route element={<RequireAuth />}>
+              <Route path="/dashboard" element={<Dashboard />}></Route>
+              <Route path="/files" element={<Files />}></Route>
+              <Route path="/upload" element={<Upload />}></Route>
+              <Route path="/contacts" element={<Contacts />}></Route>
+              <Route path="/calendar" element={<MyCalendar />}></Route>
+              <Route path="/remindermake" element={<ReminderMake />}></Route>
+            </Route>
 
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </div>
-    </Router>
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </div>
+      </Router>
+    </div>
   </React.StrictMode>
 );
 reportWebVitals();
+
+//
