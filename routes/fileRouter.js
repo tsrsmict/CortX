@@ -112,11 +112,14 @@ fileRouter.post(
 
 fileRouter.get("/getUserFiles", checkUser, async (req, res) => {
   const userID = req.checkData.id;
-  if (!req.query?.category)
+  if (
+    !req.query?.category ||
+    !(req.query.category == "all" || types.includes(req.query.category))
+  )
     return res
       .status(400)
       .json(
-        `No field, 'category' provided; must be either in ${new String(
+        `No field, 'category' provided or invalid; must be either in ${new String(
           types
         ).replace(",", ", ")} or be 'all'`
       );
@@ -130,8 +133,8 @@ fileRouter.get("/getUserFiles", checkUser, async (req, res) => {
   } else {
     files = await User.findOne({ _id: userID })
       .select("files")
-      .populate("files", "name desc type category")
-      .find({ category: category });
+      .populate("files", "name desc type category", { category: category });
+    return res.json(files.files);
   }
 });
 
