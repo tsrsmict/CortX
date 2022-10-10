@@ -14,7 +14,7 @@ import checkUser from "./middlewares/checkUser.js";
 import * as jwt from "jsonwebtoken";
 import fs from "fs";
 import path from "path";
-
+import cookieParser from "cookie-parser";
 import jsonwebtoken from "jsonwebtoken";
 import { validate } from "email-validator";
 import bcrypt from "bcryptjs";
@@ -60,9 +60,10 @@ import reminderRouter from "./routes/reminderRouter.js";
 app.use("/api/reminders/", reminderRouter);
 
 import fileRouter from "./routes/fileRouter.js";
-import cookieParser from "cookie-parser";
-import { databaseNamespace } from "mongodb/lib/utils.js";
 app.use("/api/files/", fileRouter);
+
+import contactRouter from "./routes/contactRouter.js";
+app.use("/api/contacts/", contactRouter);
 
 // ejs view engine
 app.set("view engine", "ejs");
