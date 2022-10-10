@@ -14,13 +14,13 @@ export default function Dashboard() {
       name: "John Doe",
       email: "email@email.com",
       phone: "+12 3456789",
-      Specialization: "Urologist",
+      specialization: "Urologist",
     },
     {
       name: "Aarush Aggarwal",
       email: "aggarwalaarushprogrammer@gmail.com",
       phone: "+9873500379",
-      Specialization: "Neurologist",
+      specialization: "Neurologist",
     },
   ];
 
@@ -52,13 +52,13 @@ export default function Dashboard() {
               {TableData.map((row, index) => {
                 return (
                   <tr
-                    key={index}
+                    name={row.email}
                     className={` $(color && "shadow-2xl shadow-zinc-800")`}
                   >
                     <td className="">{row.name}</td>
                     <td className="">{row.email}</td>
                     <td className="">{row.phone}</td>
-                    <td className="">{row.Specialization}</td>
+                    <td className="">{row.specialization}</td>
                     <td className="text-3xl p-2">
                       <button
                         onClick={async (e) => {
@@ -67,7 +67,7 @@ export default function Dashboard() {
                           const res = await axios.get("/api/sendMail", {
                             params: {
                               subject: "Your File",
-                              recepient: "aggarwalaarushprogrammer@gmail.com",
+                              recepient: row.email,
                             },
                           });
 

@@ -8,10 +8,10 @@ const UserSchema = new mongoose.Schema(
     password: { type: String, required: true },
     contacts: [
       {
-        name: String,
+        name: { type: String, required: true },
         email: String,
-        phoneNumber: String,
-        Hospital: String,
+        phone: String,
+        specialization: String,
       },
     ],
     tests: [{ type: mongoose.Schema.Types.ObjectId, ref: "Test" }],
