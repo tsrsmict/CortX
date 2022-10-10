@@ -18,6 +18,8 @@ export default function Dashboard() {
       bri_start: 4000,
       bri_end: 10500,
       color: false,
+      health: 75,
+      risk: 19
       // percentage: String(200*TableDate[1][value]/bri_end+bri_start)
     },
     {
@@ -27,14 +29,17 @@ export default function Dashboard() {
       bri_start: 4.7,
       bri_end: 6.0,
       color: true,
-    },
-    {
+      health: 87,
+      risk: 15
+    },{
       title: "Platelet Count",
       value: 173,
-      unit: "10^3/microliter",
+      unit: " microliter*10^-3",
       bri_start: 150,
       bri_end: 450,
       color: false,
+      health: 60,
+      risk: 37
     },
     {
       title: "Absolute Monocyte Count",
@@ -43,6 +48,8 @@ export default function Dashboard() {
       bri_start: 200,
       bri_end: 1000,
       color: true,
+      health: 85.5,
+      risk: 13
     },
     {
       title: "Absolute Eosinophilis Count",
@@ -51,6 +58,8 @@ export default function Dashboard() {
       bri_start: 200,
       bri_end: 1000,
       color: false,
+      health: 88,
+      risk: 12
     },
     {
       title: "Absolute Lymphocyte Count",
@@ -59,6 +68,8 @@ export default function Dashboard() {
       bri_start: 1000,
       bri_end: 3000,
       color: true,
+      health: 79,
+      risk: 18
     },
     {
       title: "Absolute Neutrophilis Count",
@@ -67,6 +78,8 @@ export default function Dashboard() {
       bri_start: 2000,
       bri_end: 7000,
       color: false,
+      health: 77,
+      risk: 23
     },
     {
       title: "Absolute Neutrophilis Count",
@@ -75,6 +88,8 @@ export default function Dashboard() {
       bri_start: 2000,
       bri_end: 7000,
       color: true,
+      health: 76,
+      risk: 21
     },
   ];
   localStorage.setItem('TableData', TableData)
@@ -140,8 +155,8 @@ export default function Dashboard() {
                         <div
                           className={`w-11/12 h-4.5 rounded-full bg-zinc-200 dark:bg-stone-700`}
                         >
-                          <div className="h-4.5 rounded-full bg-rose-500 dark:bg-rose-70 w-2/5 duration-300">
-                            40%
+                          <div className="h-4.5 rounded-full bg-rose-500 dark:bg-rose-70 duration-300" style={{width: `${row.risk}%`}}>
+                            {`${row.risk}%`}
                           </div>
                         </div>
                       </span>
@@ -154,9 +169,9 @@ export default function Dashboard() {
                         >
                           <div
                             className="h-4.5 rounded-full bg-emerald-500 dark:bg-teal-700"
-                            style={{ width: "90%" }}
+                            style={{ width: `${row.health}%` }}
                           >
-                            90%
+                            {`${row.health}%`}
                           </div>
                         </div>
                       </span>

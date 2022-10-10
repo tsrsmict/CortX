@@ -3,25 +3,23 @@ import Navbar from "../components/navbar";
 // import { CircularProgressbar } from 'react-circular-progressbar';
 import "react-circular-progressbar/dist/styles.css";
 // import { App } from "../components/chart";
-import { FcAddressBook } from "react-icons/fc";
+import { FcAddressBook, FcExport} from "react-icons/fc";
 // import Table from "../components/table";
 import NavBar from "../components/new_navbar";
 // import {Line} from 'react-chartjs-2'
 export default function Dashboard() {
   const TableData = [
     {
-      first_name: "John",
-      last_name: "Doe",
+      name: "John Doe",
       email: "email@email.com",
       phone: "+12 3456789",
-      last_visit: "1 Year Ago",
+      Specialization: "Urologist",
     },
     {
-      first_name: "James",
-      last_name: "Doe",
-      email: "email@email.com",
-      phone: "+12 3456789",
-      last_visit: "2 Months Ago",
+      name: "Aarush Aggarwal",
+      email: "aggarwalaarushprogrammer@gmail.com",
+      phone: "+9873500379",
+      Specialization: "Neurologist",
     },
   ];
 
@@ -48,7 +46,7 @@ export default function Dashboard() {
                 <th className="p-5">Name</th>
                 <th>Phone</th>
                 <th>Email</th>
-                <th>Last Visited</th>
+                <th>Specialization</th>
               </thead>
 
               {TableData.map((row, index) => {
@@ -58,11 +56,12 @@ export default function Dashboard() {
                     className={` $(color && "shadow-2xl shadow-zinc-800")`}
                   >
                     <td className="">
-                      {row.first_name} {row.last_name}
+                      {row.name}
                     </td>
                     <td className="">{row.email}</td>
                     <td className="">{row.phone}</td>
-                    <td className="">{row.last_visit}</td>
+                    <td className="">{row.Specialization}</td>
+                    <td className="text-3xl p-2"><a href="/contacts"><FcExport/></a></td>
                   </tr>
                 );
               })}

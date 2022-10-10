@@ -13,8 +13,14 @@ export default class DemoApp extends React.Component {
       date: "",
     };
     this.ReminderData = [{
-      title: 'event 1',
-      date: '2022-10-09'
+      title: 'Covid Vccination Dose 2',
+      date: '2022-10-11'
+    },{
+      title: 'Appointment with Dr. Aarush',
+      date: '2022-10-12'
+    },{
+      title: 'Renew Life Insurance',
+      date: '2022-10-25'
     }]
   }
 
@@ -56,30 +62,6 @@ export default class DemoApp extends React.Component {
               events={this.ReminderData}
             />
           </div>
-        </div>
-        <div className="absolute bottom-0">
-          <form
-            onSubmit={this.submitHandler}
-            className="text-white p-5 absolute bottom-0 "
-
-          >
-            <label htmlfor="name">Name of Appointment</label>
-            <br></br>
-            <input
-              type="text"
-              name="name"
-              value={name}
-              onChange={this.changeHandler}
-              className="text-black bg-gray-300"
-            />
-            <input
-              type="date"
-              name="date"
-              value={date}
-              onChange={this.changeHandler}
-            />
-            <button type="submit">Submit</button>
-          </form>
         </div>
       </div>
     );
