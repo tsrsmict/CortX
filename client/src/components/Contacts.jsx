@@ -64,7 +64,7 @@ export default function Dashboard() {
 
                           const res = await axios.get("/api/sendMail", {
                             params: {
-                              subject: "Your File",
+                              subject: "Your Patient's File",
                               recepient: row.email,
                             },
                           });
