@@ -207,7 +207,6 @@ fileRouter.post(
         );
 
     let json = await TesseractDetect(req.file.buffer);
-    return res.json(json);
   }
 );
 
