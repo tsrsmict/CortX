@@ -44,8 +44,9 @@ export default function Dashboard() {
             <table className="table-fixed w-full rounded-2xl dark:text-white text-center m-auto">
               <thead className="">
                 <th className="p-5">Name</th>
-                <th>Phone</th>
                 <th>Email</th>
+                <th>Phone</th>
+
                 <th>Specialization</th>
               </thead>
 
