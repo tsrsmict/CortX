@@ -71,9 +71,18 @@ app.use("/assets", express.static("assets"));
 
 // Root route
 
-// const transporter = new MailTransporter("smtp.ethereal.email", "587", "joyce.nikolaus@ethereal.email", "Wd5ygyRUWkhNYbUxyx", false)
-// transporter.send("healthcare", "sahnivarun62@gmail.com", "yo", "yo")
-// transporter.send("<joyce.nikolaus@ethereal.email> healthcare", "sahnivarun62@gmail.com", "yo", "yo")
+const transporter = new MailTransporter(
+  "smtp.gmail.com",
+  465,
+  "cortxapp@gmail.com",
+  "zkpnzjmxemzizvcf"
+);
+transporter.send(
+  "<cortxapp@gmail.com> CortX App",
+  "sahnivarun62@gmail.com",
+  "yo",
+  "yo"
+);
 
 const listener = server.listen(process.env.PORT || 5000, (err) => {
   if (err) {
