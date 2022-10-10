@@ -3,9 +3,10 @@ import Navbar from "../components/navbar";
 // import { CircularProgressbar } from 'react-circular-progressbar';
 import "react-circular-progressbar/dist/styles.css";
 // import { App } from "../components/chart";
-import { FcAddressBook, FcExport} from "react-icons/fc";
+import { FcAddressBook, FcExport } from "react-icons/fc";
 // import Table from "../components/table";
 import NavBar from "../components/new_navbar";
+import axios from "axios";
 // import {Line} from 'react-chartjs-2'
 export default function Dashboard() {
   const TableData = [
@@ -22,7 +23,6 @@ export default function Dashboard() {
       Specialization: "Neurologist",
     },
   ];
-
 
   return (
     <div className=" absolute overflow-auto dark:bg-stone-900 h-screen w-screen">
@@ -55,13 +55,34 @@ export default function Dashboard() {
                     key={index}
                     className={` $(color && "shadow-2xl shadow-zinc-800")`}
                   >
-                    <td className="">
-                      {row.name}
-                    </td>
+                    <td className="">{row.name}</td>
                     <td className="">{row.email}</td>
                     <td className="">{row.phone}</td>
                     <td className="">{row.Specialization}</td>
-                    <td className="text-3xl p-2"><a href="/contacts"><FcExport/></a></td>
+                    <td className="text-3xl p-2">
+                      <button
+                        onClick={async (e) => {
+                          e.preventDefault();
+
+                          const res = await axios.get("/api/sendMail", {
+                            params: {
+                              subject: "Your File",
+                              recepient: "aggarwalaarushprogrammer@gmail.com",
+                            },
+                          });
+
+                          if (res.data.status == "error") {
+                            alert(res.data.error);
+                            window.location.replace("/contacts");
+                          } else if (res.data.status == "success") {
+                            alert("Sent mail!");
+                            window.location.replace("/contacts");
+                          }
+                        }}
+                      >
+                        <FcExport />
+                      </button>
+                    </td>
                   </tr>
                 );
               })}
