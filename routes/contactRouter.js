@@ -19,11 +19,14 @@ contactRouter.post("/new", checkUser, async (req, res) => {
   if (req.body.email) contact.email = req.body.email;
   if (req.body.phone) contact.phone = req.body.phone;
   if (req.body.specialization) contact.specialization = req.body.specialization;
-
-  user.contacts.push(contact);
-  user.save();
-
-  return res.json({ message: "added", contact: contact });
+  try {
+    user.contacts.push(contact);
+    user.save();
+    console.log("Added new contact.");
+    return res.json({ message: "Added contact!", contact: contact });
+  } catch {
+    return res.json({ message: "error" });
+  }
 });
 
 contactRouter.get("/getUserContacts", checkUser, async (req, res) => {

@@ -1,4 +1,5 @@
 // import React from "react";
+import { useState, useEffect } from "react";
 import Navbar from "../components/navbar";
 // import { CircularProgressbar } from 'react-circular-progressbar';
 import "react-circular-progressbar/dist/styles.css";
@@ -9,20 +10,16 @@ import NavBar from "../components/new_navbar";
 import axios from "axios";
 // import {Line} from 'react-chartjs-2'
 export default function Dashboard() {
-  const TableData = [
-    {
-      name: "John Doe",
-      email: "email@email.com",
-      phone: "+12 3456789",
-      specialization: "Urologist",
-    },
-    {
-      name: "Aarush Aggarwal",
-      email: "aggarwalaarushprogrammer@gmail.com",
-      phone: "+9873500379",
-      specialization: "Neurologist",
-    },
-  ];
+  const [data, setData] = useState();
+  useEffect(() => {
+    fetch(`http://localhost:3000/api/contacts/getUserContacts`)
+      .then((res) => res.json())
+      .then((data) => setData(data));
+  });
+
+  if (data === undefined) {
+    return <>Still loading...</>;
+  }
 
   return (
     <div className=" absolute overflow-auto dark:bg-stone-900 h-screen w-screen">
@@ -44,12 +41,12 @@ export default function Dashboard() {
             <table className="table-fixed w-full rounded-2xl dark:text-white text-center m-auto">
               <thead className="">
                 <th className="p-5">Name</th>
-                <th>Phone</th>
                 <th>Email</th>
+                <th>Phone</th>
                 <th>Specialization</th>
               </thead>
 
-              {TableData.map((row, index) => {
+              {data.map((row, index) => {
                 return (
                   <tr
                     name={row.email}
@@ -89,7 +86,13 @@ export default function Dashboard() {
             </table>
           </div>
           <div>
-            <button className="mt-12 mx-auto mb-5 h-fit w-fit flex bg-green-500 m-auto text-zinc-100 hover:bg-blue-900 rounded-lg shadow-xl  border-1 border-gray-200 p-3">
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.replace("/add-contact");
+              }}
+              className="mt-12 mx-auto mb-5 h-fit w-fit flex bg-green-500 m-auto text-zinc-100 hover:bg-blue-900 rounded-lg shadow-xl  border-1 border-gray-200 p-3"
+            >
               <span className="">Add Contacts</span>
             </button>
           </div>
