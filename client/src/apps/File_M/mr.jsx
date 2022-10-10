@@ -1,34 +1,44 @@
 import React from "react";
 import Navbar from "../../components/navbar";
 import { FcDepartment } from "react-icons/fc";
-import axios from "axios";
 export default function Mr() {
-//   const files = await axios.get("/api/files/getUserFiles", {
-//     params: { category: "medicalRecords" },
-//   });
+  //   const files = await axios.get("/api/files/getUserFiles", {
+  //     params: { category: "medicalRecords" },
+  //   });
 
-//   console.log(files);
-const TableData = [
-    {
-        title: 'myfirstmedicalrecord.pdf',
-        value: 'this is a medical report uploaded to the database',
-        unit: ''
-    }
-]
+  //   console.log(files);
+
+  const [data, setData] = React.useState();
+  React.useEffect(() => {
+    fetch(
+      "http://localhost:3000/api/files/getUserFiles?" +
+        new URLSearchParams({
+          category: "medicalRecords",
+        })
+    )
+      .then((res) => res.json())
+      .then((data) => setData(data));
+  });
+
+  if (data === undefined) {
+    return <>Still loading...</>;
+  }
+
   return (
     <div className="flex h-screen w-screen overflow-auto dark:bg-gray-900">
       <Navbar className="shadow-white shaodow-lg fixed top-0 left-0 z--50" />
       <div className="p-10 w-full">
         <div className="ml-24">
-            <div className="flex">
+          <div className="flex">
             <div className="hover:shadow-gray-800 dark:shadow-2xl min-h-fit min-w-fit p-3  bg-sky-900/[0.44] hover:bg-sky-900 rounded-xl text-xl m-10">
-                <span className="">
-                  <FcDepartment className="text-5xl bg-sky-300/[0.48] rounded-xl p-1 cursor-pointer"/>
-                  </span>
-              </div>
-          <h1 className="text-5xl sm:text-3xl font-mono dark:text-white font-bold mt-12">
-            Medical Record Files
-          </h1></div>
+              <span className="">
+                <FcDepartment className="text-5xl bg-sky-300/[0.48] rounded-xl p-1 cursor-pointer" />
+              </span>
+            </div>
+            <h1 className="text-5xl sm:text-3xl font-mono dark:text-white font-bold mt-12">
+              Medical Record Files
+            </h1>
+          </div>
 
           <div
             id="table"
@@ -41,18 +51,46 @@ const TableData = [
                 <th>Category</th>
               </thead>
 
-              {TableData.map((row, index) => {
+              {data.map((row, index) => {
                 return (
                   <tr
                     key={index}
                     className={` $(color && "shadow-2xl shadow-zinc-800")`}
                   >
-                    <td className="p-5 underline"><a href="http://localhost:5000/api/files/getFile?fileID=6343c52db33974a2b06527de"  >{row.title}</a></td>
-                    <td className="p-5">{row.value}{row.unit}</td>
-                    <td className="items-center">
-                        Medical Records
+                    <td className="p-5 underline">
+                      <button
+                        style={{
+                          color: "#88ff61",
+                          textDecoration: "underline",
+                        }}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          let filename;
+                          fetch(`/api/files/getFile?fileID=${row._id}`)
+                            .then((res) => {
+                              const header = res.headers.get(
+                                "Content-Disposition"
+                              );
+                              const parts = header.split("filename=");
+                              filename = parts[1];
+                              return res.blob();
+                            })
+                            .then((blob) => {
+                              let url = window.URL.createObjectURL(blob);
+                              let a = document.createElement("a");
+                              a.href = url;
+                              a.download = filename;
+                              document.body.appendChild(a);
+                              a.click();
+                              a.remove();
+                            });
+                        }}
+                      >
+                        {row.name}
+                      </button>
                     </td>
-
+                    <td className="p-5">{row.desc}</td>
+                    <td className="items-center">Medical Records</td>
                   </tr>
                 );
               })}

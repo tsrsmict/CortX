@@ -8,6 +8,7 @@ import { log, Style } from "../devlibs/dev.js";
 import User from "../models/user.js";
 import mime from "mime-types";
 import TesseractDetect from "../lib/TesseractDetect.js";
+import path from "path";
 
 const fileRouter = express.Router();
 
@@ -59,7 +60,9 @@ fileRouter.post(
     const reqFile = req.file;
     let file = {};
     file.userID = req.checkData.id;
-    file.name = req.body.fileName ? req.body.fileName : reqFile.originalname;
+    file.name = req.body.fileName
+      ? req.body.fileName
+      : path.parse(reqFile.originalname).name;
     file.type = reqFile.mimetype;
     if (req.body.fileDesc) {
       file.desc = req.body.fileDesc;
@@ -156,7 +159,7 @@ fileRouter.get("/getFile", checkUser, async (req, res) => {
 
   res.writeHead(200, {
     "Content-Type": file.type,
-    "Content-disposition":
+    "Content-Disposition":
       "attachment;filename=" + file.name + "." + mime.extension(file.type),
   });
   res.end(file.binData);
