@@ -37,6 +37,7 @@ import ReminderMake from "./components/reminder_make";
 import axios from "axios";
 import Mr from "./apps/File_M/mr";
 import GettingStarted from "./GettingStarted";
+import AddContact from "./components/AddContact";
 // import Pr from "./apps/Files_M/pr";
 
 const RequireAuth = () => {
@@ -136,6 +137,7 @@ root.render(
               <Route path="/files" element={<Files />}></Route>
               <Route path="/upload" element={<Upload />}></Route>
               <Route path="/contacts" element={<Contacts />}></Route>
+              <Route path="/add-contact" element={<AddContact />}></Route>
               <Route path="/calendar" element={<MyCalendar />}></Route>
               <Route path="/remindermake" element={<ReminderMake />}></Route>
             </Route>
