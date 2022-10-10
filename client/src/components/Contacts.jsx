@@ -43,6 +43,7 @@ export default function Dashboard() {
                 <th className="p-5">Name</th>
                 <th>Email</th>
                 <th>Phone</th>
+                <th>Email</th>
                 <th>Specialization</th>
               </thead>
 
