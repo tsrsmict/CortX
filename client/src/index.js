@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+import "./css.css";
 import reportWebVitals from "./reportWebVitals";
 // import Dashboard from './apps/Dashboard'
 // import SignIn from './apps/signin';
@@ -9,9 +10,15 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
+  Link,
+  useLocation,
+  Outlet,
 } from "react-router-dom";
-import SigninModule from "./components/signin_m"
+import { Navigate } from "react-router-dom";
+import Vaccination from "./apps/Vaccination";
+import SigninModule from "./components/signin_m";
 import SignupModule from "./components/signup_m";
+import LogoutModule from "./components/logout";
 import Table from "./components/table";
 import Dashboard from "./apps/Dashboard";
 // import Files from "./components/Files";
@@ -20,113 +27,137 @@ import Contacts from "./components/Contacts";
 // import Recordings from "./components/Recordings";
 // import Files_M from './components/Files';
 // import Navbar from './components/navbar';
-import Files from './apps/File_M/Files'
+import Files from "./apps/File_M/FileDisplay";
 // import Mr from './apps/File_M/mr';
 // import NavBar from "./components/navbar";
 // import Malendar from "./apps/calendar";
-import Upload from './components/upload'
+
+import Upload from "./components/upload";
 import ReminderMake from "./components/reminder_make";
-const TableData = [{
-  title: "White Blood Cell (WBC) (Leukocytes) Count",
-  value: 6250,
-  unit: 'cells/cu.mm',
-  bri_start: 4000,
-  bri_end: 10500,
-  color: false
-}, {
-  title: 'Red blood Cell (Wbc) Erthrocytes Count',
-  value: 4.94,
-  unit: 'milli/cu.mm',
-  bri_start: 4.7,
-  bri_end: 6.0,
-  color: true
-}, {
-  title: 'Platelet Count',
-  value: 173,
-  unit: '10^3/microliter',
-  bri_start: 150,
-  bri_end: 450,
-  color: false
-},
-{
-  title: 'Absolute Monocyte Count',
-  value: 500,
-  unit: '/c.mm',
-  bri_start: 200,
-  bri_end: 1000,
-  color: true
-},
-{
-  title: 'Absolute Eosinophilis Count',
-  value: 375,
-  unit: '/c.mm',
-  bri_start: 200,
-  bri_end: 1000,
-  color: false
-},
-{
-  title: 'Absolute Lymphocyte Count',
-  value: 500,
-  unit: '/c.mm',
-  bri_start: 1000,
-  bri_end: 3000,
-  color: true
-}, {
-  title: 'Absolute Neutrophilis Count',
-  value: 3313,
-  unit: '/c.mm',
-  bri_start: 2000,
-  bri_end: 7000,
-  color: false
-},
-{
-  title: 'Absolute Neutrophilis Count',
-  value: 3313,
-  unit: '/c.mm',
-  bri_start: 2000,
-  bri_end: 7000,
-  color: true
+import axios from "axios";
+import Mr from "./apps/File_M/FileDisplay";
+import GettingStarted from "./GettingStarted";
+import AddContact from "./components/AddContact";
+import Pr from "./components/pr";
+import FileDisplay from "./apps/File_M/FileDisplay";
+
+const RequireAuth = () => {
+  const location = useLocation();
+  const [auth, setAuth] = React.useState();
+  const [isLoading, setIsLoading] = React.useState(true);
+
+  React.useLayoutEffect(() => {
+    const authCheck = async () => {
+      setIsLoading(true);
+      try {
+        /* =============== HERE CALL MY API CHECK =============== */
+
+        // await the asynchronous logic
+        const authed = await axios.get("/api/users/checkAuth");
+
+        setAuth(authed.data.auth);
+      } catch (error) {
+        // handle any Promise rejections, errors, etc...
+        setAuth(false); // or unauthorized value
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    authCheck();
+
+    return () => {
+      // cancel/clean up any pending/in-flight asynchronous auth checks
+    };
+  }, [location.pathname]); // <-- check authentication when route changes
+
+  if (isLoading) {
+    return null; // or loading spinner, etc...
+  }
+
+  return auth ? ( // or auth property if object, i.e. auth.isAuthenticated, etc...
+    <Outlet />
+  ) : (
+    <Navigate to="/signin" replace />
+  );
+};
+
+function NotFound() {
+  return (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+        width: "100vw",
+      }}
+    >
+      <div style={{ textAlign: "center" }}>
+        <h1 style={{ fontSize: "5em", color: "red" }}>
+          Oops! You seem to be lost.
+        </h1>
+        <p style={{ fontSize: "3em", textDecorationLine: "underline" }}>
+          Here are some helpful links:
+        </p>
+
+        <div
+          style={{
+            display: "flex",
+            gap: "1em",
+            justifyContent: "center",
+            fontSize: "2em",
+          }}
+        >
+          <Link to="/signin">Sign In</Link>
+          <Link to="/signup">Sign Up</Link>
+          <Link to="/dashboard">Dashboard</Link>
+        </div>
+      </div>
+    </div>
+  );
 }
-
-
-]
-
-
-async function checkAuth() {
-  await fetch("/api/users/checkAuth", {
-    method: "GET",
-    headers: { "Content-Type": "application/json" },
-  })
-    .then((res) => res.json())
-    .then((json) => {
-      if (json.auth == false) window.location.replace("/signin");
-    });
-}
-
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
+    <div>
+      <Router>
+        <div>
+          <Routes>
+            <Route path="/" element={<GettingStarted />}></Route>
+            <Route path="/signup" element={<SignupModule />}></Route>
+            <Route path="/signin" element={<SigninModule />}></Route>
+            <Route path="/logout" element={<LogoutModule />}></Route>
+            <Route
+              path="/files/medicalRecords"
+              element={
+                <FileDisplay
+                  fetch="medicalRecords"
+                  nameFormatted="Medical Records"
+                />
+              }
+            ></Route>
+            <Route element={<RequireAuth />}>
+              <Route path="/tables" element={<Table />}></Route>
+              <Route path="/vaccinations" element={<Vaccination />}></Route>
+              <Route path="/dashboard" element={<Dashboard />}></Route>
+              <Route path="/files" element={<Files />}></Route>
+              <Route path="/upload" element={<Upload />}></Route>
+              <Route path="/contacts" element={<Contacts />}></Route>
+              <Route path="/add-contact" element={<AddContact />}></Route>
+              <Route path="/calendar" element={<MyCalendar />}></Route>
+              <Route path="/dashboard/CortoComp" element={<CortoComp/>}></Route>
+              <Route path="/remindermake" element={<ReminderMake />}></Route>
+            </Route>
 
-    {/* <Table/> */}
-<Router>
-      <div>
-        <Routes>
-          <Route path="/signup" element={<SignupModule/>}></Route>
-          <Route path="/signin" element={<SigninModule/>}></Route>
-          <Route path="/tables" element={<Table/>}></Route>
-          <Route path="/" render={() => checkAuth() } element={ <Dashboard/> }></Route>
-          <Route path="/files" element={<Files />}></Route>
-          <Route path="/upload" element={<Upload />}></Route>
-          <Route path="/contacts" element={<Contacts />}></Route>
-          <Route path="/calendar" element={<MyCalendar />}></Route>
-          <Route path='/remindermake' element={<ReminderMake/>}></Route>
-        </Routes>
-      </div>
-    </Router>
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </div>
+      </Router>
+    </div>
   </React.StrictMode>
 );
-reportWebVitals()
+reportWebVitals();
 
-
-// 
+//

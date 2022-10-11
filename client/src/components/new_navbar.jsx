@@ -21,7 +21,7 @@ export default function NavBar() {
           className={`text-sky-800 dark:text-sky-300 ${!navbar && "rotate"}`}
         />
       ),
-      link: "/",
+      link: "/dashboard",
     },
 
     {
@@ -43,13 +43,13 @@ export default function NavBar() {
     {
       title: "Profile",
       icon: <CgProfile className="text-green-800 dark:text-green-300" />,
-      link: "/",
+      link: "/dashboard",
     },
 
     {
       title: "Settings",
       icon: <FcSettings />,
-      link: "/",
+      link: "/dashboard",
     },
 
     {
@@ -63,7 +63,7 @@ export default function NavBar() {
       <div className="justify-between px-4 mx-auto">
         <div>
           <div className="flex items-center justify-between py-3 ">
-            <a href="/" className="flex">
+            <a href="/dashboard" className="flex">
               <FaHouseDamage className="text-2xl bg-orange-600 flex mx-2 my-1 rounded-4px" />
               <h2 className="text-2xl flex font-bold font-mono dark:text-white">
                 HealthcareApp

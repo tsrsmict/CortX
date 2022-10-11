@@ -11,6 +11,7 @@ import {
   FcBearish,
   FcCalendar,
   FcFolder,
+  FcMindMap,
 } from "react-icons/fc";
 
 export default function Navbar() {
@@ -28,7 +29,7 @@ export default function Navbar() {
           className={`text-sky-800 dark:text-sky-300 ${!navbar && "rotate"}`}
         />
       ),
-      link: "/",
+      link: "/dashboard",
     },
 
     {
@@ -40,6 +41,10 @@ export default function Navbar() {
       title: "Calendar",
       icon: <FcCalendar />,
       link: "/calendar",
+    },{
+      title: "Vaccination",
+      icon: <FcMindMap />,
+      link: "/vaccinations",
     },
     {
       title: "Contacts",
@@ -50,19 +55,19 @@ export default function Navbar() {
     {
       title: "Profile",
       icon: <CgProfile className="text-green-800 dark:text-green-300" />,
-      link: "/",
+      link: "/dashboard",
     },
 
     {
       title: "Settings",
       icon: <FcSettings />,
-      link: "/",
+      link: "/dashboard",
     },
 
     {
       title: "Logout",
       icon: <FaPowerOff className="text-orange-600" />,
-      link: "/signin",
+      link: "/logout",
     },
   ];
   return (
