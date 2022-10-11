@@ -52,9 +52,9 @@ const RequireAuth = () => {
         /* =============== HERE CALL MY API CHECK =============== */
 
         // await the asynchronous logic
-        const auth = await axios.get("api/users/checkAuth");
+        const authed = await axios.get("/api/users/checkAuth");
 
-        setAuth(auth.data.auth);
+        setAuth(authed.data.auth);
       } catch (error) {
         // handle any Promise rejections, errors, etc...
         setAuth(false); // or unauthorized value

@@ -27,19 +27,22 @@ const app = express();
 dotenv.config();
 
 app.use(cookieParser());
-const __dirname = new URL(".", import.meta.url).pathname;
-// react file handler
-if (
-  process.env.NODE_ENV === "production" ||
-  process.env.NODE_ENV === "staging"
-) {
-  app.use(express.static("client/build"));
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname + "/client/build/index.html"));
-  });
-}
+const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
+console.log(__dirname);
+console.log(path.join(__dirname, "./client/build"));
+app.use(express.static(path.join(__dirname, "./client/build")));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "./client/build", "index.html"));
+});
 
-// DB connection
+// middleware setup
+app.use(express.json());
+app.use(cors());
+app.use(helmet());
+app.use(morgan("combined"));
+const server = http.Server(app);
+
+// DB connections
 mongoose
   .connect(process.env.HEALTHCARE_DB_URI, {
     useNewUrlParser: true,
@@ -67,13 +70,6 @@ app.use("/api/contacts/", contactRouter);
 
 // ejs view engine
 app.set("view engine", "ejs");
-
-// middleware setup
-app.use(express.json());
-app.use(cors());
-app.use(helmet());
-app.use(morgan("combined"));
-const server = http.Server(app);
 
 app.use(express.static("public"));
 app.use("/assets", express.static("assets"));
