@@ -18,7 +18,7 @@ import cookieParser from "cookie-parser";
 import jsonwebtoken from "jsonwebtoken";
 import { validate } from "email-validator";
 import bcrypt from "bcryptjs";
-import * as url from url
+import * as url from "url";
 import recognize from "./lib/TesseractDetect.js";
 
 // await recognize("file.png").then((res) => console.log(res));
@@ -27,7 +27,7 @@ const app = express();
 dotenv.config();
 
 app.use(cookieParser());
-const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+const __dirname = new URL(".", import.meta.url).pathname;
 // react file handler
 if (
   process.env.NODE_ENV === "production" ||
