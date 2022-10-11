@@ -27,7 +27,7 @@ import Contacts from "./components/Contacts";
 // import Recordings from "./components/Recordings";
 // import Files_M from './components/Files';
 // import Navbar from './components/navbar';
-import Files from "./apps/File_M/Files";
+import Files from "./apps/File_M/FileDisplay";
 // import Mr from './apps/File_M/mr';
 // import NavBar from "./components/navbar";
 // import Malendar from "./apps/calendar";
@@ -35,11 +35,11 @@ import Files from "./apps/File_M/Files";
 import Upload from "./components/upload";
 import ReminderMake from "./components/reminder_make";
 import axios from "axios";
-import Mr from "./apps/File_M/mr";
+import Mr from "./apps/File_M/FileDisplay";
 import GettingStarted from "./GettingStarted";
 import AddContact from "./components/AddContact";
 import Pr from "./components/pr";
-import CortoComp from "./components/CortocComp";
+import FileDisplay from "./apps/File_M/FileDisplay";
 
 const RequireAuth = () => {
   const location = useLocation();
@@ -53,9 +53,9 @@ const RequireAuth = () => {
         /* =============== HERE CALL MY API CHECK =============== */
 
         // await the asynchronous logic
-        const auth = await axios.get("api/users/checkAuth");
+        const authed = await axios.get("/api/users/checkAuth");
 
-        setAuth(auth.data.auth);
+        setAuth(authed.data.auth);
       } catch (error) {
         // handle any Promise rejections, errors, etc...
         setAuth(false); // or unauthorized value
@@ -129,8 +129,15 @@ root.render(
             <Route path="/signup" element={<SignupModule />}></Route>
             <Route path="/signin" element={<SigninModule />}></Route>
             <Route path="/logout" element={<LogoutModule />}></Route>
-            <Route path="/files/mr" element={<Mr />}></Route>
-            <Route path="/files/pr" element={<Pr />}></Route>
+            <Route
+              path="/files/medicalRecords"
+              element={
+                <FileDisplay
+                  fetch="medicalRecords"
+                  nameFormatted="Medical Records"
+                />
+              }
+            ></Route>
             <Route element={<RequireAuth />}>
               <Route path="/tables" element={<Table />}></Route>
               <Route path="/vaccinations" element={<Vaccination />}></Route>

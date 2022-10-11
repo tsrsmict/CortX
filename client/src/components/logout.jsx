@@ -12,8 +12,8 @@ class LogoutModule extends Component {
   }
   logOut = async (e) => {
     e.preventDefault();
-    const logout = await axios.get("/api/users/logout");
-    alert(logout.data);
+    const logout = await fetch("/api/users/logout").then((data) => data.json());
+    alert(logout);
     window.location.replace("/");
   };
 
