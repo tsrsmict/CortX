@@ -40,6 +40,7 @@ import GettingStarted from "./GettingStarted";
 import AddContact from "./components/AddContact";
 import Pr from "./components/pr";
 import FileDisplay from "./apps/File_M/FileDisplay";
+import CortoComp from "./components/CortocComp";
 
 const RequireAuth = () => {
   const location = useLocation();
