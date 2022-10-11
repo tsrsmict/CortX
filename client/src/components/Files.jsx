@@ -47,16 +47,16 @@ function Files_M() {
                       }}
                       value={data.file}
                       name="file"
-                      className="m-5 p-5 w-3/4 bg-stone-900 rounded-lg dark:text-white"
+                      className="m-5 p-5 w-3/4 dark:bg-stone-900 rounded-lg dark:text-white"
                       required
                     />
                     <br></br>
                     <br></br>
                     <br></br>
-                    <span className="w-3/4 bg-stone-900 p-5 rounded-2xl">
+                    <span className="w-3/4 dark:bg-stone-900 p-5 rounded-2xl">
                       <label
                         htmlhtmlFor="category"
-                        className="w-3/4 bg-stone-900 p-3"
+                        className="w-3/4 dark:bg-stone-900 p-3"
                       >
                         Choose a Category
                       </label>

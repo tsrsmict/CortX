@@ -14,7 +14,7 @@ function Vaccination() {
     fetch(
       "/api/files/getUserFiles?" +
         new URLSearchParams({
-          category: "vaccination",
+          category: "vaccinations",
         })
     )
       .then((res) => res.json())
@@ -37,12 +37,15 @@ function Vaccination() {
                 Vaccinations
               </h1>
             </div>
-            <div>
-              Upcoming Reminder
+            <div className="flex items-center">
+            <div className="m-auto rounded-lg w-1/5 bg-sky-400 dark:bg-gradient-to-r from-sky-500 to-sky-900 hover:shadow-2xl shadow-white dark:hover:bg-gradient-to-l from-sky-500 to-sky-900 duration-500 p-5 dark:text-white">
+              Upcoming Reminders:
               <br />
               <br />
               You have your booster dose for COVID 19 Coming up on 25th October
-            </div>
+              <br/><br/>
+              Your 5 year tetanus shot gets over on 19th November
+            </div></div>
             <div
               id="table"
               className=" text-xs md:text-md rounded-2xl text-0.25rem flex bg-slate-100 dark:bg-stone-800 m-5 w-11/12 items-center text-center shadow-2xl shadow-zinc-800 mx-auto mt-10"

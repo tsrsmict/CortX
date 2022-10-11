@@ -17,11 +17,6 @@ import {
 export default function Navbar() {
   const [navbar, setNavbar] = useState(false);
   const Menus = [
-    // {
-    //   title: "",
-    //   icon: ,
-    // link: '/'
-    // },
     {
       title: "Dashboard",
       icon: (
@@ -75,7 +70,7 @@ export default function Navbar() {
       <div
         className={`sm:p-5 sm:pt-8 ${
           navbar ? "w-72" : "w-20"
-        } h-full duration-300 relative bg-gray-200 dark:bg-neutral-700  shadow-lg `}
+        } h-full duration-300 relative bg-slate-900 dark:bg-zinc-800 shadow-2xl  shadow-stone-800`}
       >
         <BsArrowLeftShort
           className={` bg-dark-purple text-white dark:bg-white dark:text-dark-purple text-3xl rounded-full cursor-pointer border ${
@@ -93,7 +88,7 @@ export default function Navbar() {
               <a href={menu.link}>
                 <li
                   key={index}
-                  className={`md:mb-12 mx-2 dark:text-white text-sm flex item-center gap-x-4 cursor-pointer p-2 hover:bg-stone-600/[0.5] hover:translate-x-5 rounded-sm`}
+                  className={`md:mb-2 mx-2 dark:text-white text-sm flex item-center gap-x-4 cursor-pointer p-2 hover:bg-stone-600/[0.5] hover:translate-x-2 rounded-sm`}
                 >
                   <span className="text-2xl block float-left">{menu.icon}</span>
                   <span

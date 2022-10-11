@@ -105,7 +105,7 @@ export default function Dashboard() {
  
 
   return (
-    <div className=" absolute overflow-auto dark:bg-stone-900 h-screen w-screen">
+    <div className=" absolute overflow-auto dark:dark:bg-stone-900 h-screen w-screen">
       <NavBar className="sm:hidden" />
       <div className="flex h-full">
         <Navbar
@@ -113,7 +113,7 @@ export default function Dashboard() {
           style={{ position: "shadow-lg" }}
         />
         <div className="p-1 sm:p-5 mt-16 lg:mt-0 md:ml-12 lg:p-12 ">
-          <div className="flex p-5">
+          <div className="flex p-5 items-center">
             <RiDashboardFill className="text-5xl mr-5 text-sky-800 dark:text-sky-300" />
             <h1 className="text-5xl font-mono dark:text-white font-bold">
               Dashboard
@@ -124,7 +124,7 @@ export default function Dashboard() {
           </div>
           <div className="flex pl-36">
             <div className="flex float-left p-4 sm:flex w-2/4">
-              <img src="https://www.leltek.com/wp-content/uploads/2022/03/humanBody.gif" className="h-72 rounded-lg shadow-lg shadow-stone-600"/>
+              <img src="https://www.leltek.com/wp-content/uploads/2022/03/humanBody.gif" className="h-72 rounded-2xl shadow-md"/>
             </div>
             <div className="flex float-right m-auto p-4  sm:flex  w-full">
               <div className="sm:w-3/12 xl:w-1/2 lg:w-2/3 bg-zinc-200/[0.8] dark:bg-zinc-200 p-3 shadow-2xl shadow-zinc-600 rounded-2xl m-auto">
@@ -134,7 +134,7 @@ export default function Dashboard() {
           </div>
           <div
             id="table"
-            className=" text-xs md:text-md rounded-2xl text-0.25rem flex bg-slate-100 dark:bg-stone-800 m-5 w-11/12 items-center text-center shadow-2xl shadow-zinc-800 mx-auto mt-10"
+            className=" text-xs md:text-md rounded-2xl text-0.25rem flex bg-slate-100 dark:bg-stone-800 m-5 w-11/12 items-center text-center shadow-2xl shadow-alate-700 mx-auto mt-10"
           >
             <table className="table-fixed w-full rounded-2xl dark:text-white text-center m-auto">
               <thead className="">

@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 // import Dashboard from './apps/Dashboard'
 // import SignIn from './apps/signin';
 // import Dashboard from "./apps/Dashboard";
+import Medicinetracker from "./components/medicinetracker";
 import {
   BrowserRouter as Router,
   Routes,
@@ -133,6 +134,7 @@ root.render(
               <Route path="/tables" element={<Table />}></Route>
               <Route path="/vaccinations" element={<Vaccination />}></Route>
               <Route path="/dashboard" element={<Dashboard />}></Route>
+              <Route path="medicinetracker" element={<Medicinetracker />}></Route>
               <Route path="/files" element={<Files />}></Route>
               <Route
                 path="/files/medicalRecords"

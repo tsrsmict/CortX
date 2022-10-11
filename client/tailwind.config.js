@@ -18,7 +18,8 @@ module.exports = {
       colors: {
         "dark-purple": "#171717",
         "light-white": "rgb(255, 255, 255)",
-        "orange-red": "rgb(255, 94, 41)"
+        "orange-red": "rgb(255, 94, 41)",
+        "b-black": '#0f0f0f'
       },
       backgroundImage: {
         'doctor': "url('https://thumbs.dreamstime.com/b/medicine-doctor-touching-electronic-medical-record-tablet-dna-digital-healthcare-network-connection-hologram-modern-virtual-154742526.jpg')",

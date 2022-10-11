@@ -44,7 +44,7 @@ class FileUpload extends Component {
       .then((r) => {
         console.log("JSON Response: " + r);
         alert("File uploaded successfully.");
-        window.location.replace("/dashboard");
+        window.location.replace("/files");
       })
       .catch((err) => {
         console.log(err);
@@ -56,7 +56,7 @@ class FileUpload extends Component {
     return (
       <div>
         <div className="p-5 text-center">
-          <div className="p-12 h-30 m-auto w-1/2 bg-gray-200 dark:bg-gray-700 dark:text-white text-center rounded-lg  border-1 border-black">
+          <div className="p-12 h-30 m-auto w-1/2 bg-gray-200 dark:bg-gray-700 dark:text-white text-center rounded-lg shadow-2xl, shadow-gray-800 border-1 border-black">
             <h1 className="text-5xl font-bold font-mono mb-12">
               Upload Your Report
             </h1>

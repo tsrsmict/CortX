@@ -11,7 +11,7 @@ import axios from "axios";
 // import {Line} from 'react-chartjs-2'
 export default function AddContact() {
   return (
-    <div className=" absolute overflow-auto dark:bg-stone-900 h-screen w-screen">
+    <div className=" absolute overflow-auto dark:dark:bg-stone-900 h-screen w-screen">
       <NavBar className="sm:hidden" />
       <div className="flex h-full">
         <Navbar
@@ -52,21 +52,23 @@ export default function AddContact() {
               }}
               style={{ marginRight: "1em" }}
             >
-              <input placeholder="Name..." type="text" name="name"></input>
+              <input placeholder="Name..." type="text" name="name" className="p-3 m-5 rounded-lg"></input>
               <input
                 type="text"
                 name="phone"
                 placeholder="Phone Number..."
+                className="p-3 m-5 rounded-lg"
               ></input>
-              <input type="text" name="email" placeholder="E-mail..."></input>
+              <input type="text" name="email" placeholder="E-mail..." className="p-3 m-5 rounded-lg"></input>
               <input
                 type="text"
                 name="specialization"
                 placeholder="Specialization..."
+                className="p-3 m-5 rounded-lg"
               ></input>
               <button
                 type="submit"
-                className="mt-12 mx-auto mb-5 h-fit w-fit flex bg-green-500 m-auto text-zinc-100 hover:bg-blue-900 rounded-lg shadow-xl  border-1 border-gray-200 p-3"
+                className="mt-12 mx-auto mb-5 h-fit w-fit flex bg-green-300 text-black hover:text-white m-auto text-zinc-100 hover:bg-green-700 rounded-lg shadow-xl  border-1 border-gray-200 p-3"
               >
                 <span className="">Add Contact</span>
               </button>
