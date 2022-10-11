@@ -1,3 +1,3 @@
 web:
 node
-index.js
+server.js
