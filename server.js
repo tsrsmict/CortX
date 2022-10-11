@@ -35,7 +35,7 @@ console.log(path.join(__dirname, "client/build"));
 
 // middleware setup
 app.use(express.json());
-app.use(cors());
+app.use(cors({ credentials: true, origin: true }));
 const server = http.Server(app);
 
 // DB connections
@@ -74,8 +74,8 @@ const mailTransporter = nodemailer.createTransport({
   port: 465,
   secure: true,
   auth: {
-    user: "cortxapp@gmail.com",
-    pass: "zkpnzjmxemzizvcf",
+    user: process.env.EMAIL,
+    pass: process.env.PASSWORD,
   },
 });
 
@@ -98,9 +98,7 @@ app.get("/api/sendMail", checkUser, async (req, res) => {
   let recepient = user.email;
 
   if (req.query.recepient) recepient = req.query.recepient;
-  const file = fs.readFileSync(
-    "C:\\Users\\Skamr\\Documents\\HealthcareApp\\data.csv"
-  );
+  const file = fs.readFileSync(path.join(__dirname, "./data.csv"));
   mailTransporter.sendMail(
     {
       from: "<cortxapp@gmail.com> CortX App",
@@ -138,7 +136,7 @@ if (
   });
 }
 
-const listener = server.listen(process.env.PORT || 4000, (err) => {
+const listener = server.listen(process.env.PORT || 5000, (err) => {
   if (err) {
     console.log(err);
   } else {

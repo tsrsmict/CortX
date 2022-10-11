@@ -8,17 +8,20 @@ import { FcAddressBook, FcExport } from "react-icons/fc";
 // import Table from "../components/table";
 import NavBar from "../components/new_navbar";
 import axios from "axios";
+
+import Loader from "../loader/Loader";
+
 // import {Line} from 'react-chartjs-2'
 export default function Contacts() {
   const [data, setData] = useState();
   useEffect(() => {
-    fetch(`http://localhost:3000/api/contacts/getUserContacts`)
+    fetch(`/api/contacts/getUserContacts`)
       .then((res) => res.json())
       .then((data) => setData(data));
   });
 
   if (data === undefined) {
-    return <><img src="https://i2.wp.com/codemyui.com/wp-content/uploads/2017/09/rotate-pulsating-loading-animation.gif"/></>;
+    return <Loader />;
   }
 
   return (
@@ -62,17 +65,17 @@ export default function Contacts() {
                         onClick={async (e) => {
                           e.preventDefault();
 
-                          const res = await axios.get("/api/sendMail", {
+                          const res = await axios.get("api/sendMail", {
                             params: {
                               subject: "Your Patient's File",
                               recepient: row.email,
                             },
                           });
 
-                          if (res.data.status == "error") {
+                          if (res.data.status === "error") {
                             alert(res.data.error);
                             window.location.replace("/contacts");
-                          } else if (res.data.status == "success") {
+                          } else if (res.data.status === "success") {
                             alert("Sent mail!");
                             window.location.replace("/contacts");
                           }
