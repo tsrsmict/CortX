@@ -15,7 +15,7 @@ import {
   Outlet,
 } from "react-router-dom";
 import { Navigate } from "react-router-dom";
-
+import Vaccination from "./apps/Vaccination";
 import SigninModule from "./components/signin_m";
 import SignupModule from "./components/signup_m";
 import LogoutModule from "./components/logout";
@@ -140,13 +140,14 @@ root.render(
             ></Route>
             <Route element={<RequireAuth />}>
               <Route path="/tables" element={<Table />}></Route>
-
+              <Route path="/vaccinations" element={<Vaccination />}></Route>
               <Route path="/dashboard" element={<Dashboard />}></Route>
               <Route path="/files" element={<Files />}></Route>
               <Route path="/upload" element={<Upload />}></Route>
               <Route path="/contacts" element={<Contacts />}></Route>
               <Route path="/add-contact" element={<AddContact />}></Route>
               <Route path="/calendar" element={<MyCalendar />}></Route>
+              <Route path="/dashboard/CortoComp" element={<CortoComp/>}></Route>
               <Route path="/remindermake" element={<ReminderMake />}></Route>
             </Route>
 

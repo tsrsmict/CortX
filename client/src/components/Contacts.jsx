@@ -9,7 +9,7 @@ import { FcAddressBook, FcExport } from "react-icons/fc";
 import NavBar from "../components/new_navbar";
 import axios from "axios";
 // import {Line} from 'react-chartjs-2'
-export default function Dashboard() {
+export default function Contacts() {
   const [data, setData] = useState();
   useEffect(() => {
     fetch(`http://localhost:3000/api/contacts/getUserContacts`)
@@ -18,7 +18,7 @@ export default function Dashboard() {
   });
 
   if (data === undefined) {
-    return <>Still loading...</>;
+    return <><img src="https://i2.wp.com/codemyui.com/wp-content/uploads/2017/09/rotate-pulsating-loading-animation.gif"/></>;
   }
 
   return (
