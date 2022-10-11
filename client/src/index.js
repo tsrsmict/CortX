@@ -40,6 +40,7 @@ import GettingStarted from "./GettingStarted";
 import AddContact from "./components/AddContact";
 import Pr from "./components/pr";
 import FileDisplay from "./apps/File_M/FileDisplay";
+import Medicinesearch from "./apps/Medicinesearch";
 import CortoComp from "./components/CortocComp";
 
 const RequireAuth = () => {
@@ -150,6 +151,7 @@ root.render(
               <Route path="/calendar" element={<MyCalendar />}></Route>
               <Route path="/dashboard/CortoComp" element={<CortoComp/>}></Route>
               <Route path="/remindermake" element={<ReminderMake />}></Route>
+              <Route path="/search/medicine" element={<Medicinesearch/>}></Route>
             </Route>
 
             <Route path="*" element={<NotFound />} />
