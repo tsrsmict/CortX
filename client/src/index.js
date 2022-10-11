@@ -23,7 +23,6 @@ import LogoutModule from "./components/logout";
 import Table from "./components/table";
 import Dashboard from "./apps/Dashboard";
 // import Files from "./components/Files";
-import MyCalendar from "./components/Calendar";
 import Contacts from "./components/Contacts";
 // import Recordings from "./components/Recordings";
 // import Files_M from './components/Files';
@@ -42,6 +41,8 @@ import FileDisplay from "./apps/File_M/FileDisplay";
 import Loader from "./loader/Loader";
 import MedicineSearch from "./apps/MedicineSearch";
 import CortoComp from "./components/CortocComp";
+import Calendar from "./components/Calendar";
+import AddReminder from "./components/AddReminder";
 const RequireAuth = () => {
   const location = useLocation();
   const [auth, setAuth] = React.useState();
@@ -187,7 +188,8 @@ root.render(
               <Route path="/upload" element={<Upload />}></Route>
               <Route path="/contacts" element={<Contacts />}></Route>
               <Route path="/add-contact" element={<AddContact />}></Route>
-              <Route path="/calendar" element={<MyCalendar />}></Route>
+              <Route path="/calendar" element={<Calendar />}></Route>
+              <Route path="/calendar/add" element={<AddReminder />}></Route>
               <Route
                 path="/dashboard/CortoComp"
                 element={<CortoComp />}
