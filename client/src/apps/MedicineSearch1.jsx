@@ -2016,6 +2016,7 @@ const Medicines = [
   },
 ];
 
+const f = { f };
 export default function MedicineSearch() {
   return (
     <>
