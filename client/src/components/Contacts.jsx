@@ -18,7 +18,7 @@ export default function Contacts() {
   });
 
   if (data === undefined) {
-    return <><img src="https://i2.wp.com/codemyui.com/wp-content/uploads/2017/09/rotate-pulsating-loading-animation.gif"/></>;
+    return <>Still Loading...</>;
   }
 
   return (
