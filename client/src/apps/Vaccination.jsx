@@ -1,19 +1,20 @@
-import React from "react";
-import Navbar from "../../components/navbar";
-import { FcDepartment } from "react-icons/fc";
-export default function Mr() {
-  //   const files = await axios.get("/api/files/getUserFiles", {
-  //     params: { category: "medicalRecords" },
-  //   });
-
-  //   console.log(files);
-
-  const [data, setData] = React.useState();
+import React from 'react';
+import Navbar from '../components/navbar';
+import CortoComp from '../components/CortocComp';
+import Chart from '../components/chart'
+const reminders = [
+  {
+    name: '',
+    date: ''
+  }
+]
+function Vaccination() {
+    const [data, setData] = React.useState();
   React.useEffect(() => {
     fetch(
-      "/api/files/getUserFiles?" +
+"/api/files/getUserFiles?" +
         new URLSearchParams({
-          category: "medicalRecords",
+          category: "vaccination",
         })
     )
       .then((res) => res.json())
@@ -27,18 +28,14 @@ export default function Mr() {
     console.log(data)
   }
   return (
-    <div className="flex h-screen w-screen overflow-auto dark:bg-gray-900">
-      <Navbar className="shadow-white shaodow-lg fixed top-0 left-0 z--50" />
+    <div className="">
+        <Navbar />
+          <div className="flex h-screen w-screen overflow-auto dark:bg-gray-900">
       <div className="p-10 w-full">
         <div className="ml-24">
           <div className="flex">
-            <div className="hover:shadow-gray-800 dark:shadow-2xl min-h-fit min-w-fit p-3  bg-sky-900/[0.44] hover:bg-sky-900 rounded-xl text-xl m-10">
-              <span className="">
-                <FcDepartment className="text-5xl bg-sky-300/[0.48] rounded-xl p-1 cursor-pointer" />
-              </span>
-            </div>
             <h1 className="text-5xl sm:text-3xl font-mono dark:text-white font-bold mt-12">
-              Medical Record Files
+             Vaccinations
             </h1>
           </div>
 
@@ -48,9 +45,10 @@ export default function Mr() {
           >
             <table className="table-fixed w-full rounded-2xl dark:text-white text-center m-auto">
               <thead className="">
-                <th className="p-5">Name</th>
-                <th>Description</th>
-                <th>Category</th>
+                <th className="p-5">Vaccine Name</th>
+                <th>Cerificate</th>
+                <th>Date of Dose</th>
+
               </thead>
 
               {data.map((row, index) => {
@@ -61,15 +59,19 @@ export default function Mr() {
                   >
                     <td className="p-5 underline"><a href={`http://localhost:5000/api/files/getFile?fileID=${row._id}`}  >{row.name}</a></td>
                     <td className="p-5">{row.desc}</td>
-
-                    <td className="items-center">Medical Records</td>
                   </tr>
                 );
               })}
             </table>
           </div>
         </div>
-      </div>
+</div>
+          
+            
+          </div>
+
     </div>
-  );
+  )
 }
+
+export default Vaccination

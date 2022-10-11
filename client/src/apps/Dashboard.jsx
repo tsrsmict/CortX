@@ -2,12 +2,13 @@
 import Navbar from "../components/navbar";
 // import { CircularProgressbar } from 'react-circular-progressbar';
 import "react-circular-progressbar/dist/styles.css";
-import { App } from "../components/chart";
+import Chart from "../components/chart";
 import { RiDashboardFill } from "react-icons/ri";
 // import Table from "../components/table";
 import NavBar from "../components/new_navbar";
 import axios from "axios";
 import { useState } from "react";
+import CortoComp from "../components/CortocComp";
 
 export default function Dashboard() {
   const TableData = [
@@ -118,13 +119,16 @@ export default function Dashboard() {
               Dashboard
             </h1>
           </div>
+          <div>
+            <CortoComp />
+          </div>
           <div className="flex pl-36">
             <div className="flex float-left p-4 sm:flex w-2/4">
               <img src="https://www.leltek.com/wp-content/uploads/2022/03/humanBody.gif" className="h-72 rounded-lg shadow-lg shadow-stone-600"/>
             </div>
             <div className="flex float-right m-auto p-4  sm:flex  w-full">
               <div className="sm:w-3/12 xl:w-1/2 lg:w-2/3 bg-zinc-200/[0.8] dark:bg-zinc-200 p-3 shadow-2xl shadow-zinc-600 rounded-2xl m-auto">
-                <App />
+                <Chart />
               </div>
             </div>
           </div>

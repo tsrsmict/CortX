@@ -11,6 +11,7 @@ import {
   FcBearish,
   FcCalendar,
   FcFolder,
+  FcMindMap,
 } from "react-icons/fc";
 
 export default function Navbar() {
@@ -40,6 +41,10 @@ export default function Navbar() {
       title: "Calendar",
       icon: <FcCalendar />,
       link: "/calendar",
+    },{
+      title: "Vaccination",
+      icon: <FcMindMap />,
+      link: "/vaccinations",
     },
     {
       title: "Contacts",

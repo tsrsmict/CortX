@@ -28,17 +28,6 @@ dotenv.config();
 
 app.use(cookieParser());
 
-// react file handler
-if (
-  process.env.NODE_ENV === "production" ||
-  process.env.NODE_ENV === "staging"
-) {
-  app.use(express.static("client/build"));
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname + "/client/build/index.html"));
-  });
-}
-
 // DB connection
 mongoose
   .connect(process.env.HEALTHCARE_DB_URI, {
@@ -137,6 +126,17 @@ app.get("/api/sendMail", checkUser, async (req, res) => {
     }
   );
 });
+
+// react file handler
+if (
+  process.env.NODE_ENV === "production" ||
+  process.env.NODE_ENV === "staging"
+) {
+  app.use(express.static("client/build"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname + "/client/build/index.html"));
+  });
+}
 
 const listener = server.listen(process.env.PORT || 5000, (err) => {
   if (err) {

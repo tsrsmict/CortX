@@ -1,8 +1,13 @@
 import React from "react";
 import Navbar from "./navbar";
-import { FcBusinessContact } from "react-icons/fc";
-export default function FilesPage() {
-  
+import { FcDepartment } from "react-icons/fc";
+export default function Pr() {
+  //   const files = await axios.get("/api/files/getUserFiles", {
+  //     params: { category: "medicalRecords" },
+  //   });
+
+  //   console.log(files);
+
   const [data, setData] = React.useState();
   React.useEffect(() => {
     fetch(
@@ -27,13 +32,13 @@ export default function FilesPage() {
       <div className="p-10 w-full">
         <div className="ml-24">
           <div className="flex">
-          <div className="hover:shadow-gray-800 dark:shadow-2xl min-h-fit min-w-fit p-3  bg-purple-600/[0.44] hover:bg-purple-800 rounded-xl text-xl m-10">
-                <span className="">
-                  <FcBusinessContact className="text-6xl  bg-purple-300/[0.48] rounded-xl p-3 cursor-pointer"/>
-                  </span>
-              </div>
+            <div className="hover:shadow-gray-800 dark:shadow-2xl min-h-fit min-w-fit p-3  bg-sky-900/[0.44] hover:bg-sky-900 rounded-xl text-xl m-10">
+              <span className="">
+                <FcDepartment className="text-5xl bg-sky-300/[0.48] rounded-xl p-1 cursor-pointer" />
+              </span>
+            </div>
             <h1 className="text-5xl sm:text-3xl font-mono dark:text-white font-bold mt-12">
-              Prescriptions
+              Medical Record Files
             </h1>
           </div>
 
