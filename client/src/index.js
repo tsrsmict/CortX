@@ -38,9 +38,9 @@ import axios from "axios";
 import GettingStarted from "./GettingStarted";
 import AddContact from "./components/AddContact";
 import FileDisplay from "./apps/File_M/FileDisplay";
-import CortoComp from "./components/CortocComp";
 import Loader from "./loader/Loader";
-
+import Medicinesearch from "./apps/Medicinesearch";
+import CortoComp from "./components/CortocComp";
 const RequireAuth = () => {
   const location = useLocation();
   const [auth, setAuth] = React.useState();
@@ -191,6 +191,10 @@ root.render(
                 element={<CortoComp />}
               ></Route>
               <Route path="/remindermake" element={<ReminderMake />}></Route>
+              <Route
+                path="/search/medicine"
+                element={<Medicinesearch />}
+              ></Route>
             </Route>
 
             <Route path="*" element={<NotFound />} />
