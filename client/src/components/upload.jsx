@@ -49,7 +49,7 @@ class FileUpload extends Component {
       .catch((err) => {
         console.log(err);
         alert(err.response.data.error);
-        window.location.replace("*");
+        window.location.replace("/files");
       });
   };
   render() {
@@ -113,7 +113,7 @@ class FileUpload extends Component {
                   </option>
                   <option value="bodyScansAndXrays">Body Scans & X-Rays</option>
                   <option value="insurance">Insurance</option>
-                  <option value="vaccination">Vaccination</option>
+                  <option value="vaccinations">Vaccination</option>
                 </select>
               </span>
               <button
