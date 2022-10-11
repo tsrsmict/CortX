@@ -14,10 +14,10 @@ class SigninModule extends Component {
   changeHandler = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
-  submitHandler = (e) => {
+  submitHandler = async (e) => {
     e.preventDefault();
     console.log(this.state);
-    axios
+    await axios
       .post("/api/users/login", {
         usermail: this.state.usermail,
         password: this.state.password,
