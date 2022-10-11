@@ -47,7 +47,7 @@ const TableData = [
                     key={index}
                     className={` $(color && "shadow-2xl shadow-zinc-800")`}
                   >
-                    <td className="p-5 underline"><a href="http://localhost:5000/api/files/getFile?fileID=6343c52db33974a2b06527de"  >{row.title}</a></td>
+                    <td className="p-5 underline"><a href="http://localhost:5000/api/files/getFile?fileID=63432c177b4f0e5509a5d582"  >{row.title}</a></td>
                     <td className="p-5">{row.value}{row.unit}</td>
                     <td className="items-center">
                         Medical Records
