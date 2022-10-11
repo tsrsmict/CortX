@@ -39,7 +39,7 @@ class SignupModule extends React.Component {
     return (
       <div className="grid min-h-screen bg-sign-up-light dark:bg-sign-up-dark place-items-center">
         <div className="transition ease-in duration-200 hover:backdrop-blur-2xl border-1 border-gray-700 rounded-2xl w-11/12 p-12 bg-sign-up bg-white/[0.7] dark:bg-zinc-900/[0.8] shadow-10xl dark:shadow-zinc-800 sm:w-1/2 lg:w-5/12">
-          <h1 className="text-5xl font-semibold dark:text-white">Sign In</h1>
+          <h1 className="text-5xl font-semibold dark:text-white">Sign Up</h1>
           <br />
           <form className="mt-6" onSubmit={(e) => this.submitHandler(e)}>
             <label
@@ -52,7 +52,7 @@ class SignupModule extends React.Component {
               id="username"
               type="text"
               name="username"
-              placeholder="JohnDeezNuts"
+              placeholder="John Doe"
               autoComplete="username"
               defaultValue={username}
               onChange={this.changeHandler}
