@@ -166,21 +166,42 @@ fileRouter.get("/getFile", checkUser, async (req, res) => {
 });
 
 fileRouter.delete("/deleteFile", checkUser, async (req, res) => {
-  if (!req.body.fileID)
-    return res.status(400).json("No file to delete specified.");
-  const fileID = req.body.fileID;
-  let file;
-  try {
-    file = await File.findOne({ _id: fileID });
-    if (!file) return res.status(404).json("No file with this ID found.");
-  } catch (err) {
-    return res.status(400).json("Error in request: " + err);
-  }
-  if (req.checkData.id != file.userID)
-    return res.status(403).json("File owner does not match requester ID.");
+  if (
+    !req.body.fileIDs ||
+    typeof req.body.fileIDs === "undefined" ||
+    !Array.isArray(req.body.fileIDs)
+  )
+    return res
+      .status(400)
+      .json("fileIDs field empty or null - or not an array.");
 
-  file.remove().catch((o) => console.log(o));
-  return res.status(200).json(`File [${file._id}] removed.`);
+  const fileIDs = req.body.fileIDs;
+  await Promise.all(
+    fileIDs.map(async (fileID, index) => {
+      let file;
+      try {
+        file = await File.findOne({ _id: fileID });
+        if (!file)
+          return res
+            .status(404)
+            .json(`${index + 1}th File ID does not correspond to a File.`);
+      } catch (err) {
+        return res.status(400).json("Error in deletion: " + err);
+      }
+      if (req.checkData.id != file.userID)
+        return res
+          .status(403)
+          .json(`${index + 1}th File owner does not match requester ID.`);
+
+      file.remove().catch((o) => console.log(o));
+    })
+  )
+    .then(() => {
+      return res.status(200).json(`File's removed.`);
+    })
+    .catch(() => {
+      return res.status(500).json("Failed! Contact an admin.");
+    });
 });
 
 fileRouter.post(
