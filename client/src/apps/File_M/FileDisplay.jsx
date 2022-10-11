@@ -52,38 +52,7 @@ export default function FileDisplay(props) {
                     key={index}
                     className={` $(color && "shadow-2xl shadow-zinc-800")`}
                   >
-                    <td className="p-5 underline">
-                      <button
-                        style={{
-                          color: "#88ff61",
-                          textDecoration: "underline",
-                        }}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          let filename;
-                          fetch(`/api/files/getFile?fileID=${row._id}`)
-                            .then((res) => {
-                              const header = res.headers.get(
-                                "Content-Disposition"
-                              );
-                              const parts = header.split("filename=");
-                              filename = parts[1];
-                              return res.blob();
-                            })
-                            .then((blob) => {
-                              let url = window.URL.createObjectURL(blob);
-                              let a = document.createElement("a");
-                              a.href = url;
-                              a.download = filename;
-                              document.body.appendChild(a);
-                              a.click();
-                              a.remove();
-                            });
-                        }}
-                      >
-                        {row.name}
-                      </button>
-                    </td>
+                    <td className="p-5 underline"><a href={`http://localhost:5000/api/files/getFile?fileID=${row._id}`}  >{row.name}</a></td>
                     <td className="p-5">{row.desc}</td>
 
                     <td className="items-center">Medical Records</td>
