@@ -20,7 +20,7 @@ export default function Files() {
       <div>
         <NavBar />
       </div>
-      <div className="flex h-screen w-screen  dark:dark:bg-stone-900">
+      <div className="flex h-screen w-screen bg-white dark:bg-stone-900">
         <Navbar
           className=" absolute top-44 left-55 h-100vh shadow-white shadow-lg overflow-auto"
           style={{ position: "shadow-lg" }}

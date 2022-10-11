@@ -19,7 +19,7 @@ function Files_M() {
     console.log(newdata);
   }
   return (
-    <div className=" absolute overflow-auto dark:bg-dark-purple h-screen w-screen">
+    <div className=" absolute overflow-auto bg-stone-200 dark:bg-dark-purple h-screen w-screen">
       <NavBar className="sm:hidden" />
       <div className="flex">
         <Navbar

@@ -70,7 +70,7 @@ export default function Navbar() {
       <div
         className={`sm:p-5 sm:pt-8 ${
           navbar ? "w-72" : "w-20"
-        } h-full duration-300 relative bg-slate-900 dark:bg-zinc-800 shadow-2xl  shadow-stone-800`}
+        } h-full duration-300 relative bg-stone-300 dark:bg-zinc-800 shadow-2xl  shadow-stone-800`}
       >
         <BsArrowLeftShort
           className={` bg-dark-purple text-white dark:bg-white dark:text-dark-purple text-3xl rounded-full cursor-pointer border ${

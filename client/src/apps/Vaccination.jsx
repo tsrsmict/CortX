@@ -29,7 +29,7 @@ function Vaccination() {
   return (
     <div className="">
       <Navbar />
-      <div className="flex h-screen w-screen overflow-auto dark:bg-gray-900">
+      <div className="flex h-screen w-screen bg-stone-200 overflow-auto dark:bg-gray-900">
         <div className="p-10 w-full">
           <div className="ml-24">
             <div className="flex">
@@ -38,7 +38,7 @@ function Vaccination() {
               </h1>
             </div>
             <div className="flex items-center">
-            <div className="m-auto rounded-lg w-1/5 bg-sky-400 dark:bg-gradient-to-r from-sky-500 to-sky-900 hover:shadow-2xl shadow-white dark:hover:bg-gradient-to-l from-sky-500 to-sky-900 duration-500 p-5 dark:text-white">
+            <div className="m-auto rounded-lg w-1/5 bg-sky-400 bg-gradient-to-r from-sky-500 to-sky-300 hover:shadow-2xl shadow-white hover:bg-gradient-to-l from-sky-500 to-sky-900 duration-500 p-5 dark:text-white">
               Upcoming Reminders:
               <br />
               <br />

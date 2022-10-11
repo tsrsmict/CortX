@@ -15,7 +15,7 @@ export default function MedicineTracker() {
   const data = localStorage.getItem('data')
 
   return (
-    <div className=" absolute overflow-auto dark:dark:bg-stone-900 h-screen w-screen">
+    <div className=" absolute overflow-auto dark:bg-stone-900 h-screen w-screen">
       <NavBar className="sm:hidden" />
       <div className="flex h-full">
         <Navbar

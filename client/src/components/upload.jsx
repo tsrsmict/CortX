@@ -54,9 +54,9 @@ class FileUpload extends Component {
   };
   render() {
     return (
-      <div>
+      <div className="">
         <div className="p-5 text-center">
-          <div className="p-12 h-30 m-auto w-1/2 bg-gray-200 dark:bg-gray-700 dark:text-white text-center rounded-lg shadow-2xl, shadow-gray-800 border-1 border-black">
+          <div className="p-12 h-30 m-auto w-1/2 bg-gray-700 text-white text-center rounded-lg shadow-2xl, shadow-gray-800 border-1 border-black">
             <h1 className="text-5xl font-bold font-mono mb-12">
               Upload Your Report
             </h1>
