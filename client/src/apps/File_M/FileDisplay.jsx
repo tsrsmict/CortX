@@ -8,7 +8,6 @@ import {
   FcBusinessContact,
   FcMoneyTransfer,
 } from "react-icons/fc";
-
 import Loader from "../../loader/Loader";
 
 function renderIcon(fetchParam) {
