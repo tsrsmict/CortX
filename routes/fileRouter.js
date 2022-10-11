@@ -24,7 +24,7 @@ const types = [
   "bloodTestsAndReports",
   "bodyScansAndXrays",
   "insurance",
-  "vaccination",
+  "vaccinations",
 ];
 
 dotenv.config();
@@ -39,7 +39,7 @@ fileRouter.post(
     // fileCategory
 
     // Categories:
-    // medicalRecords, prescriptions, bloodTestsAndReports, bodyScansAndXrays, insurance, vaccination
+    // medicalRecords, prescriptions, bloodTestsAndReports, bodyScansAndXrays, insurance, vaccinations
 
     try {
       if (!req.file || req.file == null || req.file == "") {
@@ -210,6 +210,7 @@ fileRouter.post(
         );
 
     let json = await TesseractDetect(req.file.buffer);
+    return res.json(json);
   }
 );
 

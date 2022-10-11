@@ -49,58 +49,68 @@ export default function Files() {
                   </a>
                 </td>
                 <td className="">
-                  <div className="hover:shadow-gray-800 dark:shadow-2xl min-h-fit min-w-fit p-6  bg-purple-600/[0.44] hover:bg-purple-800 rounded-xl text-xl m-10">
-                    <span className="">
-                      <FcBusinessContact className="text-6xl  bg-purple-300/[0.48] rounded-xl p-3 cursor-pointer" />
-                    </span>
-                  </div>
-                  <div className="dark:text-white font-bold mt-2 text-center">
-                    <h1>Prescriptions</h1>
-                  </div>
+                  <a href="/files/prescriptions">
+                    <div className="hover:shadow-gray-800 dark:shadow-2xl min-h-fit min-w-fit p-6  bg-purple-600/[0.44] hover:bg-purple-800 rounded-xl text-xl m-10">
+                      <span className="">
+                        <FcBusinessContact className="text-6xl bg-purple-300/[0.48] rounded-xl p-3 cursor-pointer" />
+                      </span>
+                    </div>
+                    <div className="dark:text-white font-bold mt-2 text-center">
+                      <h1>Prescriptions</h1>
+                    </div>
+                  </a>
                 </td>
                 <td className="">
-                  <div className="hover:shadow-gray-800 dark:shadow-2xl min-h-fit min-w-fit p-6 bg-pink-600/[0.44] hover:bg-pink-600 rounded-xl text-xl m-10">
-                    <span className="">
-                      <FcBiotech className="text-6xl  bg-pink-300/[0.48] rounded-xl p-3 cursor-pointer" />
-                    </span>
-                  </div>
-                  <div className="dark:text-white font-bold mt-2 text-center">
-                    <h1>Blood Tests and Reports</h1>
-                  </div>
+                  <a href="/files/bloodTestsAndReports">
+                    <div className="hover:shadow-gray-800 dark:shadow-2xl min-h-fit min-w-fit p-6 bg-pink-600/[0.44] hover:bg-pink-600 rounded-xl text-xl m-10">
+                      <span className="">
+                        <FcBiotech className="text-6xl  bg-pink-300/[0.48] rounded-xl p-3 cursor-pointer" />
+                      </span>
+                    </div>
+                    <div className="dark:text-white font-bold mt-2 text-center">
+                      <h1>Blood Tests and Reports</h1>
+                    </div>
+                  </a>
                 </td>
               </tr>
             </table>
             <table className="flex items-center justify-center text-center m-auto">
               <tr>
                 <td className="">
-                  <div className="hover:shadow-gray-800 dark:shadow-2xl min-h-fit min-w-fit p-6 bg-black/[0.44] hover:bg-black rounded-xl text-xl m-10">
-                    <span className="">
-                      <FcManager className="text-6xl bg-white/[0.48] rounded-xl p-3 cursor-pointer" />
-                    </span>
-                  </div>
-                  <div className="dark:text-white font-bold mt-2 text-center">
-                    <h1>Body Scans and X-Rays</h1>
-                  </div>
+                  <a href="/files/bodyScansAndXrays">
+                    <div className="hover:shadow-gray-800 dark:shadow-2xl min-h-fit min-w-fit p-6 bg-black/[0.44] hover:bg-black rounded-xl text-xl m-10">
+                      <span className="">
+                        <FcManager className="text-6xl bg-white/[0.48] rounded-xl p-3 cursor-pointer" />
+                      </span>
+                    </div>
+                    <div className="dark:text-white font-bold mt-2 text-center">
+                      <h1>Body Scans and X-Rays</h1>
+                    </div>
+                  </a>
                 </td>
                 <td className="">
-                  <div className="hover:shadow-gray-800 dark:shadow-2xl min-h-fit min-w-fit p-6 bg-yellow-600/[0.44] hover:bg-yellow-600 rounded-xl text-xl m-10">
-                    <span className="">
-                      <FcDocument className="text-6xl bg-yellow-300/[0.48] rounded-xl p-3 cursor-pointer" />
-                    </span>
-                  </div>
-                  <div className="dark:text-white font-bold mt-2 text-center">
-                    <h1>Vaccination</h1>
-                  </div>
+                  <a href="/files/vaccinations">
+                    <div className="hover:shadow-gray-800 dark:shadow-2xl min-h-fit min-w-fit p-6 bg-yellow-600/[0.44] hover:bg-yellow-600 rounded-xl text-xl m-10">
+                      <span className="">
+                        <FcDocument className="text-6xl bg-yellow-300/[0.48] rounded-xl p-3 cursor-pointer" />
+                      </span>
+                    </div>
+                    <div className="dark:text-white font-bold mt-2 text-center">
+                      <h1>Vaccinations</h1>
+                    </div>
+                  </a>
                 </td>
                 <td className="">
-                  <div className="hover:shadow-gray-800 dark:shadow-2xl min-h-fit min-w-fit p-6 bg-green-900/[0.44] hover:bg-green-900 rounded-xl text-xl m-10">
-                    <span className="">
-                      <FcMoneyTransfer className="text-6xl bg-green-300/[0.48] rounded-xl p-3 cursor-pointer" />
-                    </span>
-                  </div>
-                  <div className="dark:text-white font-bold mt-2 text-center">
-                    <h1>Insurance</h1>
-                  </div>
+                  <a href="/files/insurance">
+                    <div className="hover:shadow-gray-800 dark:shadow-2xl min-h-fit min-w-fit p-6 bg-green-900/[0.44] hover:bg-green-900 rounded-xl text-xl m-10">
+                      <span className="">
+                        <FcMoneyTransfer className="text-6xl bg-green-300/[0.48] rounded-xl p-3 cursor-pointer" />
+                      </span>
+                    </div>
+                    <div className="dark:text-white font-bold mt-2 text-center">
+                      <h1>Insurance</h1>
+                    </div>
+                  </a>
                 </td>
               </tr>
             </table>

@@ -27,7 +27,7 @@ import Contacts from "./components/Contacts";
 // import Recordings from "./components/Recordings";
 // import Files_M from './components/Files';
 // import Navbar from './components/navbar';
-import Files from "./apps/File_M/FileDisplay";
+import Files from "./apps/File_M/Files";
 // import Mr from './apps/File_M/mr';
 // import NavBar from "./components/navbar";
 // import Malendar from "./apps/calendar";
@@ -35,14 +35,12 @@ import Files from "./apps/File_M/FileDisplay";
 import Upload from "./components/upload";
 import ReminderMake from "./components/reminder_make";
 import axios from "axios";
-import Mr from "./apps/File_M/FileDisplay";
 import GettingStarted from "./GettingStarted";
 import AddContact from "./components/AddContact";
-import Pr from "./components/pr";
 import FileDisplay from "./apps/File_M/FileDisplay";
-import Medicinesearch from "./apps/Medicinesearch";
+import Loader from "./loader/Loader";
+import MedicineSearch from "./apps/MedicineSearch";
 import CortoComp from "./components/CortocComp";
-
 const RequireAuth = () => {
   const location = useLocation();
   const [auth, setAuth] = React.useState();
@@ -74,7 +72,7 @@ const RequireAuth = () => {
   }, [location.pathname]); // <-- check authentication when route changes
 
   if (isLoading) {
-    return null; // or loading spinner, etc...
+    return <Loader />;
   }
 
   return auth ? ( // or auth property if object, i.e. auth.isAuthenticated, etc...
@@ -131,29 +129,74 @@ root.render(
             <Route path="/signup" element={<SignupModule />}></Route>
             <Route path="/signin" element={<SigninModule />}></Route>
             <Route path="/logout" element={<LogoutModule />}></Route>
-            <Route
-              path="/files/medicalRecords"
-              element={
-                <FileDisplay
-                  fetch="medicalRecords"
-                  nameFormatted="Medical Records"
-                />
-              }
-            ></Route>
             <Route element={<RequireAuth />}>
               <Route path="/tables" element={<Table />}></Route>
               <Route path="/vaccinations" element={<Vaccination />}></Route>
               <Route path="/dashboard" element={<Dashboard />}></Route>
               <Route path="/files" element={<Files />}></Route>
+              <Route
+                path="/files/medicalRecords"
+                element={
+                  <FileDisplay
+                    fetchParam="medicalRecords"
+                    name="Medical Records"
+                  />
+                }
+              ></Route>
+              <Route
+                path="/files/prescriptions"
+                element={
+                  <FileDisplay
+                    fetchParam="prescriptions"
+                    name="Prescriptions"
+                  />
+                }
+              ></Route>
+              <Route
+                path="/files/bloodTestsAndReports"
+                element={
+                  <FileDisplay
+                    fetchParam="bloodTestsAndReports"
+                    name="Blood Tests and Reports"
+                  />
+                }
+              ></Route>
+              <Route
+                path="/files/bodyScansAndXrays"
+                element={
+                  <FileDisplay
+                    fetchParam="bodyScansAndXrays"
+                    name="Body Scans and X-Rays"
+                  />
+                }
+              ></Route>
+              <Route
+                path="/files/vaccinations"
+                element={
+                  <FileDisplay fetchParam="vaccinations" name="Vaccinations" />
+                }
+              ></Route>
+              <Route
+                path="/files/insurance"
+                element={
+                  <FileDisplay fetchParam="insurance" name="Insurance" />
+                }
+              ></Route>
               <Route path="/upload" element={<Upload />}></Route>
               <Route path="/contacts" element={<Contacts />}></Route>
               <Route path="/add-contact" element={<AddContact />}></Route>
               <Route path="/calendar" element={<MyCalendar />}></Route>
-              <Route path="/dashboard/CortoComp" element={<CortoComp/>}></Route>
+              <Route
+                path="/dashboard/CortoComp"
+                element={<CortoComp />}
+              ></Route>
               <Route path="/remindermake" element={<ReminderMake />}></Route>
-              <Route path="/search/medicine" element={<Medicinesearch/>}></Route>
+              <Route
+                path="/search/medicine"
+                element={<MedicineSearch />}
+              ></Route>
             </Route>
-
+            <Route path="/app/loader" element={<Loader />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
