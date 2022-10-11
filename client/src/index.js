@@ -38,7 +38,7 @@ import axios from "axios";
 import Mr from "./apps/File_M/mr";
 import GettingStarted from "./GettingStarted";
 import AddContact from "./components/AddContact";
-// import Pr from "./apps/Files_M/pr";
+import Pr from "./components/pr";
 
 const RequireAuth = () => {
   const location = useLocation();
@@ -129,7 +129,7 @@ root.render(
             <Route path="/signin" element={<SigninModule />}></Route>
             <Route path="/logout" element={<LogoutModule />}></Route>
             <Route path="/files/mr" element={<Mr />}></Route>
-            {/* <Route path="/files/pr" element={<Pr />}></Route> */}
+            <Route path="/files/pr" element={<Pr />}></Route>
             <Route element={<RequireAuth />}>
               <Route path="/tables" element={<Table />}></Route>
 

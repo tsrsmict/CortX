@@ -23,7 +23,9 @@ export default function Mr() {
   if (data === undefined) {
     return <>Still loading...</>;
   }
-
+  else {
+    console.log(data)
+  }
   return (
     <div className="flex h-screen w-screen overflow-auto dark:bg-gray-900">
       <Navbar className="shadow-white shaodow-lg fixed top-0 left-0 z--50" />
@@ -57,12 +59,9 @@ export default function Mr() {
                     key={index}
                     className={` $(color && "shadow-2xl shadow-zinc-800")`}
                   >
-                    <td className="p-5 underline"><a href="http://localhost:5000/api/files/getFile?fileID=6343c52db33974a2b06527de"  >{row.title}</a></td>
-                    <td className="p-5">{row.value}{row.unit}</td>
-                    <td className="items-center">
-                        Medical Records
-                    </td>
+                    <td className="p-5 underline"><a href={`http://localhost:5000/api/files/getFile?fileID=${row._id}`}  >{row.name}</a></td>
                     <td className="p-5">{row.desc}</td>
+
                     <td className="items-center">Medical Records</td>
                   </tr>
                 );
