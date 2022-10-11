@@ -39,7 +39,7 @@ import GettingStarted from "./GettingStarted";
 import AddContact from "./components/AddContact";
 import FileDisplay from "./apps/File_M/FileDisplay";
 import Loader from "./loader/Loader";
-import Medicinesearch from "./apps/Medicinesearch";
+import MedicineSearch from "./apps/MedicineSearch";
 import CortoComp from "./components/CortocComp";
 const RequireAuth = () => {
   const location = useLocation();
@@ -193,10 +193,10 @@ root.render(
               <Route path="/remindermake" element={<ReminderMake />}></Route>
               <Route
                 path="/search/medicine"
-                element={<Medicinesearch />}
+                element={<MedicineSearch />}
               ></Route>
             </Route>
-
+            <Route path="/app/loader" element={<Loader />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
