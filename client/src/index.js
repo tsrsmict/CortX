@@ -43,6 +43,8 @@ import MedicineSearch from "./apps/MedicineSearch";
 import CortoComp from "./components/CortocComp";
 import Calendar from "./components/Calendar";
 import AddReminder from "./components/AddReminder";
+import AddMedicine from "./components/AddMedicine";
+import MedicineTracker from "./components/medicinetracker";
 const RequireAuth = () => {
   const location = useLocation();
   const [auth, setAuth] = React.useState();
@@ -135,7 +137,7 @@ root.render(
               <Route path="/tables" element={<Table />}></Route>
               <Route path="/vaccinations" element={<Vaccination />}></Route>
               <Route path="/dashboard" element={<Dashboard />}></Route>
-              <Route path="medicinetracker" element={<Medicinetracker />}></Route>
+              <Route path="/medicinetracker" element={<MedicineTracker />}></Route>
               <Route path="/files" element={<Files />}></Route>
               <Route
                 path="/files/medicalRecords"
@@ -188,6 +190,7 @@ root.render(
               <Route path="/upload" element={<Upload />}></Route>
               <Route path="/contacts" element={<Contacts />}></Route>
               <Route path="/add-contact" element={<AddContact />}></Route>
+              <Route path="/add-medicine" element={<AddMedicine />}></Route>
               <Route path="/calendar" element={<Calendar />}></Route>
               <Route path="/calendar/add" element={<AddReminder />}></Route>
               <Route

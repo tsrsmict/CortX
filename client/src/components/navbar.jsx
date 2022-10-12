@@ -12,6 +12,7 @@ import {
   FcCalendar,
   FcFolder,
   FcMindMap,
+  FcBiohazard
 } from "react-icons/fc";
 
 export default function Navbar() {
@@ -45,6 +46,11 @@ export default function Navbar() {
       title: "Contacts",
       icon: <FcAddressBook />,
       link: "/contacts",
+    },
+    {
+      title: "Medicines",
+      icon: <FcBiohazard/>,
+      link: "/medicinetracker",
     },
 
     {

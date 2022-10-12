@@ -3,7 +3,7 @@ import Navbar from "../components/navbar";
 // import { CircularProgressbar } from 'react-circular-progressbar';
 import "react-circular-progressbar/dist/styles.css";
 // import { App } from "../components/chart";
-import { FcAddressBook, FcExport } from "react-icons/fc";
+import { FcAddressBook, FcExport,  } from "react-icons/fc";
 // import Table from "../components/table";
 import NavBar from "../components/new_navbar";
 import axios from "axios";
@@ -12,7 +12,13 @@ import Loader from "../loader/Loader";
 
 // import {Line} from 'react-chartjs-2'
 export default function MedicineTracker() {
-  const data = localStorage.getItem('data')
+  const [data, setData] = useState([]);
+  setData(JSON.parse(localStorage.getItem("contactData")))
+  if (data === undefined) {
+    return <Loader />;
+  }
+
+  console.log(data)
 
   return (
     <div className=" absolute overflow-auto dark:bg-stone-900 h-screen w-screen">
@@ -39,7 +45,7 @@ export default function MedicineTracker() {
                 <th>Dosage Period</th>
               </thead>
 
-              {data.map((row, index) => {
+              {data ? data.map((row, index) => {
                 return (
                   <tr
                     name={row.email}
@@ -51,14 +57,14 @@ export default function MedicineTracker() {
                     <td className="">{row.specialization}</td>
                   </tr>
                 );
-              })}
+              }) : null}
             </table>
           </div>
           <div>
             <button
               onClick={(e) => {
                 e.preventDefault();
-                window.location.replace("/add-contact");
+                window.location.replace("/add-medicine");
               }}
               className="mt-12 mx-auto mb-5 h-fit w-fit flex bg-green-500 m-auto text-zinc-100 hover:bg-blue-900 rounded-lg shadow-xl  border-1 border-gray-200 p-3"
             >
