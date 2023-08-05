@@ -9,3 +9,6 @@ const cortoSchema = new mongoose.Schema(
     },
     { collection: "cortos" }
 );
+
+const Corto = mongoose.model("Corto", cortoSchema);
+export default Corto;
