@@ -149,14 +149,14 @@ root.render(
                             path="/medicinetracker"
                             element={<MedicineTracker />}></Route>
                         <Route path="/files" element={<Files />}></Route>
-                        <Route
+                        <Routes
                             path="/files/medicalRecords"
                             element={
                                 <FileDisplay
                                     fetchParam="medicalRecords"
                                     name="Medical Records"
                                 />
-                            }>
+                            }></Routes>
                             <Route
                                 path="/files/prescriptions"
                                 element={
@@ -222,7 +222,7 @@ root.render(
                             <Route
                                 path="/search/medicine"
                                 element={<MedicineSearch />}></Route>
-                        </Route>
+       
                         <Route path="/app/loader" element={<Loader />} />
                         <Route path="*" element={<NotFound />} />
                     </Routes>
