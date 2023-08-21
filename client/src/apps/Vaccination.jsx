@@ -38,7 +38,7 @@ function Vaccination() {
               </h1>
             </div>
             <div className="flex items-center">
-            <div className="m-auto rounded-lg w-1/5 bg-sky-400 bg-gradient-to-r from-sky-500 to-sky-300 hover:shadow-2xl shadow-white hover:bg-gradient-to-l from-sky-500 to-sky-900 duration-500 p-5 dark:text-white">
+            <div className="m-auto rounded-lg w-1/5 bg-sky-400 bg-gradient-to-r from-blue-200 to-blue-500 hover:shadow-2xl shadow-white hover:bg-gradient-to-l from-sky-500 to-sky-900 duration-500 p-5 dark:text-white">
               Upcoming Reminders:
               <br />
               <br />

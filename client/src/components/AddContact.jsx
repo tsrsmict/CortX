@@ -18,14 +18,14 @@ export default function AddContact() {
           className="fixed top-44 left-55 shadow-white shadow-lg overflow-auto"
           style={{ position: "shadow-lg" }}
         />
-        <div className="p-1 sm:p-8 sm:mt-200px ml-12 lg:p-12">
+        <div className="p-1 flex sm:p-8 place-content-center sm:mt-200px ml-12 lg:p-12">
           <div className="flex p-5">
             <FcAddressBook className="text-6xl mr-5 text-sky-800 dark:text-sky-300" />
             <h1 className="text-5xl font-mono dark:text-white font-bold">
               Contacts
             </h1>
           </div>
-          <div className="text-center m-auto items-center justify-center">
+          <div className="text-center m-auto  ">
             <form
               onSubmit={async (e) => {
                 e.preventDefault();
@@ -52,23 +52,23 @@ export default function AddContact() {
               }}
               style={{ marginRight: "1em" }}
             >
-              <input placeholder="Name..." type="text" name="name" className="p-3 m-5 rounded-lg"></input>
+              <input placeholder="Name..." type="text" name="name" className="p-3 m-5 border border-gray-300 rounded-lg"></input>
               <input
                 type="text"
                 name="phone"
                 placeholder="Phone Number..."
-                className="p-3 m-5 rounded-lg"
+                className="p-3 m-5 border border-gray-300 rounded-lg"
               ></input>
-              <input type="text" name="email" placeholder="E-mail..." className="p-3 m-5 rounded-lg"></input>
+              <input type="text" name="email" placeholder="E-mail..." className="p-3 m-5 border border-gray-300 rounded-lg"></input>
               <input
                 type="text"
                 name="specialization"
                 placeholder="Specialization..."
-                className="p-3 m-5 rounded-lg"
+                className="p-3 m-5 border border-gray-300 rounded-lg"
               ></input>
               <button
                 type="submit"
-                className="mt-12 mx-auto mb-5 h-fit w-fit flex bg-green-300 text-black hover:text-white m-auto text-zinc-100 hover:bg-green-700 rounded-lg shadow-xl  border-1 border-gray-200 p-3"
+                className="mt-12 mx-auto bg-blue-700 hover:bg-blue-400 mb-5 h-fit w-fit flex bg-green-300 text-black hover:text-white m-auto text-zinc-100 hover:bg-green-700 rounded-lg shadow-xl  border-1 border-gray-200 p-3"
               >
                 <span className="">Add Contact</span>
               </button>

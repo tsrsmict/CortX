@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import SignupModule from "../components/signup_m";
 import SigninModule from "../components/signin_m";
-// import Navbar from '../components/navbar'
+// import Navbar from '../components/navbar' 
 export default function SignIn() {
   const [SignUp, setSignUp] = useState(true);
   return (

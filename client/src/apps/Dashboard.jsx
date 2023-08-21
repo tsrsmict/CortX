@@ -32,67 +32,8 @@ export default function Dashboard() {
       color: true,
       health: 87,
       risk: 15
-    },{
-      title: "Platelet Count",
-      value: 173,
-      unit: " microliter*10^-3",
-      bri_start: 150,
-      bri_end: 450,
-      color: false,
-      health: 60,
-      risk: 37
     },
-    {
-      title: "Absolute Monocyte Count",
-      value: 500,
-      unit: "/c.mm",
-      bri_start: 200,
-      bri_end: 1000,
-      color: true,
-      health: 85.5,
-      risk: 13
-    },
-    {
-      title: "Absolute Eosinophilis Count",
-      value: 375,
-      unit: "/c.mm",
-      bri_start: 200,
-      bri_end: 1000,
-      color: false,
-      health: 88,
-      risk: 12
-    },
-    {
-      title: "Absolute Lymphocyte Count",
-      value: 500,
-      unit: "/c.mm",
-      bri_start: 1000,
-      bri_end: 3000,
-      color: true,
-      health: 79,
-      risk: 18
-    },
-    {
-      title: "Absolute Neutrophilis Count",
-      value: 3313,
-      unit: "/c.mm",
-      bri_start: 2000,
-      bri_end: 7000,
-      color: false,
-      health: 77,
-      risk: 23
-    },
-    {
-      title: "Absolute Neutrophilis Count",
-      value: 3313,
-      unit: "/c.mm",
-      bri_start: 2000,
-      bri_end: 7000,
-      color: true,
-      health: 76,
-      risk: 21
-    },
-  ];
+  ]; 
   localStorage.setItem('TableData', TableData)
   const data = localStorage.getItem("TableData")
   console.log(data[0])
@@ -119,22 +60,13 @@ export default function Dashboard() {
               Dashboard
             </h1>
           </div>
-          <div>
+          <div className="flex place-content-center">
             <CortoComp />
           </div>
-          <div className="flex pl-36">
-            <div className="flex float-left p-4 sm:flex w-2/4">
-              <img src="https://www.leltek.com/wp-content/uploads/2022/03/humanBody.gif" className="h-72 rounded-2xl shadow-md"/>
-            </div>
-            <div className="flex float-right m-auto p-4  sm:flex  w-full">
-              <div className="sm:w-3/12 xl:w-1/2 lg:w-2/3 bg-zinc-200/[0.8] dark:bg-zinc-200 p-3 shadow-2xl shadow-zinc-600 rounded-2xl m-auto">
-                <Chart />
-              </div>
-            </div>
-          </div>
+          
           <div
             id="table"
-            className=" text-xs md:text-md rounded-2xl text-0.25rem flex bg-slate-100 dark:bg-stone-800 m-5 w-11/12 items-center text-center shadow-2xl shadow-alate-700 mx-auto mt-10"
+            className=" text-xs md:text-md rounded-2xl border-gray-500 text-0.25rem flex bg-slate-100 dark:bg-stone-800 m-5 w-11/12 items-center text-center border mx-auto mt-10"
           >
             <table className="table-fixed w-full rounded-2xl dark:text-white text-center m-auto">
               <thead className="">

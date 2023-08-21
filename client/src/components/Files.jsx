@@ -15,7 +15,6 @@ function Files_M() {
   function handle(e) {
     const newdata = { ...data };
     newdata[e.target.id] = e.target.value[0];
-    setData(newdata);
     console.log(newdata);
   }
   return (

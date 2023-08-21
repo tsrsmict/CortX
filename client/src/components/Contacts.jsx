@@ -29,8 +29,8 @@ export default function Contacts() {
       <NavBar className="sm:hidden" />
       <div className="flex h-full">
         <Navbar
-          className="fixed top-44 left-55 shadow-white shadow-lg overflow-auto"
-          style={{ position: "shadow-lg" }}
+          className="fixed top-44 left-55  overflow-auto"
+          style={{ position: "shadow-md" }}
         />
         <div className="p-1 sm:p-8 sm:mt-200px ml-12 lg:p-12">
           <div className="flex p-5">
@@ -40,7 +40,7 @@ export default function Contacts() {
             </h1>
           </div>
 
-          <div className=" text-xs md:text-md rounded-2xl text-0.25rem flex bg-slate-100 dark:bg-stone-800 m-5 w-11/12 items-center text-center shadow-2xl shadow-zinc-800 mx-auto mt-10">
+          <div className=" text-xs md:text-md rounded-2xl text-0.25rem flex bg-slate-100 dark:bg-stone-800 m-5 w-11/12 items-center text-center border border-gray-300 shadow-zinc-800 mx-auto mt-10">
             <table className="table-fixed w-full rounded-2xl dark:text-white text-center m-auto">
               <thead className="">
                 <th className="p-5">Name</th>
@@ -54,7 +54,7 @@ export default function Contacts() {
                 return (
                   <tr
                     name={row.email}
-                    className={` $(color && "shadow-2xl shadow-zinc-800")`}
+                    className={` $(color && "shadow-md shadow-zinc-800")`}
                   >
                     <td className="">{row.name}</td>
                     <td className="">{row.email}</td>
@@ -95,7 +95,7 @@ export default function Contacts() {
                 e.preventDefault();
                 window.location.replace("/add-contact");
               }}
-              className="mt-12 mx-auto mb-5 h-fit w-fit flex bg-green-500 m-auto text-zinc-100 hover:bg-blue-900 rounded-lg shadow-xl  border-1 border-gray-200 p-3"
+              className="mt-12 mx-auto mb-5 h-fit w-fit flex bg-blue-400 m-auto text-zinc-100 bg-blue-600 rounded-lg hover:bg-blue-500 border-1 border-blue-700 p-3"
             >
               <span className="">Add Contacts</span>
             </button>
