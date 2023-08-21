@@ -12,7 +12,8 @@ import {
   FcCalendar,
   FcFolder,
   FcMindMap,
-  FcBiohazard
+  FcBiohazard,
+  FcBrokenLink
 } from "react-icons/fc";
 
 export default function Navbar() {
@@ -33,6 +34,7 @@ export default function Navbar() {
       icon: <FcFolder />,
       link: "/files",
     },
+
     {
       title: "Calendar",
       icon: <FcCalendar />,

@@ -31,13 +31,24 @@ export default function AddMedicine() {
             <form
               onSubmit={async (e) => {
                 e.preventDefault();
-                let contact = {};
-                contact.name = e.target.name.value;
-                contact.purpose = e.target.purpose.value;
-                contact.dosage = e.target.dosage.value;
-                contact.frequency = e.target.frequency.value;
-                localStorage.setItem("contactData", JSON.stringify(contact))
-                alert("Added " + contact)
+                let contact = {
+                  name: e.target.name.value,
+                  purpose: e.target.purpose.value,
+                  dosage: e.target.dosage.value,
+                  frequency: e.target.frequency.value,
+                };
+                if (localStorage.getItem("medData") === null){
+                
+                  var data = [contact]
+
+                }
+                else {
+                  data = JSON.parse(localStorage.getItem("medData"))
+                  data.push(contact)
+                }
+                localStorage.setItem("medData", JSON.stringify(data))
+                console.log(data)
+                alert("Added")
                 window.location.replace("/medicinetracker")
               }}
             >
