@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "../../components/navbar";
+import axios from "axios";
 import {
   FcDepartment,
   FcBiotech,
@@ -9,6 +10,7 @@ import {
   FcMoneyTransfer,
 } from "react-icons/fc";
 import Loader from "../../loader/Loader";
+import {BsFillTrashFill} from "react-icons/bs";
 
 function renderIcon(fetchParam) {
   if (fetchParam === "medicalRecords")
@@ -37,7 +39,6 @@ function renderIcon(fetchParam) {
     );
   return;
 }
-
 export default function FileDisplay(props) {
   // prop types: fetch (fetch param name), nameFormatted (name of the file display page formatted)
   const { fetchParam, name } = props;
@@ -54,7 +55,6 @@ export default function FileDisplay(props) {
         setFileData(data);
       });
   });
-
   if (fileData === undefined) {
     return <Loader />;
   } else {
@@ -83,6 +83,7 @@ export default function FileDisplay(props) {
                   <th className="p-5">Name</th>
                   <th>Description</th>
                   <th>Category</th>
+                  <th>Delete</th>
                 </thead>
               ) : null}
 
@@ -128,6 +129,24 @@ export default function FileDisplay(props) {
                       <td className="p-5">{row.desc}</td>
 
                       <td className="items-center">{name}</td>
+                      <td className="items-center text-red-600 underline p-5"><button className="underline" onClick={(e) =>
+                      {
+                        fetch("/api/files/deleteFiles",
+                        {
+                          method: "DELETE",
+                          headers: {
+                            "Content-Type": "application/json",
+                          },
+                          body: JSON.stringify({fileIDs: [row._id]}),
+                        }).then((res) => res.json()).then((data) => {
+                          alert("File deleted successfully.")
+                        })
+                        .catch((err) => {
+                          alert("Error deleting file.")
+                        })
+                      }}>
+                        <BsFillTrashFill class="text-red-600"></BsFillTrashFill>
+                        </button></td>
                     </tr>
                   );
                 })

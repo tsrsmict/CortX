@@ -78,7 +78,7 @@ const Medicines = [
     Interactions:
       "Lithium, digoxin and methotrexate: Aceclofenac may increase plasma concentrations of lithium, digoxin and methotrexate.\n Anticoagulants: Activity of anticoagulants may be increased.\n Diuretics : Aceclofenac inhibits the activity of diuretics. When concomitantly administrated with potassium sparing diuretics, serum potassium should be monitored.\n Cyclosporin: Aceclofenac may enhance cyclosporin nephrotoxicity.\n Quinolones : Aceclofenac may precipitate convulsions when coadministered with quinolone antibiotics.",
     "Typical Dosage": "Oral-\n Adult (general dose)-\n 100mg twice daily",
-    "Storage Requirements": "Store below 25?C",
+    "Storage Requirements": "Store below 25*C",
     "Effects of Missed Dosage":
       "Take the missed dose as soon as noticed and if it is the time for next dose then skip the missed dose. Continue the regular schedule. Do not double the dose.",
     "Effects of Overdose":

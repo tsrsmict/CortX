@@ -165,7 +165,8 @@ fileRouter.get("/getFile", checkUser, async (req, res) => {
   res.end(file.binData);
 });
 
-fileRouter.delete("/deleteFile", checkUser, async (req, res) => {
+fileRouter.delete("/deleteFiles", checkUser, async (req, res) => {
+  console.log("Request");
   if (
     !req.body.fileIDs ||
     typeof req.body.fileIDs === "undefined" ||

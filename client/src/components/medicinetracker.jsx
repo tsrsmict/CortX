@@ -14,7 +14,7 @@ import Loader from "../loader/Loader";
 export default function MedicineTracker() {
   const [data, setData] = useState([]);
   setData(JSON.parse(localStorage.getItem("contactData")))
-  if (data === undefined) {
+  if (data === []) {
     return <Loader />;
   }
 
