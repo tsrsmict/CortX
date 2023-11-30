@@ -118,7 +118,7 @@ class SigninModule extends Component {
           </div>
 
           <div className="w-full bg-white lg:w-6/12 xl:w-5/12">
-            <div className="flex flex-col items-start justify-start w-full h-full p-10 lg:p-16 xl:p-24">
+            <form  onSubmit={(e) => {this.submitHandler(e)}} className="flex flex-col items-start justify-start w-full h-full p-10 lg:p-16 xl:p-24">
               <h4 className="w-full text-black text-3xl font-bold">Login</h4>
               <h1 className="text-lg text-gray-500">Don't have an account? <a href="/signup" className="text-blue-300 font-bold underline" d>Sign Up</a></h1>
               <div className="relative w-full mt-10 space-y-8">
@@ -143,11 +143,11 @@ class SigninModule extends Component {
               onChange={this.changeHandler}  className="block text-black w-full px-4 py-4 mt-2 text-xl placeholder-gray-400 border border-1 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50" data-primary="blue-600" data-rounded="rounded-lg" />
                 </div>
                 <div className="relative">
-                  <button onClick={(e) => {this.submitHandler()}}  className="inline-block w-full px-5 py-4 text-lg font-medium text-center text-white transition duration-200 bg-[#2FA561] rounded-lg " data-primary="blue-600" data-rounded="rounded-lg">Log In</button>
+                  <button className="inline-block w-full px-5 py-4 text-lg font-medium text-center text-white transition duration-200 bg-[#2FA561] rounded-lg " data-primary="blue-600" data-rounded="rounded-lg">Log In</button>
 
                 </div>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </div>
