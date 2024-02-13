@@ -2,12 +2,12 @@
 CortX is a __one-stop-solution__ for all (most of) your health related needs.
 * Helps busy individuals to manage and track their health
 * Includes a 'Corto Companion' to visualise your health
-* File management - filter by category in a permenant database
+* File management - filter by category in a permanent database
 * Store contacts of your doctors
 * Make reminders for important events - sent through WhatsApp
 * Vaccination certificate and report management - at a glance
 
-### CortX has a vareity of error-correction methods and general QOL features
+### CortX has a variety of error-correction methods and general QOL features
 - JWT auth validation
 - Data encryption - passwords, files, tests
 - Secure cookies
